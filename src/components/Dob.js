@@ -1,13 +1,14 @@
 import React from "react";
 
-const Dob = ({ value, handleChange }) => {
+const Dob = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
         type="date"
-        value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        ref={ref}
+        onChange={(e) => handleChange(e)}
         placeholder="Date of Birth"
+        name={name}
       ></input>
     </div>
   );

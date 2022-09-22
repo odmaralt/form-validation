@@ -15,121 +15,102 @@ const initialValues = {
   age: "",
   dob: "",
   password: "",
+  confirm: "",
 };
-
-const validateInput = yup.object({
-  name: yup.string().min(4, "Must be more than 4 letters"),
-  email: yup.string().email().required(),
-});
 
 function App() {
   const [inputValues, setInputValues] = useState(initialValues);
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [ageError, setAgeError] = useState("");
-  const [dobError, setDobError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [formErrors, setFormErrors] = useState(initialValues);
+  const [formValues, setFormValues] = useState(initialValues);
+  const [successful, setSuccesful] = useState(false);
 
-  const handleNameInputChange = (value) => {
-    validateInput
-      .isValid({ name: value })
-      .then((value) => {
-        console.log(value);
-        // setInputValues({ ...inputValues, name: value });
+  const validationSchema = yup.object().shape({
+    name: yup.string().min(4).required(),
+    email: yup.string().email(),
+    age: yup.number().typeError("").min(18, "Must be 18 years or older"),
+    dob: yup
+      .string()
+      .typeError("")
+      .test((value) => {
+        const firstFourChars = value.substring(0, 4);
+        if (firstFourChars > 2004) {
+          return false;
+        } else if (firstFourChars <= 2004) {
+          return true;
+        }
+      }),
+
+    password: yup.string().required().min(6, "Must be 6 characters or more"),
+
+    confirm: yup.string().required().min(6, "Must be 6 characters or more"),
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    yup
+      .reach(validationSchema, name)
+      .validate(value)
+      .then((valid) => {
+        setFormValues({ ...formValues, [name]: value });
+        setFormErrors("");
       })
       .catch((err) => {
-        console.log(err);
-        // setNameError(err);
+        setFormErrors({
+          ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
+          [name]: err.errors[0],
+        });
       });
   };
-
-  const handleEmailInputChange = (value) => {
-    setInputValues({ ...inputValues, email: value });
-  };
-  const handleAgeInputChange = (value) => {
-    setInputValues({ ...inputValues, age: value });
-  };
-  const handleDobInputChange = (value) => {
-    setInputValues({ ...inputValues, dob: value });
-  };
-  const handlePasswordInputChange = (value) => {
-    setInputValues({ ...inputValues, password: value });
-  };
-  const handleConfirmPasswordInputChange = (value) => {
-    setInputValues({ ...inputValues, confirmPassword: value });
-  };
-
   const handleSubmitButton = () => {
-    // if (inputValues.name.length < 4) {
-    //   setNameError("Name must be more than 4 letters");
-    // } else if (inputValues.name.length >= 4) {
-    //   setNameError("");
+    // if (formValues.password !== formValues.confirm) {
+    //   setFormErrors({
+    //     ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
+    //     confirm: "Passwords must match",
+    //   });
     // }
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(inputValues.email)) {
-      setEmailError("Enter valid email");
-    } else if (
-      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(inputValues.email)
-    ) {
-      setEmailError("");
-    }
-    if (inputValues.age < 18) {
-      setAgeError("Must be 18 years or older");
-    } else if (inputValues.age >= 18) {
-      setAgeError("");
-    }
 
-    const firstFourChars = inputValues.dob.substring(0, 4);
-    if (firstFourChars > 2004) {
-      setDobError("Must be born in 2004 or before");
-    } else if (firstFourChars <= 2004) {
-      setDobError("");
-    }
-    if (inputValues.password.length < 8) {
-      setPasswordError("Password must be more than 8 characters");
-    } else if (inputValues.password.length >= 8) {
-      setPasswordError("");
-    }
-    if (inputValues.password != inputValues.confirmPassword) {
-      setConfirmPasswordError("Passwords don't match");
-    } else if (inputValues.password === inputValues.confirmPassword) {
-      setConfirmPasswordError("");
+    if ({ formErrors } === "") {
+      setSuccesful(true);
     }
   };
 
   return (
     <div>
-      <div id="signInDiv">
-        <p>Sign-in</p>
-        <Name />
-        <Password />
-        <Button />
-      </div>
+      {/* <div id="signInDiv">
+        <p className="title">Sign-in</p>
+        <Name className="middle" />
+        <Password className="middle" />
+        <Button className="middle" />
+      </div> */}
 
       <div id="signUpDiv">
-        <p>Sign-up</p>
-        <Name value={inputValues.name} handleChange={handleNameInputChange} />
-        <p style={{ fontSize: "12px", color: "red" }}>{nameError}</p>
+        <p className="title">Sign-up</p>
+        <Name className="middle" name="name" handleChange={handleInputChange} />
+        <p className="errors">{formErrors.name}</p>
         <Email
-          value={inputValues.email}
-          handleChange={handleEmailInputChange}
+          className="middle"
+          name="email"
+          handleChange={handleInputChange}
         />
-        <p style={{ fontSize: "12px", color: "red" }}>{emailError}</p>
-        <Age value={inputValues.age} handleChange={handleAgeInputChange} />
-        <p style={{ fontSize: "12px", color: "red" }}>{ageError}</p>
-        <Dob value={inputValues.dob} handleChange={handleDobInputChange} />
-        <p style={{ fontSize: "12px", color: "red" }}>{dobError}</p>
+        <p className="errors">{formErrors.email}</p>
+        <Age className="middle" name="age" handleChange={handleInputChange} />
+        <p className="errors">{formErrors.age}</p>
+        <Dob className="middle" name="dob" handleChange={handleInputChange} />
+        {/* </div> */}
+        <p className="errors">{formErrors.dob}</p>
         <Password
-          value={inputValues.password}
-          handleChange={handlePasswordInputChange}
+          name="password"
+          className="middle"
+          handleChange={handleInputChange}
         />
-        <p style={{ fontSize: "12px", color: "red" }}>{passwordError}</p>
+        <p className="errors">{formErrors.password}</p>
         <ConfirmPass
-          value={inputValues.confirmPassword}
-          handleChange={handleConfirmPasswordInputChange}
-        />{" "}
-        <p style={{ fontSize: "12px", color: "red" }}>{confirmPasswordError}</p>
-        <Button onClick={handleSubmitButton} />
+          className="middle"
+          handleChange={handleInputChange}
+          name="confirm"
+        />
+        <p className="errors">{formErrors.confirm}</p>
+        <Button onClick={handleSubmitButton} className="middle" />
       </div>
     </div>
   );

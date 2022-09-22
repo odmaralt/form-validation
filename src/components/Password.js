@@ -1,11 +1,12 @@
 import React from "react";
-const Password = ({ value, handleChange }) => {
+const Password = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
-        value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        ref={ref}
+        onChange={(e) => handleChange(e)}
         type={"password"}
+        name={name}
         placeholder="Password"
       ></input>
     </div>

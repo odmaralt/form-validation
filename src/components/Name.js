@@ -1,13 +1,13 @@
 import React from "react";
 
-const Name = ({ value, handleChange, ref }) => {
+const Name = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
         placeholder="Name"
-        value={value}
+        name={name}
         ref={ref}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e) => handleChange(e)}
       ></input>
     </div>
   );

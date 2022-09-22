@@ -1,13 +1,14 @@
 import React from "react";
 
-const Age = ({ value, handleChange }) => {
+const Age = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
-        value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        name={name}
+        onChange={(e) => handleChange(e)}
         type={"number"}
         placeholder="Age"
+        ref={ref}
       ></input>
     </div>
   );

@@ -1,12 +1,13 @@
 import React from "react";
 
-const ConfirmPass = ({ value, handleChange }) => {
+const ConfirmPass = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
-        value={value}
-        onChange={(e) => handleChange(e.target.value)}
+        ref={ref}
+        onChange={(e) => handleChange(e)}
         type={"password"}
+        name={name}
         placeholder="Confirm Password"
       ></input>
     </div>
