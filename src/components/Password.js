@@ -7,7 +7,7 @@ const Password = ({ name, handleChange, ref }) => {
         onChange={(e) => handleChange(e)}
         type={"password"}
         name={name}
-        placeholder="Password"
+        placeholder="Password*"
       ></input>
     </div>
   );

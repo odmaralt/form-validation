@@ -7,7 +7,7 @@ const Age = ({ name, handleChange, ref }) => {
         name={name}
         onChange={(e) => handleChange(e)}
         type={"number"}
-        placeholder="Age"
+        placeholder="Age*"
         ref={ref}
       ></input>
     </div>

@@ -69,7 +69,8 @@ function App() {
       formValues.email === "" ||
       formValues.dob === "" ||
       formValues.age === "" ||
-      formValues.password === ""
+      formValues.password === "" ||
+      formValues.confirm === ""
     ) {
       setSuccesful(false);
     } else if (
@@ -92,20 +93,12 @@ function App() {
 
   return (
     <div>
-      {/* <div id="signInDiv">
-        <p className="title">Sign-in</p>
-        <Name className="middle" />
-        <Password className="middle" />
-        <Button className="middle" />
-      </div> */}
       {successful && (
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "50px",
-          }}
-        >
-          Success!
+        <div id="signInDiv">
+          <p className="title">Sign-in</p>
+          <Name className="middle" />
+          <Password className="middle" />
+          <Button className="middle" />
         </div>
       )}
       {!successful && (
@@ -114,6 +107,7 @@ function App() {
           <Name
             className="middle"
             name="name"
+            error={formErrors === undefined}
             handleChange={handleInputChange}
           />
           <p className="errors">{formErrors.name}</p>

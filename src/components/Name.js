@@ -4,7 +4,7 @@ const Name = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
-        placeholder="Name"
+        placeholder="Name*"
         name={name}
         ref={ref}
         onChange={(e) => handleChange(e)}

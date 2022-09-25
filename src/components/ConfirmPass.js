@@ -8,7 +8,7 @@ const ConfirmPass = ({ name, handleChange, ref }) => {
         onChange={(e) => handleChange(e)}
         type={"password"}
         name={name}
-        placeholder="Confirm Password"
+        placeholder="Confirm Password*"
       ></input>
     </div>
   );
