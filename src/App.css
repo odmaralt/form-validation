@@ -1,25 +1,37 @@
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: rgb(98, 74, 236);
 }
 #signInDiv {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
-  width: 70vw;
-  height: 90vh;
+  width: 30vw;
+  border-radius: 15px;
+  height: 420px;
+  background-color: white;
 }
 #signUpDiv {
   margin-left: auto;
   margin-right: auto;
-  width: 70vw;
-  height: 90vh;
+  margin-top: 60px;
+  width: 30vw;
+  border-radius: 15px;
+  height: 600px;
+  background-color: white;
 }
 
 .title {
   text-align: center;
-  font-size: 28px;
+  font-size: 24px;
   padding: 80px 0px 0px 0px;
-  text-transform: uppercase;
+}
+.title1 {
+  text-align: center;
+  font-size: 24px;
+  padding: 50px 0px 0px 0px;
 }
 input {
   display: block;
@@ -27,30 +39,78 @@ input {
   padding: 10px;
   margin-top: 10px;
   border-right: none;
-  width: 240px;
+  width: 300px;
   border-top: none;
   color: rgb(117, 117, 117);
-  font-size: 20px;
+  font-size: 18px;
   border-left: none;
-  border-bottom: 0.8px solid rgb(151, 151, 151);
+  height: 22px;
+  border-radius: 5px;
+  background-color: rgba(243, 243, 243, 0.9);
+  border-bottom: 0.8px solid rgb(255, 255, 255);
 }
 input:focus {
   outline: none !important;
 }
 
-button {
+#button {
   display: block;
   margin: 0 auto;
   padding: 10px;
   border: none;
-  text-transform: uppercase;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 20px;
-  border-radius: 2px;
-  background-color: rgb(233, 233, 233);
+  padding: 10px;
+  width: 320px;
+  background-color: rgb(91, 66, 233);
+  height: 45px;
+  margin-top: 20px;
+  color: white;
+  border-radius: 5px;
 }
 .errors {
-  font-size: 12px;
+  font-size: 11px;
   color: red;
-  margin: 0.2vw 0vw 0.2vw 26.5vw;
+  margin: 0.2vw 0vw 0.2vw 4vw;
+}
+#noAcc {
+  display: flex;
+  margin-top: 15px;
+  font-size: 14px;
+  margin-left: 60px;
+}
+#yesAcc {
+  display: flex;
+  margin-top: 15px;
+  font-size: 14px;
+  margin-left: 60px;
+}
+#button:hover {
+  background-color: rgb(71, 42, 231);
+}
+#createAccButton {
+  margin: 0 auto;
+  border: none;
+  font-size: 14px;
+  margin-top: -14px;
+  margin-right: 91px;
+  background-color: white;
+  height: 15px;
+  color: rgb(71, 42, 231);
+  font-weight: 600;
+}
+#createAccButton:hover {
+  color: rgb(116, 98, 219);
+}
+#signInButton {
+  margin: 0 auto;
+  border: none;
+  font-size: 14px;
+  width: 59px;
+  margin-top: 0px;
+  margin-right: 151px;
+  background-color: white;
+  height: 15px;
+  color: rgb(71, 42, 231);
+  font-weight: 600;
 }
