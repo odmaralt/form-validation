@@ -3,21 +3,11 @@ const CreatedAccountBox = ({ setSignIn }) => {
     setSignIn(true);
   };
   return (
-    <div
-      style={{
-        textAlign: "center",
-        height: "30vh",
-        width: "40vw",
-        margin: "0 auto",
-        border: "1px solid black",
-        marginTop: "100px",
-        paddingTop: "80px",
-        fontSize: "22px",
-        fontFamily: "verdana",
-      }}
+    <div id="successBox"
     >
       You've successfully created an account!
       <button
+      id="goToSignInButton"
         onClick={() => {
           handleOkButton();
         }}

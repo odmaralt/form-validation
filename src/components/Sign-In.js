@@ -6,7 +6,7 @@ import Button from "./Button";
 import Email from "./Email";
 import LandingPage from "./LandingPage";
 import Password from "./Password";
-
+// import App from "../../../t-app//src/App";
 const initialValues = {
   email: "",
   password: "",
@@ -85,7 +85,7 @@ const SignIn = ({ setSignIn }) => {
             handleChange={handleInputChange}
           />
           <p className="errors">{formErrors.password}</p>{" "}
-          <Button onClick={handleSubmitButton} className="middle"  />
+          <Button onClick={handleSubmitButton} className="middle" />
           <p id="noAcc">
             Don't have an account?
             <button id="createAccButton">
