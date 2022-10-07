@@ -1,17 +1,16 @@
-// import React, { useState } from "react";
+import React from "react";
 
-const Button = ({ onClick }) => {
+export const Button = ({ onClick, text }) => {
   return (
     <div>
       <button
-      id="button"
+        id="button"
         onClick={() => {
           onClick();
         }}
       >
-        Sign In
+        {text}
       </button>
     </div>
   );
 };
-export default Button;

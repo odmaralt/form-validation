@@ -1,6 +1,6 @@
 import React from "react";
 
-const Age = ({ name, handleChange, ref }) => {
+export const Age = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
@@ -13,4 +13,3 @@ const Age = ({ name, handleChange, ref }) => {
     </div>
   );
 };
-export default Age;

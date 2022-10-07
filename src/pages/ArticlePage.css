@@ -1,0 +1,93 @@
+#articleTitle{
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 80px;
+    display: flex;
+        align-items: center;
+    text-align: center;
+    padding: 100px 0px 20px 360px;
+    color: #25313C;}
+
+    #articleAvatarDiv{
+        display: flex;
+align-items: center;
+width: 600px;
+
+color: #6D7D8B;
+font-size: 14px;
+padding-left: 360px;    }
+#articleAvatarDiv p{
+    padding-left: 30px;
+    margin-left: 30px;
+    vertical-align: middle;
+    align-items: center;
+    margin-bottom: 50px;
+} 
+#articleImage{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#blogPic{
+    position: absolute;
+    top: 292px;
+}
+#articleParagraph{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 44px;
+text-align: center;
+margin: 50px 350px;
+display: inline-block;
+color: #25313C;
+}
+#writtenByDiv{
+    display: flex;
+    margin-left: 350px;
+}
+#writtenBy{font-weight: 500;color: #1E2742;
+    font-size: 12px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+
+}#writtenByName{font-weight: 500;color: #25313C;
+    font-size: 18px;    padding-bottom: 5px;
+
+    padding-left: 15px;
+
+}
+#personTitle{font-weight: 500;color: #989898;
+    font-size: 12px;    padding-left: 15px;    padding-bottom: 5px;
+margin-bottom: 80px;
+
+
+}
+#commentDiv{
+    border-top: 1px solid     rgba(109, 125, 139, 0.22);
+    width: 52vw;
+    margin-left: 350px;
+    
+}
+#joinConvo{
+    color: #6D7D8B;
+    font-size: 22px;
+    padding-top: 40px;
+    padding-bottom: 15px;
+} #comment{
+    display: flex;
+}
+#commentInput{
+background: #FFFFFF;
+width:630px;
+height:148px;
+position: relative;
+bottom: 60px;
+border-radius:4px;
+margin-left: 60px;
+font-size: 14px;
+border: 2px solid #BBC8D4;
+border-radius: 4px;
+}

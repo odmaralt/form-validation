@@ -1,16 +1,15 @@
 import React from "react";
 
-const Name = ({ name, handleChange, ref }) => {
+export const Dob = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
-        placeholder="Name*"
-        name={name}
+        type="date"
         ref={ref}
         onChange={(e) => handleChange(e)}
+        placeholder="Date of Birth*"
+        name={name}
       ></input>
     </div>
   );
 };
-
-export default Name;

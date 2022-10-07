@@ -1,15 +1,14 @@
 import React from "react";
-const Password = ({ name, handleChange, ref }) => {
+
+export const Name = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
+        placeholder="Name*"
+        name={name}
         ref={ref}
         onChange={(e) => handleChange(e)}
-        type={"password"}
-        name={name}
-        placeholder="Password*"
       ></input>
     </div>
   );
 };
-export default Password;

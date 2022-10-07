@@ -1,0 +1,42 @@
+#signUpDiv {
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-top: 60px; */
+    width: 30vw;
+    align-items: center;
+    vertical-align: middle;
+    position: absolute;
+    top: 10%;   
+    left: 35vw;
+
+     border-radius: 15px;
+    height: 600px;
+    background-color: white;
+  }
+  .background{
+    background-color: rgb(98, 74, 236);
+width: 100vw;
+height: 100vh;
+  }
+  .title1 {
+    text-align: center;
+    font-size: 24px;
+    padding: 50px 0px 0px 0px;
+  }#yesAcc {
+    display: flex;
+    margin-top: 15px;
+    font-size: 14px;
+    margin-left: 60px;
+  }#signInButton {
+    margin: 0 auto;
+    border: none;
+    font-size: 14px;
+    width: 59px;
+    margin-top: 0px;
+    margin-right: 151px;
+    background-color: white;
+    cursor: pointer;
+    height: 15px;
+    color: rgb(71, 42, 231);
+    font-weight: 600;
+  }

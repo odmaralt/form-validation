@@ -1,3 +1,4 @@
+import "./CreatedAccountBox.css"
 const CreatedAccountBox = ({ setSignIn }) => {
   const handleOkButton = () => {
     setSignIn(true);

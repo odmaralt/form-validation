@@ -2,16 +2,20 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import validationSchema from "./SignUpValidation";
-import Age from "../Age";
-import Button1 from "../Button1";
-import ConfirmPass from "../ConfirmPass";
-import Dob from "../Dob";
-import Email from "../Email";
-import Name from "../Name";
-import Password from "../Password";
+import {
+  Button,
+  Dob,
+  Email,
+  Name,
+  Password,
+  Age,
+} from "../../components/Form-Inputs";
 import { auth, db } from "../../firebase";
 import * as yup from "yup";
 import CreatedAccountBox from "./CreatedAccountBox";
+import { useNavigate } from "react-router-dom";
+import "./Sign-Up.css";
+
 const initialValues = {
   name: "",
   email: "",
@@ -26,6 +30,7 @@ const SignUpForm = ({ setSignIn }) => {
   const [formValues, setFormValues] = useState(initialValues);
   const [succesfullyCreatedAccount, setSuccesfullyCreatedAccount] =
     useState(false);
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     yup
@@ -93,62 +98,72 @@ const SignUpForm = ({ setSignIn }) => {
   };
 
   const handleSignInButton = () => {
-    setSignIn(true);
+    navigate("/");
   };
 
   return (
-    <div>
+    <div id="test">
       {succesfullyCreatedAccount && <CreatedAccountBox setSignIn={setSignIn} />}
       {!succesfullyCreatedAccount && (
-        <div id="signUpDiv">
-          <p className="title1">Sign up now</p>
-          <Name
-            className="middle"
-            name="name"
-            error={formErrors === undefined}
-            handleChange={handleInputChange}
-          />
-          <p className="errors">{formErrors.name}</p>
-          <Email
-            className="middle"
-            name="email"
-            handleChange={handleInputChange}
-          />
-          <p className="errors">{formErrors.email}</p>
-          <Age className="middle" name="age" handleChange={handleInputChange} />
-          <p className="errors">{formErrors.age}</p>
-          <Dob className="middle" name="dob" handleChange={handleInputChange} />
-          <p className="errors">{formErrors.dob}</p>
-          <Password
-            name="password"
-            className="middle"
-            handleChange={handleInputChange}
-          />
-          <p className="errors">{formErrors.password}</p>
-          <ConfirmPass
-            className="middle"
-            handleChange={handleInputChange}
-            name="confirm"
-          />
-          <p className="errors">{formErrors.confirm}</p>{" "}
-          <Button1
-            onClick={handleSubmitButton}
-            className="middle"
-         
-          />
-          <p
-          id="yesAcc"
-          >
-            Already have an account?
-            <button
-            id="signInButton"
-              onClick={() => {
-                handleSignInButton();
-              }}
-            >
-              Sign In
-            </button>
-          </p>
+        <div className="background">
+          <div id="signUpDiv">
+            <p className="title1">Sign up now</p>
+            <Name
+              className="middle"
+              name="name"
+              error={formErrors === undefined}
+              handleChange={handleInputChange}
+            />
+            <p className="errors">{formErrors.name}</p>
+            <Email
+              className="middle"
+              name="email"
+              handleChange={handleInputChange}
+            />
+            <p className="errors">{formErrors.email}</p>
+            <Age
+              className="middle"
+              name="age"
+              handleChange={handleInputChange}
+            />
+            <p className="errors">{formErrors.age}</p>
+            <Dob
+              className="middle"
+              name="dob"
+              handleChange={handleInputChange}
+            />
+            <p className="errors">{formErrors.dob}</p>
+            <Password
+              name="password"
+              className="middle"
+              handleChange={handleInputChange}
+              placeholder="Password"
+            />
+            <p className="errors">{formErrors.password}</p>
+            <Password
+              className="middle"
+              handleChange={handleInputChange}
+              name="confirm"
+              placeholder="Confirm Password"
+            />
+            <p className="errors">{formErrors.confirm}</p>{" "}
+            <Button
+              onClick={handleSubmitButton}
+              className="middle"
+              text="Sign Up"
+            />
+            <p id="yesAcc">
+              Already have an account?
+              <button
+                id="signInButton"
+                onClick={() => {
+                  handleSignInButton();
+                }}
+              >
+                Sign In
+              </button>
+            </p>
+          </div>
         </div>
       )}
     </div>

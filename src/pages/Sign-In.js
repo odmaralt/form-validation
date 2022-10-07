@@ -2,11 +2,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import * as yup from "yup";
 import { auth } from "../firebase";
-import Button from "./Button";
-import Email from "./Email";
-import LandingPage from "./LandingPage";
-import Password from "./Password";
-// import App from "../../../t-app//src/App";
+import { Button, Email, Password } from "../components/Form-Inputs";
+import { useNavigate } from "react-router-dom";
+import "./Sign-In.css"
 const initialValues = {
   email: "",
   password: "",
@@ -17,12 +15,10 @@ const validationSchema = yup.object().shape({
   password: yup.string().required(),
 });
 
-const SignIn = ({ setSignIn }) => {
+const SignIn = ({ setUser }) => {
   const [formErrors, setFormErrors] = useState(initialValues);
   const [formValues, setFormValues] = useState(initialValues);
-  const [successful, setSuccesful] = useState(false);
-  const [user, setUser] = useState();
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     yup
@@ -42,7 +38,7 @@ const SignIn = ({ setSignIn }) => {
 
   const handleSubmitButton = async () => {
     if (formValues.email === "" || formValues.password === "") {
-      setSuccesful(false);
+      setUser(false);
     }
     if (formErrors.email === "") {
       await signInWithEmailAndPassword(
@@ -53,7 +49,6 @@ const SignIn = ({ setSignIn }) => {
         .then((response) => {
           const user = response.user;
           setUser(user);
-          setSuccesful(true);
         })
         .catch((err) => {
           setFormErrors({
@@ -64,42 +59,41 @@ const SignIn = ({ setSignIn }) => {
     }
   };
   const handleCreateAccountButton = () => {
-    console.log("herer");
-    setSignIn(false);
+    navigate("/sign-up");
   };
   return (
-    <div>
-      {successful && <LandingPage user={user} />}
-      {!successful && (
-        <div id="signInDiv">
-          <p className="title">Sign in to your account</p>
-          <Email
-            name="email"
-            handleChange={handleInputChange}
-            className="middle"
-          />
-          <p className="errors">{formErrors.email}</p>
-          <Password
-            className="middle"
-            name="password"
-            handleChange={handleInputChange}
-          />
-          <p className="errors">{formErrors.password}</p>{" "}
-          <Button onClick={handleSubmitButton} className="middle" />
-          <p id="noAcc">
-            Don't have an account?
-            <button id="createAccButton">
-              <p
-                onClick={() => {
-                  handleCreateAccountButton();
-                }}
-              >
-                Create an account
-              </p>
-            </button>
-          </p>
-        </div>
-      )}
+    <div className="background">
+
+      <div id="signInDiv">
+        <p className="title">Sign in to your account</p>
+        <Email
+          name="email"
+          handleChange={handleInputChange}
+          className="middle"
+        />
+        <p className="errors">{formErrors.email}</p>
+        <Password
+          className="middle"
+          name="password"
+          handleChange={handleInputChange}
+          placeholder="Password"
+        />
+        <p className="errors">{formErrors.password}</p>{" "}
+        <Button  text="Sign In" onClick={handleSubmitButton} className="middle" />
+        <p id="noAcc">
+          Don't have an account?
+          <button id="createAccButton">
+
+            <p
+              onClick={() => {
+                handleCreateAccountButton();
+              }}
+            >
+              Create an account
+            </p>
+          </button>
+        </p>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Email = ({ name, handleChange ,ref}) => {
+export const Email = ({ name, handleChange, ref }) => {
   return (
     <div>
       <input
@@ -12,4 +12,3 @@ const Email = ({ name, handleChange ,ref}) => {
     </div>
   );
 };
-export default Email;

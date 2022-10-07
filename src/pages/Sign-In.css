@@ -1,0 +1,43 @@
+#signInDiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;  position: absolute;
+    top: 10%;   
+    left: 35vw;
+    border-radius: 15px;
+    height: 420px;
+    background-color: white;
+  }
+  .background{
+    height: 100vh;
+    margin-top: 0px;
+    width: 100vw;
+    background-color: rgb(98, 74, 236);
+
+  }
+  
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    padding: 80px 0px 0px 0px;
+  }#noAcc {
+    display: flex;
+    margin-top: 15px;
+    font-size: 14px;
+    margin-left: 60px;
+  }#createAccButton {
+    margin: 0 auto;
+    border: none;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-right: 91px;
+    background-color: white;
+    height: 15px;
+    color: rgb(71, 42, 231);
+    cursor: pointer;
+    font-weight: 600;
+  }
+  #createAccButton:hover {
+    color: rgb(116, 98, 219);
+  }
