@@ -1,8 +1,8 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import * as yup from "yup";
-import { auth } from "../firebase";
-import { Button, Email, Password } from "../components/Form-Inputs";
+import { auth } from "../../firebase";
+import { Button, Email, Password } from "../../components/Form-Inputs";
 import { useNavigate } from "react-router-dom";
 import "./Sign-In.css"
 const initialValues = {

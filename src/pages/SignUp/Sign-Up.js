@@ -12,7 +12,7 @@ import {
 } from "../../components/Form-Inputs";
 import { auth, db } from "../../firebase";
 import * as yup from "yup";
-import CreatedAccountBox from "./CreatedAccountBox";
+import CreatedAccountBox from "./CreatedAccount/CreatedAccountBox";
 import { useNavigate } from "react-router-dom";
 import "./Sign-Up.css";
 
@@ -93,7 +93,7 @@ const SignUpForm = ({ setSignIn }) => {
         uid: user.uid,
       });
       setSuccesfullyCreatedAccount(true);
-      // setSignIn(true);
+      // setSignIn(false);
     }
   };
 

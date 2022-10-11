@@ -1,33 +1,30 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
-import { auth } from "./firebase";
-import Blog from "./pages/Blog";
-import LandingPage from "./pages/LandingPage";
-import SignIn from "./pages/Sign-In";
-import { blogPostInfoArray } from "./data";
+// import { auth } from "./firebase";
+import Blog from "./pages/BlogPage/Blog";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import SignIn from "./pages/SignInPage/Sign-In";
+// import { blogPostInfoArray } from "./data";
 import Header from "./components/Header";
 import SignUpForm from "./pages/SignUp/Sign-Up";
-import { ArticlePage } from "./pages/ArticlePage";
+import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
 const PostPage = () => {
   // postpage is function  that takes nothing
- 
+
   // after selectedpost return the div
   // its going to have an object selectedPost its index 0 and the title
-  return (
-   <ArticlePage/>
-  );
+  return <ArticlePage />;
 };
 
 function App() {
   const [user, setUser] = useState();
-  if (auth.onAuthStateChanged) {
-    auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-  }
-
+  // if (auth.onAuthStateChanged) {
+  //   auth.onAuthStateChanged((user) => {
+  //     setUser(user);
+  //   });
+  // }
   return (
     <div>
       <BrowserRouter>
@@ -41,7 +38,9 @@ function App() {
               <Route
                 path="/products"
                 element={
-                  <div style={{ backgroundColor: "grey", height: "80vh" }}>
+                  <div>
+                    {" "}
+                    <Header />
                     <p>hello from Product page</p>
                   </div>
                 }
@@ -61,6 +60,7 @@ function App() {
                 path="/contact"
                 element={
                   <div>
+                    <Header />
                     <p>hello from contact page</p>
                   </div>
                 }
@@ -72,7 +72,7 @@ function App() {
         {!user && (
           <Routes>
             <Route path="/" element={<SignIn setUser={setUser} />} />
-            <Route path="sign-up" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/sign-up" element={<SignUpForm setUser={setUser} />} />
           </Routes>
         )}
       </BrowserRouter>

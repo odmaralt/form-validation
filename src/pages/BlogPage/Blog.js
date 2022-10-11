@@ -1,0 +1,57 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
+import { blogPostInfoArray } from "../../data";
+import "./Blog.css";
+import SearchBar from "../../components/SearchBar";
+import BlogCard from "../../components/BlogCard";
+
+const Blog = ({ user }) => {
+  const [searchBar, setSearchBar] = useState("");
+  const [blogPosts, setBlogPosts] = useState(blogPostInfoArray);
+
+  const handleSearch = () => {
+    if (searchBar.length === 1) {
+      setBlogPosts(blogPosts);
+    } else {
+      setBlogPosts(
+        blogPosts.filter((blog) => {
+          return blog.title.toLowerCase().includes(searchBar.toLowerCase());
+        })
+      );
+    }
+  };
+
+  const handleSearchBar = (value) => {
+    setSearchBar(value);
+    handleSearch();
+  };
+  // declare navigate and it is equal to usenavigate
+  // what is useNavigate
+  // declare handle blog click and it is function that takes id and uses navigate that takes sservicess and id in tick quotes
+  const navigate = useNavigate();
+  const handleBlogClick = (id) => {
+    navigate(`/services/${id}`);
+  };
+  return (
+    <div>
+      <Header whiteFont={true} user={user} />
+      <div id="searchAndTitle">
+        <p id="blogPosts">Blog posts</p>
+        <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
+      </div>
+
+      <p id="blogParagraph">
+        Our latest updates and blogs about managing your team
+      </p>
+      <div id="blogSpacing">
+        {blogPosts.map((blog) => {
+          return <BlogCard key={blog.id} {...blog} onClick={handleBlogClick} />;
+          // blog card onclick is handleBlogClick
+          // its key equals object blogs id
+        })}
+      </div>
+    </div>
+  );
+};
+export default Blog;

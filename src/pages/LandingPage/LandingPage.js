@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/Header";
-import Calendar3 from "../components/Icons/Calendar3";
-import CalendarIcon from "../components/Icons/CalendarIcon";
-import Event from "../components/Icons/Event";
-import Event2 from "../components/Icons/Event2";
-import Event3 from "../components/Icons/Event3";
-import { MeetingsIcon } from "../components/Icons/MeetingsIcon";
-import Star from "../components/Icons/Star";
-import "./LandingPage.css"
+import Header from "../../components/Header";
+import Calendar3 from "../../components/Icons/Calendar3";
+import CalendarIcon from "../../components/Icons/CalendarIcon";
+import Event from "../../components/Icons/Event";
+import Event2 from "../../components/Icons/Event2";
+import Event3 from "../../components/Icons/Event3";
+import { MeetingsIcon } from "../../components/Icons/MeetingsIcon";
+import Star from "../../components/Icons/Star";
+import "./LandingPage.css";
 
 const LandingPage = ({ user, setUser }) => {
   return (
@@ -25,7 +25,7 @@ const LandingPage = ({ user, setUser }) => {
           <button id="buttons">Get early access</button>
         </div>
       </div>
-      <div style={{ display: "flex" }} id="secondPage">
+      <div id="secondPage">
         <div id="page2">
           <h2 className="header">Your Hub for teamwork </h2>
           <p className="paragraph">
@@ -34,19 +34,10 @@ const LandingPage = ({ user, setUser }) => {
             conversations focused in channels, and simplify all your
             communication into one place.{" "}
           </p>
-          <a className="learnMore">Learn more</a>
-          <div style={{ position: "absolute", left: "298px", top: "60px" }}>
+          <p className="learnMore">Learn more</p>
+          <div id="page2Meeting">
             <MeetingsIcon id="meetingIcon" />
-            <div
-              style={{
-                position: "absolute",
-                left: "330px",
-                top: "100px",
-                border: "1px solid black",
-                borderRadius: "10px",
-                padding: "0px",
-              }}
-            >
+            <div id="iconPositions">
               <Event id="eventIcon" />
             </div>
             <div>
@@ -65,7 +56,7 @@ const LandingPage = ({ user, setUser }) => {
           <Event2 id="event2" />
           <Event3 id="event3" />
         </div>
-        <div style={{ marginLeft: "90vh" }}>
+        <div id="simpleTask" >
           <h1 className="header">Simple task management</h1>
           <p className="paragraph">
             Give everyone you work with—inside and outside your company—a more
@@ -73,7 +64,7 @@ const LandingPage = ({ user, setUser }) => {
             conversations focused in channels, and simplify all your
             communication into one place.
           </p>
-          <a className="learnMore">Learn more</a>
+          <p className="learnMore">Learn more</p>
         </div>
       </div>
       <div id="fourthPage">
@@ -85,7 +76,7 @@ const LandingPage = ({ user, setUser }) => {
             conversations focused in channels, and simplify all your
             communication into one place.
           </p>
-          <a className="learnMore">Learn more</a>
+          <p className="learnMore">Learn more</p>
         </div>{" "}
         <div>
           <Calendar3 id="calendar3" />

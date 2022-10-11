@@ -20,6 +20,7 @@ const Header = ({ user, whiteFont }) => {
   const handleClickTeamIcon = () => {
     navigate("/");
   };
+
   return (
     <div id={whiteFont ? "navBar1" : "navBar"}>
       <Team

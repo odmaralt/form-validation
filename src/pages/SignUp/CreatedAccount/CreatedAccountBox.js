@@ -1,3 +1,4 @@
+import React from "react";
 import "./CreatedAccountBox.css"
 const CreatedAccountBox = ({ setSignIn }) => {
   const handleOkButton = () => {
