@@ -1,33 +1,31 @@
-
 #successBox {
-    text-align: center;
-    height: 30vh;
-    width: 40vw;
-    margin: "0 auto";
-    border: 1px solid black;
-    margin-top: 180px;
-    padding-top: 80px;
-    font-size: 24px;
-    font-family: arial;
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #goToSignInButton {
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    border: none;
-    font-size: 18px;
-    margin-top: 20px;
-    padding: 10px;
-    width: 200px;
-    background-color: rgb(91, 66, 233);
-    height: 45px;
-    margin-top: 20px;
-    color: white;
-    border-radius: 5px;
-  }
-  
+  text-align: center;
+  height: 30vh;
+  width: 40vw;
+  margin: "0 auto";
+  border: 1px solid black;
+  margin-top: 180px;
+  padding-top: 80px;
+  font-size: 24px;
+  font-family: arial;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#goToSignInButton {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  width: 200px;
+  background-color: rgb(91, 66, 233);
+  height: 45px;
+  margin-top: 20px;
+  color: white;
+  border-radius: 5px;
+}

@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { auth } from "../../firebase";
 import { Button, Email, Password } from "../../components/Form-Inputs";
 import { useNavigate } from "react-router-dom";
-import "./SignIn.css"
+import "./SignIn.css";
 const initialValues = {
   email: "",
   password: "",
@@ -63,7 +63,6 @@ const SignIn = ({ setUser }) => {
   };
   return (
     <div className="background">
-
       <div id="signInDiv">
         <p className="title">Sign in to your account</p>
         <Email
@@ -79,11 +78,14 @@ const SignIn = ({ setUser }) => {
           placeholder="Password"
         />
         <p className="errors">{formErrors.password}</p>{" "}
-        <Button  text="Sign In" onClick={handleSubmitButton} className="middle" />
+        <Button
+          text="Sign In"
+          onClick={handleSubmitButton}
+          className="middle"
+        />
         <p id="noAcc">
           Don't have an account?
           <button id="createAccButton">
-
             <p
               onClick={() => {
                 handleCreateAccountButton();

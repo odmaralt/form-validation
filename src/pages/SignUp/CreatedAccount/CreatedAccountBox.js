@@ -1,15 +1,14 @@
 import React from "react";
-import "./CreatedAccountBox.css"
+import "./CreatedAccountBox.css";
 const CreatedAccountBox = ({ setSignIn }) => {
   const handleOkButton = () => {
     setSignIn(true);
   };
   return (
-    <div id="successBox"
-    >
+    <div id="successBox">
       You've successfully created an account!
       <button
-      id="goToSignInButton"
+        id="goToSignInButton"
         onClick={() => {
           handleOkButton();
         }}

@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 const BlogAvatar = (props) => (
   <svg
@@ -32,6 +32,6 @@ const BlogAvatar = (props) => (
       />
     </defs>
   </svg>
-)
+);
 
-export default BlogAvatar
+export default BlogAvatar;

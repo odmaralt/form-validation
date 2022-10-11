@@ -1,365 +1,371 @@
 #firstPage {
-    background: radial-gradient(
-        50% 50% at 50% 50%,
-        rgba(0, 0, 0, 0) 76.04%,
-        rgba(0, 0, 0, 0.4) 100%
-      ),
-      url(https://images.unsplash.com/photo-1601933513556-7926c45d1c49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-    height: 100vh;
-    width: 100vw;
-    background-size: initial;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  #navBar {
-    display: flex;
-    font-size: 14px;
-    color: white;
-    align-items: center;
-  }#navBar1 {
-    display: flex;
-    font-size: 14px;
-    color: #6D7D8B;  align-items: center;
-  }
-  #navBarRight {
-    margin-left: 42vw;
-    font-weight: 600;
-    justify-content: space-between;
-    display: flex;
-    padding-top: 30px;
-    width: 30vw;
-  }
-  #navBarRight1 {
-    margin-left: 42vw;
-    font-weight: 600;
-    justify-content: space-between;
-    display: flex;
-    padding-top: 30px;
-    width: 30vw;
-  }
-  #navBarRight #getAccessButton {
-    background-color: rgb(243, 243, 243, 0);
-    color: rgb(173, 173, 173);
-    margin-top: -12px;
-    padding: 12px;
-    font-size: 12px;
-    border-radius: 2px;
-    border: 1px solid rgb(173, 173, 173);
-  }
-  #collab {
-    margin-left: 124px;
-    padding-top: 20vh;
-    width: 514px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 45px;
-    line-height: 56px;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    letter-spacing: -1.2px;
-    color: #ffffff;
-  }
-  #allInOne {
-    font-size: 15px;
-    color: #ffffff;
-    width: 323.85px;
-    height: 58px;
-    margin-left: 124px;
-    letter-spacing: 0.5px;
-    line-height: 22px;
-    margin-top: 24px;
-  }
-  #inputAndButtonDiv {
-    display: inline-flex;
-  }
-  #inputs {
-    border: 2px solid #bbc8d4;
-    border-radius: 4px;
-    margin-left: 124px;
-    margin-top: 55px;
-  }
-  #buttons {
-    margin-left: 10px;
-    padding: 0px;
-    height: 46px;
-    margin-top: 55px;
-    color: #ffffff;
-    background-color: rgba(11, 190, 242, 1);
-    border-radius: 4px;
-    border: 0.5px solid rgb(95, 95, 95);
-    font-size: 14px;
-    font-weight: 600;
-    width: 150px;
-  }
-  #secondPage {
-    background-color: white;
-    height: 100vh;
-    display: flex;
-  }
-  .header {
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 60px;
-    display: flex;
-    align-items: center;
-  
-    color: #000000;
-    width: 398px;
-    height: 120px;
-    margin-left: 140px;
-    padding-top: 206px;
-  }
-  .paragraph {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    width: 435px;
-    color: #182d40;
-    height: 145px;
-    margin-left: 140px;
-    margin-top: 3px;
-  }
-  .learnMore {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    display: flex;
-    align-items: center;
-    text-decoration-line: underline;
-    margin-left: 142px;
-    margin-top: 18px;
-    color: #4da0fd;
-    cursor: pointer;
-  }
-  #thirdPage {
-    background-color: white;
-    height: 100vh;
-    display: flex;
-  }
-  #img3 {
-    width: 600px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    height: 440px;
-    padding-top: 20vh;
-    position: absolute;
-    left: 0px;
-    /* top: 0px; */
-    z-index: 0;
-  }
-  #fourthPage {
-    background-color: white;
-    height: 100vh;
-    display: flex;
-  }
-  #img4 {
-    width: 620px;
-    height: 510px;
-    position: absolute;
-    z-index: 0;
-    margin-left: 17vw;
-    padding-top: 17.5vh;
-  }
-  #lastHeader {
-    margin-left: 470px;
-    font-weight: 800;
-    font-size: 38px;
-    line-height: 60px;
-    display: flex;
-    /* align-items: center; */
-    text-align: center;
-    padding-top: 90px;
-    color: #000000;
-  }
-  #fifthPage {
-    background-color: white;
-    height: 100vh;
-    /* display: flex; */
-  }
-  #footer {
-    height: 376px;
-    background-color: rgba(37, 43, 59, 1);
-  }
-  .columns {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 30px;
-    /* identical to box height, or 193% */
-  
-    padding-top: 35px;
-    padding-bottom: 25px;
-    padding-left: 169px;
-    color: #ffffff;
-  }
-  #logo2 {
-    font-family: "Mulish";
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 38px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 25px;
-    color: #ffffff;
-  }
-  #allColumns {
-    display: flex;
-    justify-content: space-between;
-  }
-  .firstP {
-    padding-bottom: 25px;
-  }
-  #subscribe {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 29px;
-    padding-right: 6vw;
-    padding-left: 6vw;
-    color: white;
-    padding-top: 35px;
-  }
-  #footerInput {
-    width: 200px;
-    background-color: white;
-    border-radius: 0px;
-    font-size: 12px;
-    margin-left: 85px;
-    margin-top: 15px;
-  }
-  #five {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .boxes {
-    margin-top: 100px;
-    width: 326px;
-    font-size: 15px;
-    line-height: 25px;
-    /* display: flex; */
-    align-items: center;
-    height: 344px;
-    border: 0.2px solid black;
-  }
-  .reviews {
-    padding-left: 35px;
-    padding-right: 35px;
-  }
-  .stars {
-    margin-top: 23px;
-    margin-bottom: 13px;
-    letter-spacing: 1px;
-  }
-  .reviewNames {
-    font-weight: 600;
-    padding-top: 60px;
-    padding-left: 15px;
-  }
-  .navItems {
-    cursor: pointer;
-  }
-  .starsDiv{
-    padding-left: 32px;
-    letter-spacing: -4px;
-  }
-  .reviewImg{
-    border-radius: 40px;
-    height: 40px;  margin-top: 60px;  
-    margin-left: 32px;
-  width: 40px;
-  }.reviewPersons{
-    display: flex;  
-  
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(0, 0, 0, 0) 76.04%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    url(https://images.unsplash.com/photo-1601933513556-7926c45d1c49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  height: 100vh;
+  width: 100vw;
+  background-size: initial;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#navBar {
+  display: flex;
+  font-size: 14px;
+  color: white;
   align-items: center;
-  
-  }
-  #teamIcon{
-      font-family: "Mulish";
-      font-style: normal;
-      font-weight: 800;
-      font-size: 30px;
-      line-height: 38px;
-      display: flex;
-      align-items: center;
-      height: 50px;
-      text-align: center;
-      color: #ffffff;
-      padding-left: 104px;
-      cursor: pointer;
-      padding-top: 55px;
-    }#teamIcon2{
-      font-family: "Mulish";
-      font-style: normal;
-      font-weight: 800;
-      font-size: 30px;
-      line-height: 38px;
-      display: flex;
-      align-items: center;
-      height: 50px;
-      cursor: pointer;
-      text-align: center;
-      color: #ffffff;
-      padding-top: 5px;
-    }
-    #event2{
-      position: absolute;
-      z-index: 1;
-      padding-top: 160px;
-      padding-left: 350px;
-    }  #event3{
-      position: absolute;
-      z-index: 1;
-      padding-top: 290px;
-      padding-left: 350px;
-    }
-    #meetingIcon{
-      position: absolute;
-      z-index:0;
-      padding-left: 500px;
-      /* padding-left: 350px; */
-    }
-    #calendarIcon{
-      /* position: absolute; */
-      z-index: 0;
-      padding-top: 160px;
-      /* padding-left: 350px; */
-    }#eventIcon{
-      /* position: absolute; */
-      z-index: 1;
-      padding: 0px;
-      margin: 0px;
-      background-color: white;
-      /* padding-top: 160px; */
-    }
-    #page2{
-      position: absolute;
-      z-index: 0;
-    }
-    #calendar3{
-      z-index: 1;
-      position: absolute;
-      padding-top: 150px;
-      padding-left: 280px;
-    }
-    #page2Meeting{
-      position: absolute; 
-      left: 298px; 
-      top: 60px; 
-    }
-    #iconPositions{
-      position: absolute;
-      left: 330px;
-      top: 100px;
-      border: 1px solid black;
-      border-radius: 10px;
-      padding: 0px;
-    }
-    #simpleTask{
-      margin-left: 90vh;
-    }
+}
+#navBar1 {
+  display: flex;
+  font-size: 14px;
+  color: #6d7d8b;
+  align-items: center;
+}
+#navBarRight {
+  margin-left: 42vw;
+  font-weight: 600;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 30px;
+  width: 30vw;
+}
+#navBarRight1 {
+  margin-left: 42vw;
+  font-weight: 600;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 30px;
+  width: 30vw;
+}
+#navBarRight #getAccessButton {
+  background-color: rgb(243, 243, 243, 0);
+  color: rgb(173, 173, 173);
+  margin-top: -12px;
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 2px;
+  border: 1px solid rgb(173, 173, 173);
+}
+#collab {
+  margin-left: 124px;
+  padding-top: 20vh;
+  width: 514px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+}
+#allInOne {
+  font-size: 15px;
+  color: #ffffff;
+  width: 323.85px;
+  height: 58px;
+  margin-left: 124px;
+  letter-spacing: 0.5px;
+  line-height: 22px;
+  margin-top: 24px;
+}
+#inputAndButtonDiv {
+  display: inline-flex;
+}
+#inputs {
+  border: 2px solid #bbc8d4;
+  border-radius: 4px;
+  margin-left: 124px;
+  margin-top: 55px;
+}
+#buttons {
+  margin-left: 10px;
+  padding: 0px;
+  height: 46px;
+  margin-top: 55px;
+  color: #ffffff;
+  background-color: rgba(11, 190, 242, 1);
+  border-radius: 4px;
+  border: 0.5px solid rgb(95, 95, 95);
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+}
+#secondPage {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+}
+.header {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+  width: 398px;
+  height: 120px;
+  margin-left: 140px;
+  padding-top: 206px;
+}
+.paragraph {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  width: 435px;
+  color: #182d40;
+  height: 145px;
+  margin-left: 140px;
+  margin-top: 3px;
+}
+.learnMore {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+  margin-left: 142px;
+  margin-top: 18px;
+  color: #4da0fd;
+  cursor: pointer;
+}
+#thirdPage {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+}
+#img3 {
+  width: 600px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  height: 440px;
+  padding-top: 20vh;
+  position: absolute;
+  left: 0px;
+  /* top: 0px; */
+  z-index: 0;
+}
+#fourthPage {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+}
+#img4 {
+  width: 620px;
+  height: 510px;
+  position: absolute;
+  z-index: 0;
+  margin-left: 17vw;
+  padding-top: 17.5vh;
+}
+#lastHeader {
+  margin-left: 470px;
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 60px;
+  display: flex;
+  /* align-items: center; */
+  text-align: center;
+  padding-top: 90px;
+  color: #000000;
+}
+#fifthPage {
+  background-color: white;
+  height: 100vh;
+  /* display: flex; */
+}
+#footer {
+  height: 376px;
+  background-color: rgba(37, 43, 59, 1);
+}
+.columns {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 30px;
+  /* identical to box height, or 193% */
+
+  padding-top: 35px;
+  padding-bottom: 25px;
+  padding-left: 169px;
+  color: #ffffff;
+}
+#logo2 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 25px;
+  color: #ffffff;
+}
+#allColumns {
+  display: flex;
+  justify-content: space-between;
+}
+.firstP {
+  padding-bottom: 25px;
+}
+#subscribe {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 29px;
+  padding-right: 6vw;
+  padding-left: 6vw;
+  color: white;
+  padding-top: 35px;
+}
+#footerInput {
+  width: 200px;
+  background-color: white;
+  border-radius: 0px;
+  font-size: 12px;
+  margin-left: 85px;
+  margin-top: 15px;
+}
+#five {
+  display: flex;
+  justify-content: space-evenly;
+}
+.boxes {
+  margin-top: 100px;
+  width: 326px;
+  font-size: 15px;
+  line-height: 25px;
+  /* display: flex; */
+  align-items: center;
+  height: 344px;
+  border: 0.2px solid black;
+}
+.reviews {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.stars {
+  margin-top: 23px;
+  margin-bottom: 13px;
+  letter-spacing: 1px;
+}
+.reviewNames {
+  font-weight: 600;
+  padding-top: 60px;
+  padding-left: 15px;
+}
+.navItems {
+  cursor: pointer;
+}
+.starsDiv {
+  padding-left: 32px;
+  letter-spacing: -4px;
+}
+.reviewImg {
+  border-radius: 40px;
+  height: 40px;
+  margin-top: 60px;
+  margin-left: 32px;
+  width: 40px;
+}
+.reviewPersons {
+  display: flex;
+
+  align-items: center;
+}
+#teamIcon {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  text-align: center;
+  color: #ffffff;
+  padding-left: 104px;
+  cursor: pointer;
+  padding-top: 55px;
+}
+#teamIcon2 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 5px;
+}
+#event2 {
+  position: absolute;
+  z-index: 1;
+  padding-top: 160px;
+  padding-left: 350px;
+}
+#event3 {
+  position: absolute;
+  z-index: 1;
+  padding-top: 290px;
+  padding-left: 350px;
+}
+#meetingIcon {
+  position: absolute;
+  z-index: 0;
+  padding-left: 500px;
+  /* padding-left: 350px; */
+}
+#calendarIcon {
+  /* position: absolute; */
+  z-index: 0;
+  padding-top: 160px;
+  /* padding-left: 350px; */
+}
+#eventIcon {
+  /* position: absolute; */
+  z-index: 1;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  /* padding-top: 160px; */
+}
+#page2 {
+  position: absolute;
+  z-index: 0;
+}
+#calendar3 {
+  z-index: 1;
+  position: absolute;
+  padding-top: 150px;
+  padding-left: 280px;
+}
+#page2Meeting {
+  position: absolute;
+  left: 298px;
+  top: 60px;
+}
+#iconPositions {
+  position: absolute;
+  left: 330px;
+  top: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0px;
+}
+#simpleTask {
+  margin-left: 90vh;
+}

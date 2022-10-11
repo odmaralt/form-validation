@@ -56,7 +56,7 @@ const LandingPage = ({ user, setUser }) => {
           <Event2 id="event2" />
           <Event3 id="event3" />
         </div>
-        <div id="simpleTask" >
+        <div id="simpleTask">
           <h1 className="header">Simple task management</h1>
           <p className="paragraph">
             Give everyone you work with—inside and outside your company—a more
