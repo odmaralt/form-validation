@@ -14,7 +14,7 @@ import { auth, db } from "../../firebase";
 import * as yup from "yup";
 import CreatedAccountBox from "./CreatedAccount/CreatedAccountBox";
 import { useNavigate } from "react-router-dom";
-import "./Sign-Up.css";
+import "./SignUp.css";
 
 const initialValues = {
   name: "",

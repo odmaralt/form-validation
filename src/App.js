@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 // import { auth } from "./firebase";
-import Blog from "./pages/BlogPage/Blog";
+import Blog from "./pages/BlogPage/BlogPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import SignIn from "./pages/SignInPage/Sign-In";
+import SignIn from "./pages/SignInPage/SignIn";
 // import { blogPostInfoArray } from "./data";
 import Header from "./components/Header";
-import SignUpForm from "./pages/SignUp/Sign-Up";
+import SignUpForm from "./pages/SignUp/SignUp";
 import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
 const PostPage = () => {
   // postpage is function  that takes nothing
