@@ -237,11 +237,14 @@
 }
 #five {
   display: flex;
-  justify-content: space-evenly;
+  width: 95vw;
+  overflow: auto;
+  margin: 0 auto;
 }
 .boxes {
   margin-top: 100px;
   width: 326px;
+  margin-left: 80px;
   font-size: 15px;
   line-height: 25px;
   /* display: flex; */
@@ -279,8 +282,8 @@
 }
 .reviewPersons {
   display: flex;
-
   align-items: center;
+  width: 300px;
 }
 #teamIcon {
   font-family: "Mulish";

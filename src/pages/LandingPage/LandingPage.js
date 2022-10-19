@@ -90,37 +90,38 @@ const LandingPage = ({ user, setUser }) => {
       <div id="fifthPage">
         <h1 id="lastHeader">What people say about us</h1>
         <div id="five">
-          <div className="boxes">
+          <div className="boxes" id="firstReview">
+            {" "}
             <Star className="stars" />{" "}
             <p className="reviews">
-              Give everyone you work with—inside and outside your emoji, keep
-              conversations focused in channels, and simplify all your
-              communication into one place.
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
             </p>{" "}
             <div className="reviewPersons">
               <img
                 className="reviewImg"
-                alt="man"
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
               />
-              <p className="reviewNames">Amy Klassen</p>{" "}
+              <p className="reviewNames">Eleanor Pena</p>
             </div>
-          </div>{" "}
+          </div>
           <div className="boxes">
             {" "}
-            <Star className="stars" />
+            <Star className="stars" />{" "}
             <p className="reviews">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-              Exercitation veniam consequat sunt nostrud amet.
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
             </p>{" "}
             <div className="reviewPersons">
               <img
                 className="reviewImg"
-                alt="woman"
-                src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
               />
-              <p className="reviewNames">Jane Cooper</p>
+              <p className="reviewNames">Eleanor Pena</p>
             </div>
           </div>{" "}
           <div className="boxes">
@@ -139,7 +140,109 @@ const LandingPage = ({ user, setUser }) => {
               />
               <p className="reviewNames">Eleanor Pena</p>
             </div>
-          </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
+          <div className="boxes">
+            {" "}
+            <Star className="stars" />{" "}
+            <p className="reviews">
+              Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis
+              ullamco cillum dolor. Voluptate exercitation incididunt aliquip
+              deserunt reprehenderit elit laborum.{" "}
+            </p>{" "}
+            <div className="reviewPersons">
+              <img
+                className="reviewImg"
+                alt="person"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+              />
+              <p className="reviewNames">Eleanor Pena</p>
+            </div>
+          </div>{" "}
         </div>
       </div>
     </div>

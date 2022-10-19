@@ -1,0 +1,85 @@
+#productsDivs {
+  width: 300px;
+  height: 390px;
+  margin: 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-left: 70px;
+  cursor: pointer;
+  background-color: white;
+  -moz-box-shadow: 3px 3px 3px rgb(104, 104, 104);
+  -webkit-box-shadow: 3px 3px 3px rgb(104, 104, 104);
+  box-shadow: 3px 3px 3px rgb(104, 104, 104);
+}
+#updateDiv {
+  width: 400px;
+  height: 380px;
+  padding-left: 30px;
+}
+#productsDivs:hover {
+  transform: scale(1.02);
+}
+#wholeProductDiv {
+  display: flex;
+  padding: 70px;
+  flex-wrap: wrap;
+}
+#productsPage {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2946&q=80);
+}
+#productImages {
+  align-items: center;
+  padding-top: 20px;
+}
+#productsDivs h1 {
+  font-size: 14px;
+  padding-top: 20px;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+#productsDivs h2 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+}
+#productsDivs h3 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+  color: rgb(211, 88, 190);
+}
+.none {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+#xButton {
+  border: none;
+  background-color: white;
+  margin-left: 94%;
+  margin-top: 10px;
+  display: flex;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+#updateBoxDiv p {
+  font-size: 16px;
+  padding-top: 30px;
+}
+#updateBoxDiv input {
+  margin-top: 20px;
+  width: 220px;
+  position: absolute;
+  left: 150px;
+  height: 20px;
+}

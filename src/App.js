@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
-// import { auth } from "./firebase";
+import { auth } from "./firebase";
 import Blog from "./pages/BlogPage/BlogPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SignIn from "./pages/SignInPage/SignIn";
 // import { blogPostInfoArray } from "./data";
 import Header from "./components/Header";
+import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import SignUpForm from "./pages/SignUp/SignUp";
+import ContactPage from "./pages/ContactPage/ContactPage";
 import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
 const PostPage = () => {
   // postpage is function  that takes nothing
@@ -20,11 +22,11 @@ const PostPage = () => {
 
 function App() {
   const [user, setUser] = useState();
-  // if (auth.onAuthStateChanged) {
-  //   auth.onAuthStateChanged((user) => {
-  //     setUser(user);
-  //   });
-  // }
+  if (auth.onAuthStateChanged) {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  }
   return (
     <div>
       <BrowserRouter>
@@ -35,16 +37,7 @@ function App() {
                 path="/"
                 element={<LandingPage user={user} setUser={setUser} />}
               />
-              <Route
-                path="/products"
-                element={
-                  <div>
-                    {" "}
-                    <Header />
-                    <p>hello from Product page</p>
-                  </div>
-                }
-              />
+              <Route path="/products" element={<ProductsPage />} />
               <Route
                 path="/services"
                 element={
@@ -60,8 +53,7 @@ function App() {
                 path="/contact"
                 element={
                   <div>
-                    <Header />
-                    <p>hello from contact page</p>
+                    <ContactPage />
                   </div>
                 }
               />
