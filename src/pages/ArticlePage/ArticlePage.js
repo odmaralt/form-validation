@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import {Header} from "../../components";
 import { useParams } from "react-router-dom";
 import { blogPostInfoArray } from "../../data";
 import "./ArticlePage.css";

@@ -21,14 +21,11 @@
 }
 #wholeProductDiv {
   display: flex;
-  padding: 70px;
+  padding: 30px 70px 70px 70px;
   flex-wrap: wrap;
 }
 #productsPage {
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2946&q=80);
+  background-color: #f2d7e2;
 }
 #productImages {
   align-items: center;
@@ -76,10 +73,38 @@ button {
   font-size: 16px;
   padding-top: 30px;
 }
+#createBoxDiv p {
+  font-size: 16px;
+  padding-top: 30px;
+}
 #updateBoxDiv input {
   margin-top: 20px;
   width: 220px;
   position: absolute;
   left: 150px;
   height: 20px;
+}
+#createBoxDiv input {
+  margin-top: 20px;
+  width: 220px;
+  position: absolute;
+  left: 150px;
+  height: 20px;
+}
+.search-form {
+  margin-left: 10vw;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+#createDiv {
+  width: 400px;
+  height: 380px;
+  padding-left: 30px;
+}
+#loading{
+  color: white;
+  font-weight: 600;
+  padding-top: 60px;
+  font-size: 25px;
+  padding-left: 150px;
 }

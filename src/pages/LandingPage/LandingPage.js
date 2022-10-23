@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header";
+import {Header} from "../../components";
 import Calendar3 from "../../components/Icons/Calendar3";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
 import Event from "../../components/Icons/Event";

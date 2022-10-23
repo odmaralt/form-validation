@@ -3,23 +3,37 @@ import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import { Button } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+import { useState } from "react";
 import CloseIcon from "./Icons/CloseIcon";
-const UpdateModal = ({ updateBox, closeUpdateModal }) => {
-  const theme = createTheme({
-    status: {
-      danger: "#e53e3e",
+
+const theme = createTheme({
+  status: {
+    danger: "#e53e3e",
+  },
+  palette: {
+    primary: {
+      main: "#0991f1",
+      darker: "#053e85",
     },
-    palette: {
-      primary: {
-        main: "#0991f1",
-        darker: "#053e85",
-      },
-      neutral: {
-        main: " rgb(255, 180, 221)",
-        contrastText: "#fff",
-      },
+    neutral: {
+      main: " rgb(255, 180, 221)",
+      contrastText: "#fff",
     },
-  });
+  },
+});
+
+export const UpdateModal = ({
+  updateBox,
+  closeUpdateModal,
+  setUpdateSuccess,
+}) => {
+  const initialValues = {
+    name: updateBox?.owner.firstName,
+    lastName: updateBox?.owner.lastName,
+    caption: updateBox?.text,
+    tags: updateBox?.tags,
+    id: updateBox?.id,
+  };
   const updateSelectedBox = async (post) => {
     await axios
       .put(
@@ -30,16 +44,39 @@ const UpdateModal = ({ updateBox, closeUpdateModal }) => {
         }
       )
       .then((response) => {
-        console.log(response);
+        setUpdateSuccess(true);
+        setTimeout(() => {
+          setUpdateSuccess(false);
+          window.location.reload();
+        }, 2500);
       })
       .catch((err) => console.log(err));
   };
 
-  const handleUpdate = (e, id) => {
-    e.preventDefault();
-    updateSelectedBox(id);
-    closeUpdateModal();
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const getInputValue = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
   };
+
+  const handleUpdate = async (e) => {
+    console.log(formValues);
+    const data = {
+      ...updateBox,
+      text: formValues.caption,
+      tags: formValues.tags,
+    };
+    e.preventDefault();
+    await updateSelectedBox(data)
+      .then(
+        (response) => console.log(response),
+        updateSelectedBox(),
+        closeUpdateModal()
+      )
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div id="updateDiv">
       <CloseIcon id="xButton" onClick={closeUpdateModal} />
@@ -50,20 +87,34 @@ const UpdateModal = ({ updateBox, closeUpdateModal }) => {
         </p>
         <div className="flex">
           <p>First Name:</p>
-          <input defaultValue={updateBox?.owner.firstName} />
+          <input
+            style={{ color: "grey" }}
+            value={formValues.name}
+            name="name"
+            disabled
+          />
         </div>
         <div className="flex">
           <p>Last Name:</p>
-          <input defaultValue={updateBox?.owner.lastName} />
+          <input
+            style={{ color: "grey" }}
+            disabled
+            value={formValues.lastName}
+            name="lastName"
+          />
         </div>
         <div className="flex">
           <p>Caption:</p>
-          <input defaultValue={updateBox?.text} />
+          <input
+            value={formValues.caption}
+            name="caption"
+            onChange={getInputValue}
+          />
         </div>
         <div className="flex">
           <p>Tags:</p>
 
-          <input defaultValue={updateBox?.tags} />
+          <input value={formValues.tags} name="tags" onChange={getInputValue} />
         </div>
       </div>
       <form>
@@ -78,11 +129,7 @@ const UpdateModal = ({ updateBox, closeUpdateModal }) => {
           </Button>
         </ThemeProvider>{" "}
         <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            color="neutral"
-            onClick={(e) => handleUpdate(e, updateBox)}
-          >
+          <Button variant="contained" color="neutral" onClick={handleUpdate}>
             Update
           </Button>
         </ThemeProvider>
@@ -90,5 +137,3 @@ const UpdateModal = ({ updateBox, closeUpdateModal }) => {
     </div>
   );
 };
-
-export default UpdateModal;

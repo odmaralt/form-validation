@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./ProductsPage.css";
-import Header from "../../components/Header";
 import axios from "axios";
 import Modal from "react-modal";
-import DeleteModal from "../../components/DeleteModal";
-import UpdateModal from "../../components/UpdateModal";
 import Button from "@mui/material/Button";
-import { createTheme } from "@mui/material/styles";
+import Product from "./Product";
+import { theme } from "./Theme";
 import { ThemeProvider } from "@emotion/react";
+import {
+  SearchBar,
+  CreateModal,
+  DeleteModal,
+  UpdateModal,
+  Header,
+  Notification,
+} from "../../components";
 
 const customStyles = {
   content: {
@@ -20,66 +26,76 @@ const customStyles = {
   },
 };
 
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#0991f1",
-      darker: "#053e85",
-    },
-    neutral: {
-      main: " rgb(255, 180, 221)",
-      contrastText: "#fff",
-    },
-  },
-});
-
-const ProductsPage = () => {
+const ProductsPage = (user) => {
   const [data, setData] = useState([]);
   const [isActive, setIsActive] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = React.useState(false);
+  const [modalState, setModalState] = useState("");
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [updateModalIsOpen, setUpdateModalIsOpen] = React.useState(false);
-
-  function openModal() {
-    setIsOpen(true);
+  function openModal(text) {
+    setModalIsOpen(true);
+    setModalState(text);
   }
 
   function closeModal() {
-    setIsOpen(false);
-  }
-  function openUpdateModal() {
-    setUpdateModalIsOpen(true);
-  }
-
-  function closeUpdateModal() {
-    setUpdateModalIsOpen(false);
+    setModalIsOpen(false);
   }
 
   const [selectedBox, setSelectedBox] = useState();
   const [deleteBox, setDeleteBox] = useState();
+  const [success, setSuccess] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [createSuccess, setCreateSuccess] = useState(false);
   const [updateBox, setUpdateBox] = useState();
 
   const [loading, setLoading] = useState(false);
+  const [searchBar, setSearchBar] = useState("");
+  // declare state with searchBar and setSearchBar
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://dummyapi.io/data/v1/post?limit=20", {
-        headers: { "app-id": "6347516f7580f73d9c69995c   " },
-      })
-      .then((response) => {
-        setLoading(true);
-        setTimeout(() => {
-          setData(response.data.data);
-          setLoading(false);
-        }, [200]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    if (searchBar !== "") {
+      //if searchbar contains nothing, show all the posts
+      axios
+        .get("https://dummyapi.io/data/v1/post?limit=30", {
+          headers: { "app-id": "6347516f7580f73d9c69995c   " },
+        })
+        .then((response) => {
+          setData(
+            response.data.data?.filter((post) => {
+              //filter response.data.data
+
+              if (
+                searchBar.toLowerCase() === post.text.toLowerCase()
+                //if searchbar equals first name, return post
+              ) {
+                return post;
+              }
+              //else return firstname includes searchbar
+              return post.text.toLowerCase().includes(searchBar.toLowerCase());
+            })
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setLoading(true);
+      axios
+        .get("https://dummyapi.io/data/v1/post?limit=30", {
+          headers: { "app-id": "6347516f7580f73d9c69995c   " },
+        })
+        .then((response) => {
+          setLoading(true);
+          setTimeout(() => {
+            setData(response.data.data);
+            setLoading(false);
+          }, [800]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [searchBar]);
+  //searchbar in brackets
 
   const handleClick = (e, id) => {
     e.preventDefault();
@@ -89,73 +105,52 @@ const ProductsPage = () => {
   const handleDeleteModalOpen = (e, post) => {
     e.preventDefault();
     setDeleteBox(post);
-    openModal();
+    openModal("delete");
   };
   const handleUpdateModalOpen = (e, post) => {
     e.preventDefault();
     setUpdateBox(post);
-    openUpdateModal();
+    openModal("update");
   };
+  const handleCreateModalOpen = (e, post) => {
+    e.preventDefault();
+    openModal("create");
+  };
+
+  const handleSearchBar = (value) => {
+    setSearchBar(value);
+  };
+  // handlesearchbar takes value and sets search bar with the value
 
   return (
     <div id="productsPage">
-      <Header />
-      {loading && <div>...Loading</div>}
+      <Header user={user} />
+      {loading && <div id="loading">...Loading</div>}
+      <div className="flex">
+        <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
+        <ThemeProvider theme={theme}>
+          <Button
+            variant="contained"
+            color="neutral"
+            style={{ margin: "46px 0px 0px 835px", height: "50px" }}
+            className="productsButton"
+            onClick={(e) => handleCreateModalOpen(e)}
+          >
+            Create
+          </Button>
+        </ThemeProvider>
+      </div>
       <div id="wholeProductDiv">
         {!loading &&
-          data.length > 1 &&
-          data?.map((post) => {
-            return (
-              <div key={post.id}>
-                <div id="productsDivs" onClick={(e) => handleClick(e, post.id)}>
-                  <div id="productName">
-                    <h1>
-                      {post.owner.firstName} {post.owner.lastName}
-                    </h1>
-                  </div>
-                  <img
-                    id="productImages"
-                    width={"100%"}
-                    height={"180px"}
-                    src={post.image}
-                    alt="dog"
-                  />
-                  <h2> {post.text}</h2>
-
-                  <h2>{post.likes} likes</h2>
-                  <h3>{post.tags}</h3>
-                </div>
-                {selectedBox === post.id && (
-                  <div>
-                    <div>
-                      <ThemeProvider theme={theme}>
-                        <Button
-                          variant="contained"
-                          color="neutral"
-                          style={{marginLeft:"75px", marginRight:"15px"}}
-                          onClick={(e) => handleDeleteModalOpen(e, post)}
-                          className="productsButton"
-                        >
-                          Delete
-                        </Button>
-                      </ThemeProvider>
-
-                      <ThemeProvider theme={theme}>
-                        <Button
-                          variant="contained"
-                          color="neutral"
-                          onClick={(e) => handleUpdateModalOpen(e, post)}
-                          className="productsButton"
-                        >
-                          Update
-                        </Button>
-                      </ThemeProvider>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          data?.map((post) => (
+            <Product
+              post={post}
+              handleClick={handleClick}
+              selectedBox={selectedBox}
+              handleDeleteModalOpen={handleDeleteModalOpen}
+              handleUpdateModalOpen={handleUpdateModalOpen}
+            />
+          ))}
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -163,19 +158,45 @@ const ProductsPage = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <DeleteModal deleteBox={deleteBox} closeModal={closeModal} />
+        {modalState === "delete" && (
+          <DeleteModal
+            deleteBox={deleteBox}
+            closeModal={closeModal}
+            setSuccess={setSuccess}
+          />
+        )}
+        {modalState === "update" && (
+          <UpdateModal
+            updateBox={updateBox}
+            setUpdateSuccess={setUpdateSuccess}
+            closeUpdateModal={closeModal}
+          />
+        )}
+        {modalState === "create" && (
+          <CreateModal
+            closeCreateModal={closeModal}
+            setCreateSuccess={setCreateSuccess}
+          />
+        )}
       </Modal>
-      <Modal
-        isOpen={updateModalIsOpen}
-        onRequestClose={closeUpdateModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <UpdateModal
-          updateBox={updateBox}
-          closeUpdateModal={closeUpdateModal}
+      {success && (
+        <Notification
+          text="You have successfully deleted the post"
+          type="success"
         />
-      </Modal>
+      )}
+      {updateSuccess && (
+        <Notification
+          text="You have successfully updated the post"
+          type="success"
+        />
+      )}
+      {createSuccess && (
+        <Notification
+          text="You have successfully created a post"
+          type="success"
+        />
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import "./ContactPage.css";
 import React from "react";
 import { Name } from "../../components/Form-Inputs";
-import Header from "../../components/Header";
+import { Header } from "../../components";
 import { Button } from "../../components/Form-Inputs";
 import { Email } from "../../components/Form-Inputs";
 const ContactPage = (user) => {
@@ -13,7 +13,7 @@ const ContactPage = (user) => {
         <Name />
         <Email />
         <input id="howWeCanHelp" placeholder="How can we help you?"></input>
-        <Button text={"Submit"}/>
+        <Button text={"Submit"} />
       </div>
     </div>
   );

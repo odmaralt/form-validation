@@ -1,5 +1,5 @@
 import Team from "./Icons/Team";
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer id="footer">
       <div id="allColumns">
@@ -43,4 +43,3 @@ const Footer = () => {
     </footer>
   );
 };
-export default Footer;

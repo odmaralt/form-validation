@@ -5,29 +5,34 @@ import CloseIcon from "./Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 
-const DeleteModal = ({ deleteBox, closeModal }) => {
-  const theme = createTheme({
-    status: {
-      danger: "#e53e3e",
+const theme = createTheme({
+  status: {
+    danger: "#e53e3e",
+  },
+  palette: {
+    primary: {
+      main: "#0991f1",
+      darker: "#053e85",
     },
-    palette: {
-      primary: {
-        main: "#0991f1",
-        darker: "#053e85",
-      },
-      neutral: {
-        main: " rgb(255, 180, 221)",
-        contrastText: "#fff",
-      },
+    neutral: {
+      main: " rgb(255, 180, 221)",
+      contrastText: "#fff",
     },
-  });
+  },
+});
+
+export const DeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
   const deleteSelectedBox = async (id) => {
     await axios
       .delete(`https://dummyapi.io/data/v1/post/${id}`, {
         headers: { "app-id": "6347516f7580f73d9c69995c" },
       })
       .then((response) => {
-        console.log(response);
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+          window.location.reload();
+        }, 2500);
       })
       .catch((err) => console.log(err));
   };
@@ -91,5 +96,3 @@ const DeleteModal = ({ deleteBox, closeModal }) => {
     </div>
   );
 };
-
-export default DeleteModal;

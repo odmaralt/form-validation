@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
+import { Header, SearchBar, BlogCard } from "../../components";
 import { blogPostInfoArray } from "../../data";
 import "./BlogPage.css";
-import SearchBar from "../../components/SearchBar";
-import BlogCard from "../../components/BlogCard";
 
 const Blog = ({ user }) => {
   const [searchBar, setSearchBar] = useState("");

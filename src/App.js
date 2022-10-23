@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./components/Footer";
+import { Footer } from "./components";
 import { auth } from "./firebase";
 import Blog from "./pages/BlogPage/BlogPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SignIn from "./pages/SignInPage/SignIn";
 // import { blogPostInfoArray } from "./data";
-import Header from "./components/Header";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import SignUpForm from "./pages/SignUp/SignUp";
 import ContactPage from "./pages/ContactPage/ContactPage";

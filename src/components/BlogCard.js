@@ -1,5 +1,5 @@
 import React from "react";
-const BlogCard = ({
+export const BlogCard = ({
   imgSrc,
   title,
   subTitle,
@@ -37,4 +37,3 @@ const BlogCard = ({
   );
 };
 
-export default BlogCard;

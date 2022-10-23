@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import Team from "./Icons/Team";
 
-const Header = ({ user, whiteFont }) => {
+export const Header = ({ user, whiteFont }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     auth.signOut();
@@ -30,7 +30,7 @@ const Header = ({ user, whiteFont }) => {
       />
       <div id={whiteFont ? "navBarRight1" : "navBarRight"}>
         <p className="navItems" onClick={() => handleClickProductLink()}>
-          Products
+          Posts
         </p>
         <p className="navItems" onClick={() => handleClickServicesLink()}>
           Blog
@@ -46,5 +46,3 @@ const Header = ({ user, whiteFont }) => {
     </div>
   );
 };
-
-export default Header;
