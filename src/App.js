@@ -9,6 +9,7 @@ import SignIn from "./pages/SignInPage/SignIn";
 // import { blogPostInfoArray } from "./data";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import SignUpForm from "./pages/SignUp/SignUp";
+import { UsersPage } from "./pages/UsersPage/UsersPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
 const PostPage = () => {
@@ -48,14 +49,8 @@ function App() {
               {/* routes path is services the elements div id is blogdiv and inside the div is Blog where user equals user  */}
               <Route path="/services/:id" element={<PostPage />} />
               {/* the next routes path is services colon id, the element is the post page function we have  */}
-              <Route
-                path="/contact"
-                element={
-                  <div>
-                    <ContactPage />
-                  </div>
-                }
-              />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/users" element={<UsersPage user={user} />} />
             </Routes>
             <Footer />
           </div>

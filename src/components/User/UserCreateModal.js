@@ -1,27 +1,11 @@
 import axios from "axios";
 import React from "react";
 import Button from "@mui/material/Button";
-import CloseIcon from "./Icons/CloseIcon";
+import CloseIcon from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { useState } from "react";
-
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#0991f1",
-      darker: "#053e85",
-    },
-    neutral: {
-      main: " rgb(255, 180, 221)",
-      contrastText: "#fff",
-    },
-  },
-});
-
+import { theme } from "../../pages/ProductsPage/Theme";
 const createPost = async (formValues) => {
   await axios
     .post(`https://dummyapi.io/data/v1/post/create`, formValues, {
@@ -42,7 +26,7 @@ const initialValues = {
   owner: "60d0fe4f5311236168a10a1a",
 };
 
-export const CreateModal = ({ closeCreateModal, setCreateSuccess }) => {
+export const UserCreateModal = ({ closeCreateModal, setCreateSuccess }) => {
   const [formValues, setFormValues] = useState(initialValues); //formvalues takes initial values
   const handleInputChange = (e) => {
     const { name, value } = e.target;

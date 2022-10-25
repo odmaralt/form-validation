@@ -1,0 +1,56 @@
+#userDivs {
+  width: 320px;
+  height: 380px;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  margin-top: 60px;
+  cursor: pointer;
+  background-color: white;
+  -moz-box-shadow: 3px 3px 3px rgb(104, 104, 104);
+  -webkit-box-shadow: 3px 3px 3px rgb(104, 104, 104);
+  box-shadow: 3px 3px 3px rgb(104, 104, 104);
+}
+#userName {
+  text-align: center;
+}
+#userImages {
+  align-items: center;
+  width: 160px;
+  border-radius: 100px;
+  margin: 0 auto;
+
+  height: 160px;
+  align-items: center;
+  display: flex;
+}
+
+#wholeUserDiv {
+  padding: 30px 70px 70px 70px;
+  background-color: #d7ddf2;
+}
+#imgDiv {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+#userDivs:hover {
+  transform: scale(1.02);
+}
+.usersButton {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 34vw;
+  margin-right: 34vw;
+  align-items: center;
+}
+#updateDiv {
+  height: 280px;
+
+  padding-bottom: 0px;
+}
+.flex {
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}

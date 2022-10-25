@@ -1,30 +1,16 @@
 import axios from "axios";
+import { theme } from "../../pages/ProductsPage/Theme";
 import React from "react";
 import Button from "@mui/material/Button";
-import CloseIcon from "./Icons/CloseIcon";
+import CloseIcon from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#0991f1",
-      darker: "#053e85",
-    },
-    neutral: {
-      main: " rgb(255, 180, 221)",
-      contrastText: "#fff",
-    },
-  },
-});
 
-export const DeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
+export const UserDeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
   const deleteSelectedBox = async (id) => {
     await axios
-      .delete(`https://dummyapi.io/data/v1/post/${id}`, {
+      .delete(`https://dummyapi.io/data/v1/user/${id}`, {
         headers: { "app-id": "6347516f7580f73d9c69995c" },
       })
       .then((response) => {
@@ -32,7 +18,7 @@ export const DeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
         setTimeout(() => {
           setSuccess(false);
           window.location.reload();
-        }, 2500);
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -56,8 +42,8 @@ export const DeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
           }}
         >
           Are you sure you want to delete {}
-          {deleteBox?.owner.firstName}
-          {} {deleteBox?.owner.lastName}'s post?
+          {deleteBox?.firstName}
+          {} {deleteBox?.lastName}'s post?
         </p>
         <p
           style={{

@@ -11,6 +11,9 @@ export const Header = ({ user, whiteFont }) => {
   const handleClickProductLink = () => {
     navigate("/products");
   };
+  const handleClickUsersLink = () => {
+    navigate("/users");
+  };
   const handleClickServicesLink = () => {
     navigate("/services");
   };
@@ -31,6 +34,9 @@ export const Header = ({ user, whiteFont }) => {
       <div id={whiteFont ? "navBarRight1" : "navBarRight"}>
         <p className="navItems" onClick={() => handleClickProductLink()}>
           Posts
+        </p>{" "}
+        <p className="navItems" onClick={() => handleClickUsersLink()}>
+          Users
         </p>
         <p className="navItems" onClick={() => handleClickServicesLink()}>
           Blog
@@ -41,7 +47,6 @@ export const Header = ({ user, whiteFont }) => {
         <p className="navItems" onClick={() => handleLogout()}>
           {user ? "Log out" : "Log In"}
         </p>
-        {/* <button id="getAccessButton">Get Access</button> */}
       </div>
     </div>
   );

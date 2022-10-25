@@ -4,51 +4,36 @@ import { ThemeProvider } from "@emotion/react";
 import { Button } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { useState } from "react";
-import CloseIcon from "./Icons/CloseIcon";
+import CloseIcon from "../Icons/CloseIcon";
+import { theme } from "../../pages/ProductsPage/Theme";
 
-const theme = createTheme({
-  status: {
-    danger: "#e53e3e",
-  },
-  palette: {
-    primary: {
-      main: "#0991f1",
-      darker: "#053e85",
-    },
-    neutral: {
-      main: " rgb(255, 180, 221)",
-      contrastText: "#fff",
-    },
-  },
-});
-
-export const UpdateModal = ({
+export const UserUpdateModal = ({
   updateBox,
   closeUpdateModal,
   setUpdateSuccess,
 }) => {
   const initialValues = {
-    name: updateBox?.owner.firstName,
-    lastName: updateBox?.owner.lastName,
-    caption: updateBox?.text,
-    tags: updateBox?.tags,
+    firstName: updateBox?.firstName,
+    lastName: updateBox?.lastName,
+    picture: updateBox?.picture,
     id: updateBox?.id,
   };
-  const updateSelectedBox = async (post) => {
+  const updateSelectedBox = async (user) => {
     await axios
       .put(
-        `https://dummyapi.io/data/v1/post/${post.id}`,
-        { ...post },
+        `https://dummyapi.io/data/v1/user/${user.id}`,
+        { ...formValues },
         {
           headers: { "app-id": "6347516f7580f73d9c69995c" },
         }
       )
       .then((response) => {
+        console.log(response);
         setUpdateSuccess(true);
         setTimeout(() => {
           setUpdateSuccess(false);
           window.location.reload();
-        }, 2500);
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
@@ -61,19 +46,12 @@ export const UpdateModal = ({
   };
 
   const handleUpdate = async (e) => {
-    console.log(formValues);
     const data = {
       ...updateBox,
-      text: formValues.caption,
-      tags: formValues.tags,
     };
     e.preventDefault();
     await updateSelectedBox(data)
-      .then(
-        (response) => console.log(response),
-        updateSelectedBox(),
-        closeUpdateModal()
-      )
+      .then((response) => closeUpdateModal())
       .catch((err) => console.log(err));
   };
 
@@ -88,33 +66,18 @@ export const UpdateModal = ({
         <div className="flex">
           <p>First Name:</p>
           <input
-            style={{ color: "grey" }}
-            value={formValues.name}
-            name="name"
-            disabled
+            onChange={getInputValue}
+            value={formValues.firstName}
+            name="firstName"
           />
         </div>
         <div className="flex">
           <p>Last Name:</p>
           <input
-            style={{ color: "grey" }}
-            disabled
+            onChange={getInputValue}
             value={formValues.lastName}
             name="lastName"
           />
-        </div>
-        <div className="flex">
-          <p>Caption:</p>
-          <input
-            value={formValues.caption}
-            name="caption"
-            onChange={getInputValue}
-          />
-        </div>
-        <div className="flex">
-          <p>Tags:</p>
-
-          <input value={formValues.tags} name="tags" onChange={getInputValue} />
         </div>
       </div>
       <form>
