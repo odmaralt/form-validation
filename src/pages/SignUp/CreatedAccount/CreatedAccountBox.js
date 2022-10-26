@@ -1,8 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./CreatedAccountBox.css";
+
 const CreatedAccountBox = ({ setSignIn }) => {
+  const navigate = useNavigate();
+
   const handleOkButton = () => {
-    setSignIn(true);
+    navigate("/sign-in");
   };
   return (
     <div id="successBox">

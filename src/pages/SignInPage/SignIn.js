@@ -49,6 +49,7 @@ const SignIn = ({ setUser }) => {
         .then((response) => {
           const user = response.user;
           setUser(user);
+          navigate("/");
         })
         .catch((err) => {
           setFormErrors({

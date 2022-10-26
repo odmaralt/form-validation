@@ -6,7 +6,7 @@ export const Header = ({ user, whiteFont }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     auth.signOut();
-    navigate("/");
+    navigate("/sign-in");
   };
   const handleClickProductLink = () => {
     navigate("/products");

@@ -93,12 +93,13 @@ const SignUpForm = ({ setSignIn }) => {
         uid: user.uid,
       });
       setSuccesfullyCreatedAccount(true);
-      // setSignIn(false);
+      setSignIn(false);
     }
   };
 
   const handleSignInButton = () => {
-    navigate("/");
+    console.log("hello")
+    navigate("/sign-in");
   };
 
   return (

@@ -22,45 +22,42 @@ const PostPage = () => {
 
 function App() {
   const [user, setUser] = useState();
-  if (auth.onAuthStateChanged) {
-    auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-  }
+  // if (auth.onAuthStateChanged) {
+  //   auth.onAuthStateChanged((user) => {
+  //     setUser(user);
+  //   });
+  // }
   return (
     <div>
       <BrowserRouter>
-        {user && (
-          <div>
-            <Routes>
-              <Route
-                path="/"
-                element={<LandingPage user={user} setUser={setUser} />}
-              />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route
-                path="/services"
-                element={
-                  <div id="blogDiv">
-                    <Blog user={user} />
-                  </div>
-                }
-              />
-              {/* routes path is services the elements div id is blogdiv and inside the div is Blog where user equals user  */}
-              <Route path="/services/:id" element={<PostPage />} />
-              {/* the next routes path is services colon id, the element is the post page function we have  */}
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/users" element={<UsersPage user={user} />} />
-            </Routes>
-            <Footer />
-          </div>
-        )}
-        {!user && (
+        <div>
           <Routes>
-            <Route path="/" element={<SignIn setUser={setUser} />} />
+            <Route
+              path="/"
+              element={<LandingPage user={user} setUser={setUser} />}
+            />
+
+            <Route path="/products" element={<ProductsPage />} />
+            <Route
+              path="/services"
+              element={
+                <div id="blogDiv">
+                  <Blog user={user} />
+                </div>
+              }
+            />
+            {/* routes path is services the elements div id is blogdiv and inside the div is Blog where user equals user  */}
+            <Route path="/services/:id" element={<PostPage />} />
+            {/* the next routes path is services colon id, the element is the post page function we have  */}
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/users" element={<UsersPage user={user} />} />
+
+            <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
             <Route path="/sign-up" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
           </Routes>
-        )}
+          <Footer />
+        </div>
       </BrowserRouter>
     </div>
   );

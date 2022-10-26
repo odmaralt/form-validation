@@ -31,7 +31,6 @@ export const UsersPage = (user) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
   const [deleteBox, setDeleteBox] = useState();
   const [updateBox, setUpdateBox] = useState();
-
   const [createBox, setCreateBox] = useState();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -40,7 +39,6 @@ export const UsersPage = (user) => {
   const [isActive, setIsActive] = useState(false);
   const [selectedBox, setSelectedBox] = useState();
   const [searchBar, setSearchBar] = useState("");
-
   function openModal(text) {
     setModalIsOpen(true);
     setModalState(text);
@@ -70,7 +68,7 @@ export const UsersPage = (user) => {
     if (searchBar !== "") {
       //if searchbar contains nothing, show all the posts
       axios
-        .get("https://dummyapi.io/data/v1/user?limit=10", {
+        .get("https://dummyapi.io/data/v1/user?created=1", {
           headers: { "app-id": "6347516f7580f73d9c69995c   " },
         }) //use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
         .then((response) => {
@@ -100,7 +98,7 @@ export const UsersPage = (user) => {
     } else {
       setLoading(true);
       axios
-        .get("https://dummyapi.io/data/v1/user?limit=10", {
+        .get("https://dummyapi.io/data/v1/user?limit=10&created=1", {
           headers: { "app-id": "6347516f7580f73d9c69995c" },
         }) //grab the dummyapi
         .then((response) => {
