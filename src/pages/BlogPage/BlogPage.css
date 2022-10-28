@@ -92,3 +92,27 @@
   width: 90vw;
   margin-left: 40px;
 }
+@media (max-width: 600px){
+  #blogSpacing{
+    margin-left: 0px;
+  }
+  #blogDivs{
+    margin-left: 10%;
+  }
+  #blogPosts{
+    margin-left: 5%;
+    display: flex;
+    font-size: 28px;
+  }
+  #blogParagraph{
+    margin-left: 18px;
+  }
+}
+@media (max-width: 850px){
+  #blogSpacing{
+    margin-left: 0px;
+  }
+  #blogDivs{
+    margin-left: 6%;
+  }
+}

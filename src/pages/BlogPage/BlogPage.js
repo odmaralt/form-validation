@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header, SearchBar, BlogCard } from "../../components";
+import { Header, SearchBar, BlogCard, Footer } from "../../components";
 import { blogPostInfoArray } from "../../data";
 import "./BlogPage.css";
 
@@ -49,6 +49,7 @@ const Blog = ({ user }) => {
           // its key equals object blogs id
         })}
       </div>
+      <Footer />
     </div>
   );
 };

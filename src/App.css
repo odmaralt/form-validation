@@ -31,10 +31,10 @@ input:focus {
   font-size: 18px;
   margin-top: 20px;
   padding: 10px;
-  width: 320px;
+  width: 75%;
   background-color: rgb(91, 66, 233);
   height: 45px;
-  margin-top: 20px;
+  margin-top: 10px;
   color: white;
   border-radius: 5px;
 }

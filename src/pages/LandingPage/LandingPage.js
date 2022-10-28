@@ -1,5 +1,5 @@
 import React from "react";
-import {Header} from "../../components";
+import { Header, Footer } from "../../components";
 import Calendar3 from "../../components/Icons/Calendar3";
 import CalendarIcon from "../../components/Icons/CalendarIcon";
 import Event from "../../components/Icons/Event";
@@ -15,46 +15,63 @@ const LandingPage = ({ user, setUser }) => {
       <div id="firstPage">
         {/* <p className="title">Hello {user.email}!</p> */}
         <Header user={user} />
-        <h1 id="collab">Instant collaborations for remote teams</h1>
-        <h1 id="allInOne">
-          All in one for your remote team chats, collaboration and track
-          projects
-        </h1>
-        <div id="inputAndButtonDiv">
-          <input id="inputs" placeholder="Email"></input>
-          <button id="buttons">Get early access</button>
+        <div id="firstPageLeftSpace">
+          <h1 id="collab">Instant collaborations for remote teams</h1>
+          <h1 id="allInOne">
+            All in one for your remote team chats, collaboration and track
+            projects
+          </h1>
+          <div id="inputAndButtonDiv">
+            <input id="inputs" placeholder="Email"></input>
+            <button id="buttons">Get early access</button>
+          </div>
         </div>
       </div>
       <div id="secondPage">
-        <div id="page2">
-          <h2 className="header">Your Hub for teamwork </h2>
-          <p className="paragraph">
-            Give everyone you work with—inside and outside your company—a more
-            productive way to stay in sync. Respond faster with emoji, keep
-            conversations focused in channels, and simplify all your
-            communication into one place.{" "}
-          </p>
-          <p className="learnMore">Learn more</p>
+        <div
+          id="page2"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <div id="page2Paragraph">
+            <h2 className="header">Your Hub for teamwork </h2>
+            <p className="paragraph">
+              Give everyone you work with—inside and outside your company—a more
+              productive way to stay in sync. Respond faster with emoji, keep
+              conversations focused in channels, and simplify all your
+              communication into one place.{" "}
+            </p>
+            <p className="learnMore">Learn more</p>
+          </div>
           <div id="page2Meeting">
             <MeetingsIcon id="meetingIcon" />
             <div id="iconPositions">
               <Event id="eventIcon" />
             </div>
-            <div>
-              <CalendarIcon id="calendarIcon" />
-            </div>
           </div>
         </div>
       </div>
       <div id="thirdPage">
-        <div id="display:flex">
+        <div id="thirdpageImgDiv">
           <img
             alt="woman holding ipad"
             id="img3"
             src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
           />
-          <Event2 id="event2" />
-          <Event3 id="event3" />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              position: "relative",
+              top: "-60%",
+            }}
+          >
+            <Event2 id="event2" />
+            <Event3 id="event3" />
+          </div>
         </div>
         <div id="simpleTask">
           <h1 className="header">Simple task management</h1>
@@ -245,6 +262,7 @@ const LandingPage = ({ user, setUser }) => {
           </div>{" "}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

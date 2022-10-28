@@ -13,6 +13,7 @@ import {
   UpdateModal,
   Header,
   Notification,
+  Footer,
 } from "../../components";
 
 const customStyles = {
@@ -133,18 +134,20 @@ const ProductsPage = (user) => {
       <Header user={user} />
       {loading && <div id="loading">...Loading</div>}
       <div className="flex">
-        <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
-        <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            color="neutral"
-            style={{ margin: "46px 0px 0px 835px", height: "50px" }}
-            className="productsButton"
-            onClick={(e) => handleCreateModalOpen(e)}
-          >
-            Create
-          </Button>
-        </ThemeProvider>
+        <div className="createButtonSearch" >
+          <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="neutral"
+              style={{ margin: "46px 0px 0px 0px", height: "50px" }}
+              className="productsButton"
+              onClick={(e) => handleCreateModalOpen(e)}
+            >
+              Create
+            </Button>
+          </ThemeProvider>
+        </div>
       </div>
       <div id="wholeProductDiv">
         {!loading &&
@@ -203,6 +206,7 @@ const ProductsPage = (user) => {
           type="success"
         />
       )}
+      <Footer />
     </div>
   );
 };

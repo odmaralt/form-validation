@@ -2,15 +2,16 @@
   margin-left: auto;
   margin-right: auto;
   /* padding-top: 60px; */
-  width: 30vw;
+  width: 30%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
   align-items: center;
   vertical-align: middle;
-  position: absolute;
-  top: 10%;
-  left: 35vw;
-
   border-radius: 15px;
-  height: 600px;
+  height: 570px;
   background-color: white;
 }
 .background {
@@ -41,4 +42,24 @@
   height: 15px;
   color: rgb(71, 42, 231);
   font-weight: 600;
+}
+
+@media (max-width: 850px) {
+  #signUpDiv {
+    width: 48%;
+  }
+}
+@media (max-width: 600px) {
+  #signUpDiv {
+    width: 75%;
+  }
+  .title1 {
+    font-size: 18px;
+  }
+  #yesAcc {
+    margin-left: 30px;
+  }
+  #signInButton {
+    margin-right: 30px;
+  }
 }

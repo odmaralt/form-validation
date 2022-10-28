@@ -3,12 +3,13 @@
 height: 100vh;
 }
 #contactDiv {
-  margin-left: auto;
-  margin-right: auto;
-  width: 30vw;
   position: absolute;
-  top: 20%;
-  left: 35vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 30vw;
+  margin-top: 40px;
   border-radius: 15px;
   height: 500px;
   background-color: rgb(255, 255, 255);
@@ -20,4 +21,12 @@ height: 100vh;
 }
 #howWeCanHelp{
     padding-bottom: 80px;
+}
+
+@media (max-width: 850px) {
+  #contactDiv {
+    width: 58vw;
+
+  }
+
 }

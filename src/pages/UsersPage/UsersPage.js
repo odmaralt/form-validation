@@ -1,4 +1,4 @@
-import { Header } from "../../components";
+import { Footer, Header } from "../../components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -120,113 +120,123 @@ export const UsersPage = (user) => {
     setSearchBar(value);
   };
   return (
-    <div id="wholeUserDiv">
+    <div style={{ backgroundColor: " #d7ddf2    " }}>
+      {" "}
       <Header whiteFont={true} user={user} />
-      <div className="flex">
-        <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
-        <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            color="neutral"
-            style={{ margin: "0px 0px 0px 835px", height: "50px" }}
-            className="productsButton"
-            onClick={(e) => handleCreateModalOpen(e)}
-          >
-            Create
-          </Button>
-        </ThemeProvider>
-      </div>{" "}
-      {data?.map((user) => {
-        return (
-          <div key={user.id}>
-            <div id="userDivs" onClick={(e) => handleClick(e, user.id)}>
-              <div id="imgDiv">
-                <img
-                  id="userImages"
-                  width={"100%"}
-                  height={"180px"}
-                  src={user.picture}
-                  alt="person"
-                />
+      <div id="wholeUserDiv">
+        <div className="flex">
+          <div id="createButtonSearch">
+            <SearchBar
+              searchBar={searchBar}
+              handleSearchBar={handleSearchBar}
+            />
+            <ThemeProvider theme={theme}>
+              <Button
+                variant="contained"
+                color="neutral"
+                style={{ margin: "46px 0px 0px 0px", height: "50px" }}
+                className="productsButton"
+                onClick={(e) => handleCreateModalOpen(e)}
+              >
+                Create
+              </Button>
+            </ThemeProvider>
+          </div>
+        </div>{" "}
+        {data?.map((user) => {
+          return (
+            <div key={user.id}>
+              <div id="userDivs" onClick={(e) => handleClick(e, user.id)}>
+                <div id="imgDiv">
+                  <img
+                    id="userImages"
+                    width={"100%"}
+                    height={"180px"}
+                    src={user.picture}
+                    alt="person"
+                  />
+                </div>
+
+                <div id="userName">
+                  <p>
+                    {user.firstName} {user.lastName}
+                  </p>
+                </div>
               </div>
 
-              <div id="userName">
-                <p>
-                  {user.firstName} {user.lastName}
-                </p>
-              </div>
+              {selectedBox === user.id && (
+                <div className="usersButton">
+                  <ThemeProvider theme={theme}>
+                    <Button
+                      variant="contained"
+                      color="neutral"
+                      onClick={(e) => handleDeleteModalOpen(e, user)}
+                    >
+                      Delete
+                    </Button>
+                  </ThemeProvider>
+                  <ThemeProvider theme={theme}>
+                    <Button
+                      variant="contained"
+                      color="neutral"
+                      onClick={(e) => handleUpdateModalOpen(e, user)}
+                    >
+                      Update
+                    </Button>
+                  </ThemeProvider>
+                </div>
+              )}
             </div>
-            {selectedBox === user.id && (
-              <div className="usersButton">
-                <ThemeProvider theme={theme}>
-                  <Button
-                    variant="contained"
-                    color="neutral"
-                    onClick={(e) => handleDeleteModalOpen(e, user)}
-                  >
-                    Delete
-                  </Button>
-                </ThemeProvider>
-                <ThemeProvider theme={theme}>
-                  <Button
-                    variant="contained"
-                    color="neutral"
-                    onClick={(e) => handleUpdateModalOpen(e, user)}
-                  >
-                    Update
-                  </Button>
-                </ThemeProvider>
-              </div>
-            )}
-          </div>
-        );
-      })}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {modalState === "delete" && (
-          <UserDeleteModal
-            deleteBox={deleteBox}
-            closeModal={closeModal}
-            setSuccess={setSuccess}
+          );
+        })}
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          {modalState === "delete" && (
+            <UserDeleteModal
+              deleteBox={deleteBox}
+              closeModal={closeModal}
+              setSuccess={setSuccess}
+            />
+          )}
+          {modalState === "update" && (
+            <UserUpdateModal
+              updateBox={updateBox}
+              closeUpdateModal={closeModal}
+              setUpdateSuccess={setUpdateSuccess}
+            />
+          )}
+          {modalState === "create" && (
+            <UserCreateModal
+              createBox={createBox}
+              closeCreateModal={closeModal}
+              setCreateSuccess={setCreateSuccess}
+            />
+          )}
+        </Modal>{" "}
+        {success && (
+          <Notification
+            text="You have successfully deleted the user"
+            type="success"
           />
         )}
-        {modalState === "update" && (
-          <UserUpdateModal
-            updateBox={updateBox}
-            closeUpdateModal={closeModal}
-            setUpdateSuccess={setUpdateSuccess}
+        {updateSuccess && (
+          <Notification
+            text="You have successfully updated the user"
+            type="success"
           />
         )}
-        {modalState === "create" && (
-          <UserCreateModal
-            createBox={createBox}
-            closeCreateModal={closeModal}
-            setCreateSuccess={setCreateSuccess}
+        {createSuccess && (
+          <Notification
+            text="You have successfully created the user"
+            type="success"
           />
         )}
-      </Modal>{" "}
-      {success && (
-        <Notification
-          text="You have successfully deleted the user"
-          type="success"
-        />
-      )}
-      {updateSuccess && (
-        <Notification
-          text="You have successfully updated the user"
-          type="success"
-        />
-      )}
-      {createSuccess && (
-        <Notification
-          text="You have successfully created the user"
-          type="success"
-        />
-      )}
+      </div>{" "}
+      <Footer />
     </div>
   );
 };

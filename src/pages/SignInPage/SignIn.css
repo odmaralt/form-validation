@@ -1,12 +1,12 @@
 #signInDiv {
-  margin-left: auto;
-  margin-right: auto;
-  width: 30vw;
+  width: 25%;
   position: absolute;
-  top: 10%;
-  left: 35vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
   border-radius: 15px;
-  height: 420px;
+  height: 380px;
   background-color: white;
 }
 .background {
@@ -25,14 +25,14 @@
   display: flex;
   margin-top: 15px;
   font-size: 14px;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 #createAccButton {
   margin: 0 auto;
   border: none;
   font-size: 14px;
   margin-top: 0px;
-  margin-right: 91px;
+  margin-right: 40px;
   background-color: white;
   height: 15px;
   color: rgb(71, 42, 231);
@@ -41,4 +41,20 @@
 }
 #createAccButton:hover {
   color: rgb(116, 98, 219);
+}
+input {
+  width: 70%;
+}
+@media (max-width: 850px) {
+  #signInDiv {
+    width: 48%;
+  }
+}
+@media (max-width: 600px) {
+  #signInDiv {
+    width: 70%;
+  }
+  .title {
+    font-size: 18px;
+  }
 }

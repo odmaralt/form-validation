@@ -1,4 +1,4 @@
-import {Header} from "../../components";
+import { Header, Footer } from "../../components";
 import { useParams } from "react-router-dom";
 import { blogPostInfoArray } from "../../data";
 import "./ArticlePage.css";
@@ -67,14 +67,14 @@ export const ArticlePage = (user) => {
           <p id="personTitle">CEO Team App</p>
         </div>
       </div>
-
       <div id="commentDiv">
         <p id="joinConvo">Join the conversation</p>
         <div id="commment">
           <BlogManAvatar />
           <input id="commentInput" placeholder="Comments"></input>
         </div>
-      </div>
+      </div>{" "}
+      <Footer />
     </div>
   );
 };

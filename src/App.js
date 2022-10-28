@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Footer } from "./components";
 import { auth } from "./firebase";
 import Blog from "./pages/BlogPage/BlogPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -56,7 +55,6 @@ function App() {
             <Route path="/sign-up" element={<SignUpForm setUser={setUser} />} />
             <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
           </Routes>
-          <Footer />
         </div>
       </BrowserRouter>
     </div>

@@ -1,11 +1,12 @@
 import "./ContactPage.css";
 import React from "react";
 import { Name } from "../../components/Form-Inputs";
-import { Header } from "../../components";
+import { Header, Footer } from "../../components";
 import { Button } from "../../components/Form-Inputs";
 import { Email } from "../../components/Form-Inputs";
 const ContactPage = (user) => {
   return (
+    <div>
     <div id="contactPage">
       <Header whiteFont={false} user={user} />
       <div id="contactDiv">
@@ -16,6 +17,10 @@ const ContactPage = (user) => {
         <Button text={"Submit"} />
       </div>
     </div>
+          <Footer />
+    </div>
+
+
   );
 };
 export default ContactPage;
