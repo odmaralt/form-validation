@@ -53,6 +53,7 @@ const ProductsPage = (user) => {
   function closeModal() {
     setModalIsOpen(false);
   }
+
   //close modal setsmodalopen as false so closes the modal
   useEffect(() => {
     if (searchBar !== "") {
@@ -103,7 +104,6 @@ const ProductsPage = (user) => {
         });
     }
   }, [searchBar]);
-
   const handleClick = (e, id) => {
     e.preventDefault();
     setSelectedBox(id); //gets id of selectedbox
@@ -132,9 +132,9 @@ const ProductsPage = (user) => {
   return (
     <div id="productsPage">
       <Header user={user} />
-      {loading && <div id="loading">...Loading</div>}
+
       <div className="flex">
-        <div className="createButtonSearch" >
+        <div className="createButtonSearch">
           <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
           <ThemeProvider theme={theme}>
             <Button
@@ -149,10 +149,16 @@ const ProductsPage = (user) => {
           </ThemeProvider>
         </div>
       </div>
+      {loading && (
+        <div style={{ height: "100vh" }} id="loading">
+          ...Loading
+        </div>
+      )}
       <div id="wholeProductDiv">
         {!loading &&
           data?.map((post) => (
             <Product
+              key={post.id}
               post={post}
               handleClick={handleClick}
               selectedBox={selectedBox}

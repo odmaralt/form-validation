@@ -5,6 +5,7 @@ import CloseIcon from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material/styles";
 import { useState } from "react";
+import { UsersDropdown } from "../Form-Inputs";
 
 const theme = createTheme({
   status: {
@@ -39,11 +40,13 @@ const initialValues = {
   image: "",
   likes: 0,
   tags: [],
-  owner: "60d0fe4f5311236168a10a1a",
+  owner: "",
 };
 
 export const CreateModal = ({ closeCreateModal, setCreateSuccess }) => {
   const [formValues, setFormValues] = useState(initialValues); //formvalues takes initial values
+  const [postOwner, setPostOwner] = useState();
+  console.log(postOwner);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -52,7 +55,12 @@ export const CreateModal = ({ closeCreateModal, setCreateSuccess }) => {
 
   const handleCreateButton = async (e) => {
     e.preventDefault(); //prevents page from refreshing after every change
-    const values = { ...formValues, tags: formValues.tags.split(",") };
+    const values = {
+      ...formValues,
+      tags: formValues.tags.split(","),
+      owner: postOwner,
+    };
+
     //form values tags converts string into array by splitting it by the commas
     await createPost(values)
       .then(async (response) => {
@@ -76,6 +84,9 @@ export const CreateModal = ({ closeCreateModal, setCreateSuccess }) => {
         <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>
           Create a post
         </p>
+        <div>
+          <UsersDropdown setPostOwner={setPostOwner} postOwner={postOwner} />
+        </div>
         <div className="flex">
           <p>Caption:</p>
           <input name="text" onChange={handleInputChange} />

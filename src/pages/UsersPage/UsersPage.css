@@ -58,6 +58,10 @@
 }
 
 #createDiv {
+  height: 440px;
+}
+
+#createDiv1 {
   height: 330px;
 }
 #createButtonSearch {

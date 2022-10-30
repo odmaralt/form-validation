@@ -12,6 +12,7 @@ export const UserUpdateModal = ({
   closeUpdateModal,
   setUpdateSuccess,
 }) => {
+  console.log(updateBox);
   const initialValues = {
     firstName: updateBox?.firstName,
     lastName: updateBox?.lastName,

@@ -33,9 +33,11 @@ export const UsersPage = (user) => {
   const [updateBox, setUpdateBox] = useState();
   const [createBox, setCreateBox] = useState();
   const [loading, setLoading] = useState(false);
+  const [filterData, setFilterData] = useState([]);
   const [success, setSuccess] = useState(false);
-  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [valueOfSearchbar, setValueOfSearchbar] = useState("");
   const [createSuccess, setCreateSuccess] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [selectedBox, setSelectedBox] = useState();
   const [searchBar, setSearchBar] = useState("");
@@ -65,52 +67,91 @@ export const UsersPage = (user) => {
     openModal("create"); //open delete modal
   };
   useEffect(() => {
-    if (searchBar !== "") {
-      //if searchbar contains nothing, show all the posts
-      axios
-        .get("https://dummyapi.io/data/v1/user?created=1", {
-          headers: { "app-id": "6347516f7580f73d9c69995c   " },
-        }) //use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
-        .then((response) => {
-          //if its succesfull setdata
-          setData(
-            response.data.data?.filter((user) => {
-              //filter response.data.data
-
-              if (
-                searchBar.toLowerCase() === user.firstName.toLowerCase()
-                //if searchbar equals first name, return post.text
-              ) {
-                return user;
-                //return post
-              }
-              //else return firstname includes searchbar
-              return user.firstName
-                .toLowerCase()
-                .includes(searchBar.toLowerCase());
-              //return post.text and it includes searchbar
-            })
-          );
-        })
-        .catch((err) => {
-          console.log(err);
-        }); //catch and console.log error
-    } else {
-      setLoading(true);
-      axios
-        .get("https://dummyapi.io/data/v1/user?limit=10&created=1", {
-          headers: { "app-id": "6347516f7580f73d9c69995c" },
-        }) //grab the dummyapi
-        .then((response) => {
+    axios
+      .get("https://dummyapi.io/data/v1/user?created=1", {
+        headers: { "app-id": "6347516f7580f73d9c69995c " },
+      })
+      .then((response) => {
+        console.log(response);
+        setLoading(true);
+        setTimeout(() => {
           setData(response.data.data);
+          setFilterData(response.data.data);
           setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(false);
-        });
-    }
-  }, [searchBar, user]);
+        }, 1000);
+      })
+      .catch((err) => <Notification text={err.message} type="error" />);
+
+    // if (searchBar !== "") {
+    //   //if searchbar contains nothing, show all the posts
+    //   axios
+    //     .get("https://dummyapi.io/data/v1/user?created=1", {
+    //       headers: { "app-id": "6347516f7580f73d9c69995c   " },
+    //     }) //use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
+    //     .then((response) => {
+    //       //if its succesfull setdata
+    //       setLoading(true);
+
+    //       setData(
+
+    //         response.data.data?.filter((user) => {
+    //           //filter response.data.data
+
+    //           if (
+    //             searchBar.toLowerCase() === user.firstName.toLowerCase()
+    //             //if searchbar equals first name, return post.text
+    //           ) {
+    //             return user;
+    //             //return post
+    //           }
+    //           //else return firstname includes searchbar
+    //           return user.firstName
+    //             .toLowerCase()
+    //             .includes(searchBar.toLowerCase());
+    //           //return post.text and it includes searchbar
+    //         })
+    //       );
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     }); //catch and console.log error
+    // } else {
+    //   setLoading(true);
+    //   axios
+    //     .get("https://dummyapi.io/data/v1/user?limit=10&created=1", {
+    //       headers: { "app-id": "6347516f7580f73d9c69995c" },
+    //     }) //grab the dummyapi
+    //     .then((response) => {
+    //       setData(response.data.data);
+    //       setLoading(false);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       setLoading(false);
+    //     });
+    // }
+  }, []);
+  useEffect(() => {
+    filtered(valueOfSearchbar);
+  }, [valueOfSearchbar]);
+
+  const filtered = (e) => {
+    const filtered =
+      data &&
+      data.filter((item) => {
+        const dataItems =
+          item.owner.title +
+          " " +
+          item.owner.firstName +
+          " " +
+          item.owner.lastName;
+        const filteredItem = dataItems.toLowerCase().includes(e.toLowerCase());
+        return filteredItem;
+      });
+    setFilterData(filtered);
+    console.log(filtered);
+  };
+
   const handleClick = (e, id) => {
     e.preventDefault();
     setSelectedBox(id); //gets id of selectedbox
@@ -120,8 +161,7 @@ export const UsersPage = (user) => {
     setSearchBar(value);
   };
   return (
-    <div style={{ backgroundColor: " #d7ddf2    " }}>
-      {" "}
+    <div style={{ backgroundColor: "#d7ddf2" }}>
       <Header whiteFont={true} user={user} />
       <div id="wholeUserDiv">
         <div className="flex">

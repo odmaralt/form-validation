@@ -50,7 +50,7 @@ export const UserCreateModal = ({ closeCreateModal, setCreateSuccess }) => {
   };
 
   return (
-    <div id="createDiv">
+    <div id="createDiv1">
       <CloseIcon id="xButton" onClick={closeCreateModal} />
 
       <div id="createBoxDiv">
