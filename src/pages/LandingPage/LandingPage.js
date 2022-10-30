@@ -12,10 +12,12 @@ import "./LandingPage.css";
 const LandingPage = ({ user, setUser }) => {
   return (
     <div>
+      {" "}
       <div id="firstPage">
         {/* <p className="title">Hello {user.email}!</p> */}
-        <Header user={user} />
         <div id="firstPageLeftSpace">
+        <Header user={user} />
+
           <h1 id="collab">Instant collaborations for remote teams</h1>
           <h1 id="allInOne">
             All in one for your remote team chats, collaboration and track
@@ -48,9 +50,9 @@ const LandingPage = ({ user, setUser }) => {
           </div>
           <div id="page2Meeting">
             <MeetingsIcon id="meetingIcon" />
-            <div id="iconPositions">
+            {/* <div id="iconPositions">
               <Event id="eventIcon" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -61,14 +63,7 @@ const LandingPage = ({ user, setUser }) => {
             id="img3"
             src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
           />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-              top: "-60%",
-            }}
-          >
+          <div id="twobox">
             <Event2 id="event2" />
             <Event3 id="event3" />
           </div>

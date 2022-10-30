@@ -28,8 +28,8 @@ export const ArticlePage = (user) => {
       <img
         id="articleImage"
         alt="img"
-        height={"450px"}
-        width={"860px"}
+        height={"8%"}
+        width={"60%"}
         src={selectedPost[0].imgSrc}
       />
       <p id="articleParagraph">

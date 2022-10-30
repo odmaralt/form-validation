@@ -7,7 +7,7 @@
     url(https://images.unsplash.com/photo-1601933513556-7926c45d1c49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
   height: 100vh;
   width: 100vw;
-  background-size: initial;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -54,7 +54,6 @@
 }
 #collab {
   padding-top: 20vh;
-  width: 514px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-style: normal;
@@ -147,9 +146,9 @@
   display: flex;
 }
 #img3 {
-  width: 600px;
+  width: 40vw;
   transform: matrix(-1, 0, 0, 1, 0, 0);
-  height: 440px;
+  height: 60vh;
   padding-top: 20vh;
   padding-left: 25px;
 }
@@ -159,17 +158,20 @@
   display: flex;
 }
 #img4 {
-  width: 620px;
-  height: 510px;
+  width: 51vw;
+  height: 70vh;
   position: absolute;
   z-index: 0;
   margin-left: 17vw;
   padding-top: 17.5vh;
 }
 #lastHeader {
-  margin-left: 470px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: 800;
   font-size: 38px;
+  justify-content: center;
   line-height: 60px;
   display: flex;
   /* align-items: center; */
@@ -316,23 +318,16 @@
   color: #ffffff;
   padding-top: 5px;
 }
-/* #event2 {
-  position: absolute;
-  z-index: 1;
-  padding-top: 160px;
-margin-left: -40%;
+#twobox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -60%;
 }
-#event3 {
-  position: absolute;
-  z-index: 1;
-  padding-top: 290px;
-  margin-left: -40%;
-} */
 #meetingIcon {
-  /* position: absolute; */
-  /* z-index: 0; */
-  /* right: 0px; */
-  /* padding-left: 350px; */
+  position: absolute;
+  right: 0;
+  width: 40%;
 }
 #calendarIcon {
   /* position: absolute; */
@@ -390,15 +385,45 @@ margin-left: -40%;
   #navBarRight1 {
     margin-left: 38%;
   }
+  .paragraph {
+    font-size: 13px;
+  }
+  #img4 {
+    height: 30vh;
+    margin-left: 1vw;
+    width: 42vw;
+  }
+  #twobox {
+    top: -40%;
+  }
+  #img3 {
+    height: 28vh;
+  }
+  #calendar3 {
+    padding-left: 0px;
+  }
+  #simpleTask {
+    padding-right: 0px;
+  }
 }
+
 @media (max-width: 600px) {
   #allColumns {
     display: flex;
     flex-wrap: wrap;
   }
+  #calendar3 {
+    display: none;
+  }
+  #img4 {
+    display: none;
+  }
   .columns {
     padding-left: 2%;
     font-size: 10px;
+  }
+  #fourthPage{
+    justify-content: center;
   }
   #footer {
     height: 500px;
@@ -413,5 +438,16 @@ margin-left: -40%;
   }
   #teamIcon {
     padding-left: 34px;
+  }
+  .header {
+    font-size: 24px;
+    width: 200px;
+  }
+  #twobox {
+    display: none;
+  }
+  .paragraph {
+    font-size: 10px;
+    width: 200px;
   }
 }

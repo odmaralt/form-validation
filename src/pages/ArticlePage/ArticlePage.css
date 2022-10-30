@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 100px 0px 20px 360px;
+  padding: 100px 0px 20px 21%;
   color: #25313c;
 }
 
@@ -13,10 +13,9 @@
   display: flex;
   align-items: center;
   width: 600px;
-
   color: #6d7d8b;
   font-size: 14px;
-  padding-left: 360px;
+  padding-left: 22%;
 }
 #articleAvatarDiv p {
   padding-left: 30px;
@@ -42,13 +41,13 @@
   font-size: 16px;
   line-height: 44px;
   text-align: center;
-  margin: 50px 350px;
+  margin: 50px 22%;
   display: inline-block;
   color: #25313c;
 }
 #writtenByDiv {
   display: flex;
-  margin-left: 350px;
+  margin-left: 22%;
 }
 #writtenBy {
   font-weight: 500;
@@ -76,7 +75,7 @@
 #commentDiv {
   border-top: 1px solid rgba(109, 125, 139, 0.22);
   width: 52vw;
-  margin-left: 350px;
+  margin-left: 22%;
 }
 #joinConvo {
   color: #6d7d8b;
@@ -89,13 +88,32 @@
 }
 #commentInput {
   background: #ffffff;
-  width: 630px;
+  width: 95%;
   height: 148px;
   position: relative;
   bottom: 60px;
   border-radius: 4px;
-  margin-left: 60px;
+  margin-left: 0px;
   font-size: 14px;
   border: 2px solid #bbc8d4;
   border-radius: 4px;
+}
+
+@media (max-width: 850px) {
+  #articleTitle {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 850px) {
+  #articleTitle {
+    font-size: 22px;
+    padding: 100px 0px 20px 12%;
+  }
+  #articleParagraph {
+    margin: 50px 12%;
+  }
+  #articleAvatarDiv {
+    display: none;
+  }
 }
