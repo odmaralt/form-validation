@@ -199,7 +199,7 @@ export const UsersPage = (user) => {
 
                 <div id="userName">
                   <p>
-                    {user.firstName} {user.lastName}
+                    {user.title} {user.firstName} {user.lastName}
                   </p>
                 </div>
               </div>

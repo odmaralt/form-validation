@@ -92,9 +92,8 @@ button {
   height: 20px;
 }
 .search-form {
-  margin-left: 10vw;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  /* margin-left: 10vw; */
+  margin-top: 50px;
 }
 #createDiv {
   width: 400px;
@@ -111,5 +110,5 @@ button {
 .createButtonSearch {
   display: flex;
   justify-content: space-between;
-  width: 85vw;
+  width: 89.5vw;
 }

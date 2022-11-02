@@ -135,7 +135,11 @@ const ProductsPage = (user) => {
 
       <div className="flex">
         <div className="createButtonSearch">
+          <div style={{paddingLeft:"10%"}}>
           <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />
+
+
+          </div>
           <ThemeProvider theme={theme}>
             <Button
               variant="contained"

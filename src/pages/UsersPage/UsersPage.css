@@ -27,10 +27,15 @@
   align-items: center;
   display: flex;
 }
+.search-form {
+  margin-left: 3vw;
+  margin-top: 50px;
+}
 
 #wholeUserDiv {
   display: flex;
   margin-left: auto;
+  justify-content: center;
   margin-right: auto;
   flex-wrap: wrap;
 }
@@ -62,10 +67,11 @@
 }
 
 #createDiv1 {
-  height: 330px;
+  height: 400px;
 }
 #createButtonSearch {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 85vw;
+  width: 78vw;
 }

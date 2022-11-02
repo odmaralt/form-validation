@@ -15,8 +15,9 @@ const LandingPage = ({ user, setUser }) => {
       {" "}
       <div id="firstPage">
         {/* <p className="title">Hello {user.email}!</p> */}
-        <div id="firstPageLeftSpace">
         <Header user={user} />
+
+        <div id="firstPageLeftSpace">
 
           <h1 id="collab">Instant collaborations for remote teams</h1>
           <h1 id="allInOne">
@@ -80,7 +81,7 @@ const LandingPage = ({ user, setUser }) => {
         </div>
       </div>
       <div id="fourthPage">
-        <div>
+        <div id="schedulingWorks">
           <h1 className="header">Scheduling that actually works</h1>
           <p className="paragraph">
             Give everyone you work with—inside and outside your company—a more

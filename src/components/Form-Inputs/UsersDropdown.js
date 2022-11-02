@@ -29,7 +29,7 @@ export const UsersDropdown = ({ setPostOwner, postOwner }) => {
   return (
     <div>
       <FormControl
-        sx={{ m: 1, minWidth: 150, minHeight: 0 }}
+        sx={{ m: 1, minWidth: 350, minHeight: 0 }}
         size="small"
         style={{ height: "48px", marginLeft: "-2px", marginTop: "15px" }}
       >

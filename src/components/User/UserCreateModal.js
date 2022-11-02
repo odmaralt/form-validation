@@ -5,6 +5,7 @@ import CloseIcon from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
 import { theme } from "../../pages/ProductsPage/Theme";
+import { TitleDropdown } from "../Form-Inputs";
 
 const createUser = async (formValues) => {
   await axios.post(`https://dummyapi.io/data/v1/user/create`, formValues, {
@@ -17,13 +18,16 @@ export const UserCreateModal = ({ closeCreateModal, setCreateSuccess }) => {
   const initialValues = {
     firstName: "",
     lastName: "",
+    title: "",
     // picture: "",
     email: "",
   };
+  const [userTitle, setUserTitle] = useState();
+
   const [formValues, setFormValues] = useState(initialValues); //formvalues takes initial values
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value, title: userTitle });
   };
   //   saving the user input onchange
 
@@ -57,6 +61,9 @@ export const UserCreateModal = ({ closeCreateModal, setCreateSuccess }) => {
         <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>
           Create a user
         </p>
+        <div>
+          <TitleDropdown setUserTitle={setUserTitle} userTitle={userTitle} />
+        </div>
         <div className="flex">
           <p>First Name:</p>
           <input name="firstName" onChange={(e) => handleInputChange(e)} />

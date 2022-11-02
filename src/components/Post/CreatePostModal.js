@@ -46,7 +46,6 @@ const initialValues = {
 export const CreateModal = ({ closeCreateModal, setCreateSuccess }) => {
   const [formValues, setFormValues] = useState(initialValues); //formvalues takes initial values
   const [postOwner, setPostOwner] = useState();
-  console.log(postOwner);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
