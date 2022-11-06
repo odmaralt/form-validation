@@ -4,7 +4,6 @@ import React from "react";
 import Button from "@mui/material/Button";
 import CloseIcon from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material/styles";
 
 
 export const UserDeleteModal = ({ deleteBox, closeModal, setSuccess }) => {
