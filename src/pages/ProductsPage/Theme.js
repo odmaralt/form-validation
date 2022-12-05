@@ -10,7 +10,7 @@ export const theme = createTheme({
       darker: "#053e85",
     },
     neutral: {
-      main: " rgb(255, 180, 221)",
+      main: " rgb(87, 101, 131)",
       contrastText: "#fff",
     },
   },

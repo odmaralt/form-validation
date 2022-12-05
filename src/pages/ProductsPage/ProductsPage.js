@@ -131,7 +131,7 @@ const ProductsPage = (user) => {
 
   return (
     <div id="productsPage">
-      <Header user={user} />
+      <Header user={user}  whiteFont={true} />
 
       <div className="flex">
         <div className="createButtonSearch">

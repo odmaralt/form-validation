@@ -81,55 +81,6 @@ export const UsersPage = (user) => {
         }, 1000);
       })
       .catch((err) => <Notification text={err.message} type="error" />);
-
-    // if (searchBar !== "") {
-    //   //if searchbar contains nothing, show all the posts
-    //   axios
-    //     .get("https://dummyapi.io/data/v1/user?created=1", {
-    //       headers: { "app-id": "6347516f7580f73d9c69995c   " },
-    //     }) //use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
-    //     .then((response) => {
-    //       //if its succesfull setdata
-    //       setLoading(true);
-
-    //       setData(
-
-    //         response.data.data?.filter((user) => {
-    //           //filter response.data.data
-
-    //           if (
-    //             searchBar.toLowerCase() === user.firstName.toLowerCase()
-    //             //if searchbar equals first name, return post.text
-    //           ) {
-    //             return user;
-    //             //return post
-    //           }
-    //           //else return firstname includes searchbar
-    //           return user.firstName
-    //             .toLowerCase()
-    //             .includes(searchBar.toLowerCase());
-    //           //return post.text and it includes searchbar
-    //         })
-    //       );
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     }); //catch and console.log error
-    // } else {
-    //   setLoading(true);
-    //   axios
-    //     .get("https://dummyapi.io/data/v1/user?limit=10&created=1", {
-    //       headers: { "app-id": "6347516f7580f73d9c69995c" },
-    //     }) //grab the dummyapi
-    //     .then((response) => {
-    //       setData(response.data.data);
-    //       setLoading(false);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //       setLoading(false);
-    //     });
-    // }
   }, []);
   useEffect(() => {
     filtered(valueOfSearchbar);
@@ -161,7 +112,7 @@ export const UsersPage = (user) => {
     setSearchBar(value);
   };
   return (
-    <div style={{ backgroundColor: "#d7ddf2" }}>
+    <div style={{ backgroundColor: "#f5f7fa " }}>
       <Header whiteFont={true} user={user} />
       <div id="wholeUserDiv">
         <div className="flex">

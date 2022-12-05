@@ -15,7 +15,7 @@
   background-color: white;
 }
 .background {
-  background-color: rgb(98, 74, 236);
+  background-color: #384f80;
   width: 100vw;
   height: 100vh;
 }
@@ -40,7 +40,7 @@
   background-color: white;
   cursor: pointer;
   height: 15px;
-  color: rgb(71, 42, 231);
+  color: #384f80;
   font-weight: 600;
 }
 

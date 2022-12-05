@@ -32,7 +32,7 @@ input:focus {
   margin-top: 20px;
   padding: 10px;
   width: 75%;
-  background-color: rgb(91, 66, 233);
+  background-color: #576583;
   height: 45px;
   margin-top: 10px;
   color: white;
@@ -44,5 +44,5 @@ input:focus {
   margin: 0.2vw 0vw 0.2vw 4vw;
 }
 #button:hover {
-  background-color: rgb(71, 42, 231);
+  background-color: #38435a;
 }

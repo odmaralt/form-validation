@@ -8,7 +8,7 @@ export const SearchBar = (props) => {
           name="input"
           type="text"
           value={searchBar}
-          style={{ width: "150%", marginLeft: "-50px" }}
+          style={{ backgroundColor:"white", width: "150%", marginLeft: "-50px" }}
           //value equals searchbar
           placeholder="Search"
           onChange={(event) => {

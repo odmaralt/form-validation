@@ -13,7 +13,7 @@
   height: 100vh;
   margin-top: 0px;
   width: 100vw;
-  background-color: rgb(98, 74, 236);
+  background-color: #384f80;
 }
 
 .title {
@@ -35,12 +35,12 @@
   margin-right: 40px;
   background-color: white;
   height: 15px;
-  color: rgb(71, 42, 231);
+  color: #384f80;
   cursor: pointer;
   font-weight: 600;
 }
 #createAccButton:hover {
-  color: rgb(116, 98, 219);
+  color: #334772;
 }
 input {
   width: 70%;

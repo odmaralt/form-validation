@@ -25,7 +25,7 @@
   flex-wrap: wrap;
 }
 #productsPage {
-  background-color: #f2d7e2;
+  background-color: #f5f7fa;
 }
 #productImages {
   align-items: center;
@@ -46,7 +46,7 @@
   font-size: 14px;
   padding: 5px;
   text-transform: capitalize;
-  color: rgb(211, 88, 190);
+  color: rgb(87, 101, 131);
 }
 .none {
   display: none;

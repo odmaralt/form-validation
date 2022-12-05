@@ -8,7 +8,7 @@ const ContactPage = (user) => {
   return (
     <div>
     <div id="contactPage">
-      <Header whiteFont={false} user={user} />
+      <Header whiteFont={true} user={user} />
       <div id="contactDiv">
         <p id="title">Contact Us</p>
         <Name />

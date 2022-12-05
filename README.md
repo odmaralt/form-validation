@@ -18,7 +18,7 @@ git clone ‘URL of github repository’
 2. Go into the project
 
 ```sh
-cd my-cloned-app
+cd back-end-project
 ```
 
 3. Install npm
@@ -27,7 +27,7 @@ cd my-cloned-app
 npm install
 ```
 
-4. Open the project
+4. Start the project
 
 ```sh
 npm start
