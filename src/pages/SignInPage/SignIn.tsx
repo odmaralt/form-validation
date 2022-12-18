@@ -5,6 +5,7 @@ import { auth } from "../../firebase";
 import { Button2, Email, Password } from "../../components/Form-Inputs";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
+import axios from "axios";
 
 interface ISignIn {
   setUser: React.Dispatch<React.SetStateAction<boolean | undefined>>;
@@ -34,7 +35,7 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
       })
       .catch((err: { errors: string }) => {
         setFormErrors({
-          ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
+          ...formErrors, // previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
           [name]: err.errors[0],
         });
       });
@@ -43,23 +44,25 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
   const handleSubmitButton = async () => {
     if (formValues.email === "" || formValues.password === "") {
       setUser(false);
-    }
-    if (formErrors.email === "") {
-      await signInWithEmailAndPassword(
-        auth,
-        formValues.email,
-        formValues.password
-      )
+    } else {
+      await axios
+        .post(
+          "http://localhost:5454/login",
+          {
+            email: formValues.email,
+            password: formValues.password,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((response) => {
-          const user = response.user;
-          setUser(user as unknown as boolean);
-          navigate("/");
+          console.log(response);
         })
         .catch((err) => {
-          setFormErrors({
-            ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
-            password: err.message,
-          });
+          console.log(err);
         });
     }
   };
