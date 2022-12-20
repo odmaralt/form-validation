@@ -1,7 +1,5 @@
-import { Footer, Header } from "../../components";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import "./UsersPage.css";
 
@@ -11,27 +9,29 @@ import {
   Notification,
   UserDeleteModal,
   SearchBar,
+  Footer,
+  Header,
 } from "../../components";
 import { Theme } from "../ProductsPage/Theme";
 import { ThemeProvider } from "@mui/system";
 import Modal from "react-modal";
-type Item = {
+interface Item {
   owner: {
     firstName: string;
     title: string;
     lastName: string;
   };
-};
+}
 interface IUsersPage {
   user: boolean | undefined;
 }
-type User = {
+interface User {
   id: string;
   picture: string;
   title: string;
   firstName: string;
   lastName: string;
-};
+}
 const customStyles = {
   content: {
     top: "50%",
@@ -48,48 +48,49 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
   const [modalIsOpen, setModalIsOpen] = React.useState<boolean>(false);
   const [deleteBox, setDeleteBox] = useState<User>();
   const [updateBox, setUpdateBox] = useState<User>();
-  const [createBox, setCreateBox] = useState<User>();
   const [loading, setLoading] = useState(false);
-  const [filterData, setFilterData] = useState<{}[]>([]);
+  const [filterData, setFilterData] = useState<Array<Record<string, never>>>(
+    []
+  );
   const [success, setSuccess] = useState<boolean>(false);
-  const [valueOfSearchbar, setValueOfSearchbar] = useState("");
+  const [valueOfSearchBar, setValueOfSearchbar] = useState("");
   const [createSuccess, setCreateSuccess] = useState<boolean>(false);
   const [updateSuccess, setUpdateSuccess] = useState<boolean>(false);
   const [isActive, setIsActive] = useState(false);
   const [selectedBox, setSelectedBox] = useState<string>();
   const [searchBar, setSearchBar] = useState<string>("");
-  function openModal(text: string) {
+  const openModal = (text: string) => {
     setModalIsOpen(true);
     setModalState(text);
-  }
-  //open modal gets text as prop
-  //sets modal as open
-  //the modal state takes text
+  };
+  // open modal gets text as prop
+  // sets modal as open
+  // the modal state takes text
 
-  function closeModal() {
+  const closeModal = () => {
     setModalIsOpen(false);
-  }
+  };
   const handleDeleteModalOpen = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    user: User
+    selectedUser: User
   ) => {
     e.preventDefault();
-    setDeleteBox(user); //opens specific post that was clicked
-    openModal("delete"); //open delete modal
+    setDeleteBox(selectedUser); // opens specific post that was clicked
+    openModal("delete"); // open delete modal
   };
   const handleUpdateModalOpen = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    user: User
+    selectedUser: User
   ) => {
     e.preventDefault();
-    setUpdateBox(user); //opens specific post that was clicked
-    openModal("update"); //open delete modal
+    setUpdateBox(selectedUser); // opens specific post that was clicked
+    openModal("update"); // open delete modal
   };
   const handleCreateModalOpen = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    openModal("create"); //open delete modal
+    openModal("create"); // open delete modal
   };
   useEffect(() => {
     axios
@@ -107,35 +108,33 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
       })
       .catch((err) => <Notification text={err.message} type="error" />);
   }, []);
-  useEffect(() => {
-    filtered(valueOfSearchbar);
-  }, [valueOfSearchbar]);
 
-  const filtered = (value: string) => {
-    const filtered =
-      data &&
-      data.filter((item: Item) => {
-        const dataItems =
-          item.owner.title +
-          " " +
-          item.owner.firstName +
-          " " +
-          item.owner.lastName;
-        const filteredItem = dataItems
-          .toLowerCase()
-          .includes(value.toLowerCase());
-        return filteredItem;
-      });
+  const filteredData = (value: string) => {
+    const filtered = data.filter((item: Item) => {
+      const dataItems =
+        item.owner.title +
+        " " +
+        item.owner.firstName +
+        " " +
+        item.owner.lastName;
+      const filteredItem = dataItems
+        .toLowerCase()
+        .includes(value.toLowerCase());
+      return filteredItem;
+    });
     setFilterData(filtered);
-    console.log(filtered);
   };
+
+  useEffect(() => {
+    filteredData(valueOfSearchBar);
+  }, [valueOfSearchBar]);
 
   const handleClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     id: string
   ) => {
     event.preventDefault();
-    setSelectedBox(id); //gets id of selectedbox
+    setSelectedBox(id); // gets id of selectedbox
     setIsActive((current) => !current);
   };
   const handleSearchBar = (value: string) => {
@@ -164,34 +163,34 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
             </ThemeProvider>
           </div>
         </div>{" "}
-        {data?.map((user: User) => {
+        {data?.map((dataUser: User) => {
           return (
-            <div key={user.id}>
-              <div id="userDivs" onClick={(e) => handleClick(e, user.id)}>
+            <div key={dataUser.id}>
+              <div id="userDivs" onClick={(e) => handleClick(e, dataUser.id)}>
                 <div id="imgDiv">
                   <img
                     id="userImages"
                     width={"100%"}
                     height={"180px"}
-                    src={user.picture}
+                    src={dataUser.picture}
                     alt="person"
                   />
                 </div>
 
                 <div id="userName">
                   <p>
-                    {user.title} {user.firstName} {user.lastName}
+                    {dataUser.title} {dataUser.firstName} {dataUser.lastName}
                   </p>
                 </div>
               </div>
 
-              {selectedBox === user.id && (
+              {selectedBox === dataUser.id && (
                 <div className="usersButton">
                   <ThemeProvider theme={Theme}>
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={(e) => handleDeleteModalOpen(e, user)}
+                      onClick={(e) => handleDeleteModalOpen(e, dataUser)}
                     >
                       Delete
                     </Button>
@@ -200,7 +199,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={(e) => handleUpdateModalOpen(e, user)}
+                      onClick={(e) => handleUpdateModalOpen(e, dataUser)}
                     >
                       Update
                     </Button>

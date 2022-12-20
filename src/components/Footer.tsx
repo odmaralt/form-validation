@@ -1,5 +1,5 @@
-import { Team } from"./Icons/Team"
 import React from "react";
+import { Team } from "./Icons/Team";
 export const Footer = () => {
   return (
     <footer id="footer">

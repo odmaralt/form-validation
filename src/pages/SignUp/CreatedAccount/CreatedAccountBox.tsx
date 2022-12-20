@@ -14,7 +14,7 @@ const CreatedAccountBox: React.FC<ICreatedAccountBox> = ({ setSignIn }) => {
   };
   return (
     <div id="successBox">
-      You've successfully created an account!
+      You`&apos;`ve successfully created an account!
       <button
         id="goToSignInButton"
         onClick={() => {

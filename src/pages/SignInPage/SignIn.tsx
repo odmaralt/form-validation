@@ -92,7 +92,7 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
           className="middle"
         />
         <p id="noAcc">
-          Don't have an account?
+          Don`&apos;`t have an account?
           <button id="createAccButton">
             <p
               onClick={() => {

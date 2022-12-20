@@ -46,6 +46,11 @@
       "last 1 safari version"
     ]
   },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": false
+  },
   "devDependencies": {
     "@types/jest": "^29.2.4",
     "@types/node": "^18.11.11",
@@ -57,10 +62,15 @@
     "@typescript-eslint/parser": "^5.45.1",
     "eslint": "^8.30.0",
     "eslint-config-standard-with-typescript": "^24.0.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "typescript": "^4.9.4"
   }
 }

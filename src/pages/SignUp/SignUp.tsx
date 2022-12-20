@@ -46,7 +46,7 @@ export const SignUpForm: React.FC<ISignUpForm> = ({ setSignIn }) => {
       })
       .catch((err: { errors: string }) => {
         setFormErrors({
-          ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
+          ...formErrors, // previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
           [name]: err.errors[0],
         });
       });

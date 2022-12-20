@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/space-before-function-paren */
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -8,15 +9,8 @@ import { LandingPage } from "./pages/LandingPage";
 import { SignIn } from "./pages/SignInPage";
 import { SignUpForm } from "./pages/SignUp";
 import { ArticlePage } from "./pages/ArticlePage";
-import { UsersPage } from "./pages/UsersPage";
+import { UsersPage } from "./pages/UsersPage/UsersPage";
 
-type User = {
-  id: string;
-  picture: string;
-  title: string;
-  firstName: string;
-  lastName: string;
-};
 function App() {
   const [user, setUser] = useState<boolean>();
   const PostPage = () => {

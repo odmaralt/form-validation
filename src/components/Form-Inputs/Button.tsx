@@ -10,7 +10,6 @@ export const Button2: React.FC<IButton> = ({ onClick, text }) => {
       <button
         id="button"
         onClick={() => {
-          //eslint-disable-next-line
           onClick();
         }}
       >

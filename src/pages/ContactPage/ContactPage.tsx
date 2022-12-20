@@ -1,9 +1,6 @@
 import "./ContactPage.css";
 import React from "react";
-import { Name } from "../../components/Form-Inputs";
-import { Header, Footer } from "../../components";
-import { Button2 } from "../../components/Form-Inputs";
-import { Email } from "../../components/Form-Inputs";
+import { Header, Footer, Button2, Email, Name } from "../../components";
 interface IContactPage {
   user: boolean | undefined;
 }

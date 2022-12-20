@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { Team } from "./Icons/Team";
@@ -9,8 +10,8 @@ interface IHeader {
 }
 export const Header: React.FC<IHeader> = ({ user, whiteFont }) => {
   const navigate = useNavigate();
-  const handleLogout = () => {
-    auth.signOut();
+  const handleLogout = async () => {
+    await auth.signOut();
     navigate("/sign-in");
   };
   const handleClickProductLink = () => {
@@ -30,13 +31,13 @@ export const Header: React.FC<IHeader> = ({ user, whiteFont }) => {
   };
 
   return (
-    <div id={whiteFont ? "navBar1" : "navBar"}>
+    <div id={whiteFont ?? false ? "navBar1" : "navBar"}>
       <Team
         id="teamIcon"
         bluefilled={whiteFont}
         onClick={() => handleClickTeamIcon()}
       />
-      <div id={whiteFont ? "navBarRight1" : "navBarRight"}>
+      <div id={whiteFont ?? false ? "navBarRight1" : "navBarRight"}>
         <p className="navItems" onClick={() => handleClickProductLink()}>
           Posts
         </p>{" "}
@@ -49,8 +50,8 @@ export const Header: React.FC<IHeader> = ({ user, whiteFont }) => {
         <p className="navItems" onClick={() => handleClickContactLink()}>
           Contact
         </p>
-        <p className="navItems" onClick={() => handleLogout()}>
-          {user ? "Log out" : "Log In"}
+        <p className="navItems" onClick={async () => await handleLogout()}>
+          {user ?? false ? "Log out" : "Log In"}
         </p>
       </div>
     </div>

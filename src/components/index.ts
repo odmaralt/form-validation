@@ -10,3 +10,4 @@ export * from "./BlogCard";
 export * from "./User/UserDeleteModal";
 export * from "./User/UserUpdateModal";
 export * from "./User/UserCreateModal";
+export * from "./Form-Inputs/";

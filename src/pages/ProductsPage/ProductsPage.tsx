@@ -20,7 +20,7 @@ interface IProductsPage {
   user: boolean | undefined;
 }
 
-type Post = {
+interface Post {
   id: string;
   owner: {
     firstName: string;
@@ -30,7 +30,7 @@ type Post = {
   text: string;
   likes: number;
   tags: string[];
-};
+}
 
 const customStyles = {
   content: {
@@ -42,7 +42,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
 };
-``;
+
 export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
   const [data, setData] = useState([]);
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -58,62 +58,62 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
   const [searchBar, setSearchBar] = useState<string>("");
   // declare state with searchBar and setSearchBar
 
-  function openModal(text: string) {
+  const openModal = (text: string) => {
     setModalIsOpen(true);
     setModalState(text);
-  }
-  //open modal gets text as prop
-  //sets modal as open
-  //the modal state takes text
+  };
+  // open modal gets text as prop
+  // sets modal as open
+  // the modal state takes text
 
-  function closeModal() {
+  const closeModal = () => {
     setModalIsOpen(false);
-  }
+  };
 
-  //close modal setsmodalopen as false so closes the modal
+  // close modal setsmodalopen as false so closes the modal
   useEffect(() => {
     if (searchBar !== "") {
-      //if searchbar contains nothing, show all the posts
+      // if searchbar contains nothing, show all the posts
       axios
         .get("https://dummyapi.io/data/v1/post?limit=30", {
           headers: { "app-id": "6347516f7580f73d9c69995c   " },
-        }) //use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
+        }) // use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
         .then((response) => {
-          //if its succesfull setdata
+          // if its succesfull setdata
           setData(
             response.data.data?.filter((post: Post) => {
-              //filter response.data.data
+              // filter response.data.data
 
               if (
                 searchBar.toLowerCase() === post.text.toLowerCase()
-                //if searchbar equals first name, return post.text
+                // if searchbar equals first name, return post.text
               ) {
                 return post;
-                //return post
+                // return post
               }
-              //else return firstname includes searchbar
+              // else return firstname includes searchbar
               return post.text.toLowerCase().includes(searchBar.toLowerCase());
-              //return post.text and it includes searchbar
+              // return post.text and it includes searchbar
             })
           );
         })
         .catch((err) => {
           console.log(err);
-        }); //catch and console.log error
+        }); // catch and console.log error
     } else {
-      //else setloading as true
+      // else setloading as true
       setLoading(true);
       axios
         .get("https://dummyapi.io/data/v1/post?limit=30", {
           headers: { "app-id": "6347516f7580f73d9c69995c   " },
-        }) //grab the dummyapi
+        }) // grab the dummyapi
         .then((response) => {
           setLoading(true);
 
           setTimeout(() => {
-            setData(response.data.data); //set the data with the data the user enters
-            setLoading(false); //after the data has been set, set loading as false
-          }); //loads for 0.8 sec
+            setData(response.data.data); // set the data with the data the user enters
+            setLoading(false); // after the data has been set, set loading as false
+          }); // loads for 0.8 sec
         })
         .catch((err) => {
           console.log(err);
@@ -125,7 +125,7 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
     id: string
   ) => {
     e.preventDefault();
-    setSelectedBox(id as unknown as Post); //gets id of selectedbox
+    setSelectedBox(id as unknown as Post); // gets id of selectedbox
     setIsActive((current) => !current);
   };
   const handleDeleteModalOpen = (
@@ -133,22 +133,22 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
     post: Post
   ) => {
     e.preventDefault();
-    setDeleteBox(post); //opens specific post that was clicked
-    openModal("delete"); //open delete modal
+    setDeleteBox(post); // opens specific post that was clicked
+    openModal("delete"); // open delete modal
   };
   const handleUpdateModalOpen = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     post: Post
   ) => {
     e.preventDefault();
-    setUpdateBox(post); //opens specific post clicked to update
-    openModal("update"); //opens update modal
+    setUpdateBox(post); // opens specific post clicked to update
+    openModal("update"); // opens update modal
   };
   const handleCreateModalOpen = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    openModal("create"); //opens create modal
+    openModal("create"); // opens create modal
   };
 
   const handleSearchBar = (value: string) => {
