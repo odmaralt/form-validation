@@ -49,7 +49,7 @@
   "prettier": {
     "printWidth": 80,
     "semi": true,
-    "singleQuote": false
+    "doubleQuote": true
   },
   "devDependencies": {
     "@types/jest": "^29.2.4",

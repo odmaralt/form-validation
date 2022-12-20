@@ -11,10 +11,19 @@
 
   "parserOptions": {
     "ecmaVersion": "latest",
+    "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
+
+  "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "prettier/prettier": [
+      "off",
+      {
+        "singleQuote": false,
+        "parser": "flow"
+      }
+    ],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
@@ -27,22 +36,20 @@
       }
     ],
     "no-shadow": "off",
-    "semi": [2, "always"],
-    "@typescript-eslint/semi": ["error"],
+    "semi": ["off", "always"],
+    "@typescript-eslint/semi": ["off"],
     "@typescript-eslint/no-shadow": ["error"],
     "@typescript-eslint/explicit-function-return-type": 0,
-    "prettier/prettier": ["error", { "singleQuote": true }],
     "max-len": ["off", { "code": 80 }],
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "comma-dangle": "off",
-    "quotes": [
-      "error",
-      "double",
-      { "avoidEscape": true, "allowTemplateLiterals": true }
-    ],
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "quotes": "off",
+    "@typescript-eslint/quotes": "off",
     "no-unused-vars": "warn",
     "no-console": "off",
     "func-names": "off",
