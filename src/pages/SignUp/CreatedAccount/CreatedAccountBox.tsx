@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./CreatedAccountBox.css";
 
-interface ICreatedAccountBox {
-  setSignIn: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-}
-const CreatedAccountBox: React.FC<ICreatedAccountBox> = ({ setSignIn }) => {
+const CreatedAccountBox: React.FC = () => {
   const navigate = useNavigate();
 
   const handleOkButton = () => {
@@ -14,7 +11,7 @@ const CreatedAccountBox: React.FC<ICreatedAccountBox> = ({ setSignIn }) => {
   };
   return (
     <div id="successBox">
-      You`&apos;`ve successfully created an account!
+      You&apos;ve successfully created an account!
       <button
         id="goToSignInButton"
         onClick={() => {

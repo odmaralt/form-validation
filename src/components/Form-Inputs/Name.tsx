@@ -4,16 +4,16 @@ interface IName {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   ref?: any;
   className?: string;
-  error?: {};
+  placeholder?: string
 }
-export const Name: React.FC<IName> = ({ name, handleChange, ref }) => {
+export const Name: React.FC<IName> = ({ name, handleChange, ref, placeholder }) => {
   return (
     <div>
       <input
-        placeholder="Name*"
         name={name}
         ref={ref}
         onChange={(e) => handleChange(e)}
+        placeholder={placeholder}
       ></input>
     </div>
   );

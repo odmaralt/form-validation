@@ -16,7 +16,7 @@ export const TitleDropdown: React.FC<ITitleDropdown> = ({
     setUserTitle(event.target.value);
   };
 
-  function capitalize(str: string) {
+  function capitalize (str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   }
 

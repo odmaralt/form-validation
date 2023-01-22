@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const MeetingsIcon = (props?:any) => (
+export const MeetingsIcon = (props?: any) => (
   <svg
     width={642}
     height={775}

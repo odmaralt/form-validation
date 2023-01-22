@@ -9,7 +9,7 @@ import { BlogAvatar } from "../../components/Icons/BlogAvatar";
 interface IArticlePage {
   user: boolean | undefined;
 }
-type Blog = {
+interface Blog {
   imgSrc: string;
   title: string;
   subTitle: string;
@@ -17,7 +17,7 @@ type Blog = {
   date: string;
 
   id: string;
-};
+}
 export const ArticlePage: React.FC<IArticlePage> = ({ user }) => {
   const params = useParams();
   // what is useParams ?
@@ -31,7 +31,7 @@ export const ArticlePage: React.FC<IArticlePage> = ({ user }) => {
   });
   return (
     <div>
-      <Header user={user} whiteFont={true} />
+      <Header whiteFont={true} />
       <div id="articleTitle">{selectedPost[0].title} </div>
       <div id="articleAvatarDiv">
         <BlogAvatar id="blogPic" />

@@ -1,6 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { PaletteColorOptions } from "@mui/material/styles";
-import { ReactFragment } from "react";
 
 export const Theme = createTheme({
   palette: {

@@ -1,0 +1,220 @@
+#postDivs {
+  height: fit-content;
+  padding-bottom: 40px;
+  margin: 30px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  width: 23vw;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgb(104 104 104);
+}
+#myPost {
+  display: flex;
+  margin-top: 15vh;
+  justify-content: center;
+}
+#myPostPage {
+  background-color: #f5f7fa;
+}
+
+#myPostPage button {
+  top: 18vh;
+}
+#postImages {
+  align-items: center;
+  padding-top: 20px;
+}
+#postDivs h1 {
+  font-size: 14px;
+  padding-top: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+#postDivs h2 {
+  font-size: 13px;
+  padding: 10px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+#postDivs h3 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+  color: rgb(87, 101, 131);
+}
+#allCommentsDiv {
+  overflow-x: scroll;
+  height: 200px;
+  position: relative;
+  left: 50%;
+  margin-bottom: 30px;
+  transform: translate(-50%, 0%);
+  width: 44%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#allCommentsDiv div {
+  padding: 5px 0px;
+  font-weight: 500;
+  color: #1e2742;
+  padding-left: 15px;
+  font-size: 15px;
+}
+#allCommentsDiv div h1 {
+  padding-bottom: 10px;
+  font-weight: 600;
+  color: #1e2742;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+#trashDiv {
+  position: absolute;
+  left: 68vw;
+  bottom: -19vh;
+}
+#updateModal {
+  width: 30vw;
+  height: 50vh;
+}
+#createModal {
+  width: 30vw;
+  height: 300px;
+  align-items: center;
+  margin: 0 auto;
+  position: absolute;
+  transform: translate(0, 30%);
+}
+
+#updateButton {
+  position: absolute;
+  right: 18vw;
+  top: 18vh;
+  height: 50px;
+}
+#deleteButton {
+  position: absolute;
+  right: 8vw;
+  top: 18vh;
+  height: 50px;
+}
+#deleteModal {
+  width: 38%;
+  height: fit-content;
+  padding-bottom: 40px;
+  background-color: white;
+}
+#commentInput {
+  height: 50px;
+  background-color: white;
+  margin: 0;
+  width: 36%;
+  padding-right: 0;
+}
+#commment {
+  display: flex;
+  justify-content: center;
+}
+#commment button {
+  width: 100px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  font-weight: bold;
+
+  font-size: 18px;
+  background-color: rgba(37, 43, 59, 1);
+  color: white;
+}
+#fullName {
+  display: flex;
+  font-weight: bold;
+}
+#leftComment {
+  padding: 0;
+}
+#editComment {
+  background-color: white;
+  height: 28vh;
+  width: 30vw;
+}
+#editComment button {
+  float: right;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  background-color: #1e2742;
+}
+#editCommentFlex {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+#editCommentFlex p {
+  margin-left: 5%;
+}
+#editCommentFlex input {
+  margin: 0px 15px;
+}
+#commentButtonsDiv button {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  background-color: #1e2742;
+  font-size: 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 2px solid white;
+  color: white;
+  align-items: center;
+  margin-right: 30px;
+  justify-content: center;
+}
+@media (max-width: 850px) {
+  #postDivs {
+    width: 40vw;
+  }
+  #updateButton {
+    right: 24vw;
+  }
+  #createModal {
+    width: 60vw;
+  }
+  #deleteModal {
+    width: 55vw;
+    height: fit-content;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  #postDivs {
+    width: 78vw;
+  }
+  #updateButton {
+    right: 40vw;
+  }
+  #createModal {
+    width: 70vw;
+    margin-left: 0px;
+    padding-left: 0px;
+    height: 40vh;
+    inset: 0px;
+  }
+  #deleteModal {
+    width: 100vw;
+    height: fit-content;
+    padding-bottom: 50px;
+  }
+  #deleteB {
+    position: absolute;
+    right: 150px;
+    top: 54vh;
+  }
+}

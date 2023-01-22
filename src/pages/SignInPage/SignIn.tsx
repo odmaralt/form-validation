@@ -1,15 +1,20 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 import * as yup from "yup";
-import { auth } from "../../firebase";
 import { Button2, Email, Password } from "../../components/Form-Inputs";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 import axios from "axios";
 
-interface ISignIn {
-  setUser: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-}
+const setCookie = (name: string, value: string) => {
+  const current = new Date();
+  const expirationDate = new Date(current.getTime() + 86400000);
+  return Cookies.set(name, `${value}`, {
+    path: "/",
+    expires: expirationDate,
+  });
+};
+
 const initialValues = {
   email: "",
   password: "",
@@ -20,9 +25,11 @@ const validationSchema = yup.object().shape({
   password: yup.string().required(),
 });
 
-export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
+export const SignIn: React.FC = () => {
   const [formErrors, setFormErrors] = useState(initialValues);
   const [formValues, setFormValues] = useState(initialValues);
+
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -43,7 +50,7 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
 
   const handleSubmitButton = async () => {
     if (formValues.email === "" || formValues.password === "") {
-      setUser(false);
+      console.log("here");
     } else {
       await axios
         .post(
@@ -59,10 +66,17 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
           }
         )
         .then((response) => {
-          console.log(response);
+          const {
+            data: { token },
+          } = response.data;
+          console.log(response.data.data.user);
+          setCookie("userToken", token);
+          setCookie("userId", response.data.data.user._id);
+          navigate("/");
         })
         .catch((err) => {
           console.log(err);
+          setErrorMessage("Email or password is incorrect!");
         });
     }
   };
@@ -86,13 +100,14 @@ export const SignIn: React.FC<ISignIn> = ({ setUser }) => {
           placeholder="Password"
         />
         <p className="errors">{formErrors.password}</p>{" "}
+        {errorMessage.length > 0 && <p className="errors"> {errorMessage} </p>}
         <Button2
           text="Sign In"
           onClick={handleSubmitButton}
           className="middle"
         />
         <p id="noAcc">
-          Don`&apos;`t have an account?
+          Don&apos;t have an account?
           <button id="createAccButton">
             <p
               onClick={() => {

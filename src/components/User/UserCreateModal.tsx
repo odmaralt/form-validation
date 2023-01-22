@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import axios from "axios";
-import React from "react";
 import Button from "@mui/material/Button";
 import { CloseIcon } from "../Icons/CloseIcon";
 import { ThemeProvider } from "@emotion/react";
-import { useState } from "react";
-import { Theme } from "../../pages/ProductsPage/Theme";
+import React, { useState } from "react";
+import { Theme } from "../../pages/PostsPage/Theme";
 import { TitleDropdown } from "../Form-Inputs";
-import { User } from "firebase/auth";
 
 interface IUserCreateModal {
   closeCreateModal: () => void;
@@ -14,7 +15,7 @@ interface IUserCreateModal {
 }
 const createUser = async (formValues?: any) => {
   await axios.post(`https://dummyapi.io/data/v1/user/create`, formValues, {
-    //createpost is sending formvalues to the api
+    // createpost is sending formvalues to the api
     headers: { "app-id": "6347516f7580f73d9c69995c" },
   });
 };
@@ -32,7 +33,7 @@ export const UserCreateModal: React.FC<IUserCreateModal> = ({
   };
   const [userTitle, setUserTitle] = useState<string>("");
 
-  const [formValues, setFormValues] = useState<{}>(initialValues); //formvalues takes initial values
+  const [formValues, setFormValues] = useState<{}>(initialValues); // formvalues takes initial values
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value, title: userTitle });
@@ -42,7 +43,7 @@ export const UserCreateModal: React.FC<IUserCreateModal> = ({
   const handleCreateButton = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    e.preventDefault(); //prevents page from refreshing after every change
+    e.preventDefault(); // prevents page from refreshing after every change
 
     await createUser({
       ...formValues,
@@ -51,7 +52,7 @@ export const UserCreateModal: React.FC<IUserCreateModal> = ({
     })
       .then(async (response) => {
         console.log(response);
-        setCreateSuccess(true); //after u createpost, show the success alert and wait 2.5 seconds then refresh the screen
+        setCreateSuccess(true); // after u createpost, show the success alert and wait 2.5 seconds then refresh the screen
         await closeCreateModal();
         setTimeout(() => {
           setCreateSuccess(false);
@@ -60,7 +61,7 @@ export const UserCreateModal: React.FC<IUserCreateModal> = ({
       })
       .catch((err) => {
         console.log(err);
-      }); //if theres error, catch it and consolelog err
+      }); // if theres error, catch it and consolelog err
   };
 
   return (

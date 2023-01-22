@@ -12,7 +12,7 @@ import {
   Footer,
   Header,
 } from "../../components";
-import { Theme } from "../ProductsPage/Theme";
+import { Theme } from "../PostsPage/Theme";
 import { ThemeProvider } from "@mui/system";
 import Modal from "react-modal";
 interface Item {
@@ -26,7 +26,7 @@ interface IUsersPage {
   user: boolean | undefined;
 }
 interface User {
-  id: string;
+  _id: string;
   picture: string;
   title: string;
   firstName: string;
@@ -94,9 +94,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
   };
   useEffect(() => {
     axios
-      .get("https://dummyapi.io/data/v1/user?created=1", {
-        headers: { "app-id": "6347516f7580f73d9c69995c " },
-      })
+      .get("http://localhost:5454/users")
       .then((response) => {
         console.log(response);
         setLoading(true);
@@ -142,7 +140,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
   };
   return (
     <div style={{ backgroundColor: "#f5f7fa " }}>
-      <Header whiteFont={true} user={user} />
+      <Header whiteFont={true} />
       <div id="wholeUserDiv">
         <div className="flex">
           <div id="createButtonSearch">
@@ -155,7 +153,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
                 variant="contained"
                 color="primary"
                 style={{ margin: "46px 0px 0px 0px", height: "50px" }}
-                className="productsButton"
+                className="postsButton"
                 onClick={(e) => handleCreateModalOpen(e)}
               >
                 Create
@@ -165,8 +163,8 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
         </div>{" "}
         {data?.map((dataUser: User) => {
           return (
-            <div key={dataUser.id}>
-              <div id="userDivs" onClick={(e) => handleClick(e, dataUser.id)}>
+            <div key={dataUser._id}>
+              <div id="userDivs" onClick={(e) => handleClick(e, dataUser._id)}>
                 <div id="imgDiv">
                   <img
                     id="userImages"
@@ -184,7 +182,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
                 </div>
               </div>
 
-              {selectedBox === dataUser.id && (
+              {selectedBox === dataUser._id && (
                 <div className="usersButton">
                   <ThemeProvider theme={Theme}>
                     <Button

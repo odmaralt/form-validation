@@ -35,7 +35,7 @@ export const Blog: React.FC<IBlog> = ({ user }) => {
   };
   return (
     <div>
-      <Header whiteFont={true} user={user} />
+      <Header whiteFont={true} />
       <div id="searchAndTitle">
         <p id="blogPosts">Blog posts</p>
         <SearchBar searchBar={searchBar} handleSearchBar={handleSearchBar} />

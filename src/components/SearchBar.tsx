@@ -16,15 +16,14 @@ export const SearchBar: React.FC<ISearchBar> = (props) => {
           value={searchBar}
           style={{
             backgroundColor: "white",
-            width: "150%",
-            marginLeft: "-50px",
+            width: "100%",
           }}
-          //value equals searchbar
+          // value equals searchbar
           placeholder="Search"
           onChange={(event) => {
             handleSearchBar(event.target.value);
           }}
-          //onchange takes event and the function is handlesearchbar takes event targetvalue
+          // onchange takes event and the function is handlesearchbar takes event targetvalue
         />
       </form>
     </div>

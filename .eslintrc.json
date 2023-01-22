@@ -24,6 +24,8 @@
         "parser": "flow"
       }
     ],
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
@@ -59,7 +61,7 @@
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     }
   }
 }

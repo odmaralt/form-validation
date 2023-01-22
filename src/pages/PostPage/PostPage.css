@@ -1,0 +1,86 @@
+#postDivs {
+  height: 400px;
+  margin: 30px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 0.6px solid rgb(69, 83, 109);
+  background-color: white;
+  width: 24vw;
+}
+#post {
+  display: flex;
+  justify-content: center;
+}
+#postPage {
+  background-color: #f5f7fa;
+}
+#postImages {
+  align-items: center;
+  padding-top: 20px;
+}
+#postDivs h1 {
+  font-size: 14px;
+  padding-top: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+#postDivs h2 {
+  font-size: 13px;
+  padding: 10px;
+  font-weight: 500;
+
+  text-transform: capitalize;
+}
+#postDivs h3 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+  color: rgb(87, 101, 131);
+}
+#allTheCommentsDiv {
+  overflow-x: scroll;
+  height: 200px;
+  position: relative;
+  left: 50%;
+  margin-bottom: 30px;
+  transform: translate(-50%, 0%);
+  width: 44%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#allTheCommentsDiv div {
+  padding: 20px 0px;
+  font-weight: 500;
+  color: #1e2742;
+  padding-left: 15px;
+  font-size: 15px;
+}
+#theCommentInput {
+  height: 50px;
+  background-color: white;
+  margin: 0;
+  width: 69%;
+  padding-right: 0;
+}
+#allTheCommentsDiv div h1 {
+  padding-bottom: 10px;
+  font-weight: 600;
+  color: #1e2742;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+#eachCommentDiv {
+  display: flex;
+  border-bottom: 1px solid rgba(109, 125, 139, 0.22);
+
+  justify-content: space-between;
+}
+#commentButtonsDiv button {
+  display: flex;
+  
+}
+@media (max-width: 850px) {
+  #postDivs {
+    width: 40vw;
+  }
+}

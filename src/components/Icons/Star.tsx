@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Star = (props?:any) => (
+export const Star = (props?: any) => (
   <div className="starsDiv">
     <svg
       width={24}
@@ -64,4 +64,3 @@ export const Star = (props?:any) => (
     </svg>
   </div>
 );
-

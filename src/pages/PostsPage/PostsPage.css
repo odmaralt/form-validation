@@ -1,0 +1,171 @@
+#updateDiv {
+  width: 34vw;
+  height: fit-content;
+  background-color: white;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+#postsDivs:hover {
+  transform: scale(1.02);
+}
+#allPostsDiv {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+#allPostsDiv div {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#postsPage {
+  background-color: #f5f7fa;
+}
+#postImages {
+  align-items: center;
+  padding-top: 20px;
+}
+#textDiv {
+  width: 95%;
+  padding: 10px;
+
+  font-weight: 500;
+}
+#postsDivs h1 {
+  font-size: 14px;
+
+  padding: 20px 10px 0px;
+  margin-left: 0px;
+  vertical-align: middle;
+}
+#postsDivs h2 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+}
+#postsDivs h3 {
+  font-size: 14px;
+  padding: 5px;
+  text-transform: capitalize;
+  color: rgb(87, 101, 131);
+}
+.none {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+#xButton {
+  border: none;
+  background-color: white;
+  display: flex;
+  position: absolute;
+  right: 34vw;
+  padding-top: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+#updateBoxDiv p {
+  font-size: 16px;
+  padding-top: 30px;
+  width: 6vw;
+}
+#createBoxDiv p {
+  font-size: 16px;
+  padding-top: 30px;
+}
+#updateBoxDiv input {
+  margin-top: 20px;
+  width: 220px;
+  height: 20px;
+}
+#createBoxDiv input {
+  margin-top: 20px;
+  width: 220px;
+  position: absolute;
+  left: 150px;
+  height: 20px;
+}
+.search-form {
+  margin-top: 50px;
+}
+#createDiv {
+  width: 400px;
+  height: 100px;
+  padding-left: 30px;
+}
+#updCanButton {
+  padding-left: 18vw;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 30px;
+}
+#loading {
+  color: white;
+  font-weight: 600;
+  padding-top: 60px;
+  font-size: 25px;
+  padding-left: 150px;
+}
+.createButtonSearch {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+#wholePostDiv {
+  display: flex;
+  justify-content: center;
+  padding: 0px 80px;
+  margin: 5vh auto 15vh auto;
+  flex-wrap: wrap;
+}
+#delCanButtons {
+  padding-left: 54%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5%;
+}
+@media (max-width: 850px) {
+  #xButton {
+    right: 25%;
+  }
+  #updateDiv {
+    width: 50vw;
+    height: 30vh;
+  }
+  #updateDiv {
+    width: 50vw;
+    height: fit-content;
+  }
+}
+@media (max-width: 600px) {
+  #createBoxDiv input {
+    left: 110px;
+    width: 140px;
+  }
+  #xButton {
+    right: 5%;
+  }
+  #cancelB {
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+  }
+  #updateDiv {
+    width: 100vw;
+    height: fit-content;
+    padding-bottom: 40px;
+  }
+  #createB {
+    position: absolute;
+    right: 160px;
+    bottom: 70px;
+  }
+}

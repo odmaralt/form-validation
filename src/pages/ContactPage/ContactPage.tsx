@@ -11,10 +11,10 @@ export const ContactPage: React.FC<IContactPage> = ({ user }) => {
   return (
     <div>
       <div id="contactPage">
-        <Header whiteFont={true} user={user} />
+        <Header whiteFont={true} />
         <div id="contactDiv">
           <p id="title">Contact Us</p>
-          <Name handleChange={handleInputChange} />
+          <Name placeholder="Name*" handleChange={handleInputChange} />
           <Email handleChange={handleInputChange} />
           <input id="howWeCanHelp" placeholder="How can we help you?"></input>
           <Button2 text={"Submit"} />

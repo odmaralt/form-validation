@@ -1,32 +1,33 @@
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import axios from "axios";
-import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import { Button } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CloseIcon } from "../Icons/CloseIcon";
-import { Theme } from "../../pages/ProductsPage/Theme";
+import { Theme } from "../../pages/PostsPage/Theme";
 
 interface IUserUpdateModal {
   updateBox:
-    | {
-        id: string;
-        picture: string;
-        title: string;
-        firstName: string;
-        lastName: string;
-      }
-    | undefined;
+  | {
+    _id: string;
+    picture: string;
+    title: string;
+    firstName: string;
+    lastName: string;
+  }
+  | undefined;
   closeUpdateModal: () => void;
   setUpdateSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
-type User = {
+interface User {
   id: string;
   picture: string;
   title: string;
   firstName: string;
   lastName: string;
-};
+}
 export const UserUpdateModal: React.FC<IUserUpdateModal> = ({
   updateBox,
   closeUpdateModal,
@@ -37,7 +38,7 @@ export const UserUpdateModal: React.FC<IUserUpdateModal> = ({
     firstName: updateBox?.firstName,
     lastName: updateBox?.lastName,
     picture: updateBox?.picture,
-    id: updateBox?.id,
+    id: updateBox?._id,
   };
   const updateSelectedBox = async (user: User) => {
     await axios

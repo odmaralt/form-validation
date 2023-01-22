@@ -1,5 +1,3 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import validationSchema from "./SignUpValidation";
 import {
@@ -10,18 +8,15 @@ import {
   Password,
   Age,
 } from "../../components/Form-Inputs";
-import { auth, db } from "../../firebase";
 import * as yup from "yup";
 import CreatedAccountBox from "./CreatedAccount/CreatedAccountBox";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import axios from "axios";
 
-interface ISignUpForm {
-  setSignIn: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-}
 const initialValues = {
-  name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   age: "",
   dob: "",
@@ -29,7 +24,7 @@ const initialValues = {
   confirm: "",
 };
 
-export const SignUpForm: React.FC<ISignUpForm> = ({ setSignIn }) => {
+export const SignUpForm: React.FC = () => {
   const [formErrors, setFormErrors] = useState(initialValues);
   const [formValues, setFormValues] = useState(initialValues);
   const [succesfullyCreatedAccount, setSuccesfullyCreatedAccount] =
@@ -37,6 +32,7 @@ export const SignUpForm: React.FC<ISignUpForm> = ({ setSignIn }) => {
   const navigate = useNavigate();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     yup
       .reach(validationSchema, name)
       .validate(value)
@@ -51,87 +47,57 @@ export const SignUpForm: React.FC<ISignUpForm> = ({ setSignIn }) => {
         });
       });
   };
-
   const handleSubmitButton = async () => {
     await axios
       .post(
-        "https://back-end-odmaralt.vercel.app/signUp",
-        { firstName: "" },
+        "http://localhost:5454/signUp",
+        {
+          firstName: formValues.firstName,
+          lastName: formValues.lastName,
+          email: formValues.email,
+          password: formValues.password,
+        },
         {
           headers: {
             "Content-Type": "application/json",
           },
         }
       )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    // if (formValues.password !== formValues.confirm) {
-    //   setFormErrors({
-    //     ...formErrors, //previous state ee hadgalj buruu baigaa input valueg display hiih bolno.
-    //     confirm: "Passwords must match",
-    //   });
-    // }
-    // if (
-    //   formValues.name === "" ||
-    //   formValues.email === "" ||
-    //   formValues.dob === "" ||
-    //   formValues.age === "" ||
-    //   formValues.password === "" ||
-    //   formValues.confirm === ""
-    // ) {
-    //   setSignIn(false);
-    // } else if (
-    //   formErrors.name === undefined ||
-    //   formErrors.email === undefined ||
-    //   formErrors.dob === undefined ||
-    //   formErrors.age === undefined ||
-    //   formErrors.password === undefined ||
-    //   formErrors.confirm === undefined ||
-    //   formErrors.name === "" ||
-    //   formErrors.email === "" ||
-    //   formErrors.dob === "" ||
-    //   formErrors.age === "" ||
-    //   formErrors.password === "" ||
-    //   formErrors.confirm === ""
-    // ) {
-    //   const response = await createUserWithEmailAndPassword(
-    //     auth,
-    //     formValues.email,
-    //     formValues.password
-    //   );
-    //   const user = response.user;
-    //   const userRef = doc(collection(db, "users"));
-    //   await setDoc(userRef, {
-    //     name: formValues.name,
-    //     email: formValues.email,
-    //     age: formValues.age,
-    //     dob: formValues.dob,
-    //     uid: user.uid,
-    //   });
-    //   setSuccesfullyCreatedAccount(true);
-    //   setSignIn(false);
-    // }
+      .then((res) => {
+        if (res.status === 201) {
+          navigate("/success-page");
+        }
+      })
+      .catch((err) => console.log("here", err));
   };
 
   const handleSignInButton = () => {
-    console.log("hello");
     navigate("/sign-in");
   };
 
   return (
     <div id="test">
-      {succesfullyCreatedAccount && <CreatedAccountBox setSignIn={setSignIn} />}
+      {succesfullyCreatedAccount && <CreatedAccountBox />}
       {!succesfullyCreatedAccount && (
         <div className="background">
           <div id="signUpDiv">
             <p className="title1">Sign up now</p>
             <Name
               className="middle"
-              name="name"
-              error={formErrors === undefined}
+              name="firstName"
+              // error={formErrors === undefined}
+              handleChange={(e) => handleInputChange(e)}
+              placeholder="First Name*"
+            />{" "}
+            <p className="errors">{formErrors.firstName}</p>
+            <Name
+              className="middle"
+              placeholder="Last Name*"
+              name="lastName"
+              // error={formErrors === undefined}
               handleChange={(e) => handleInputChange(e)}
             />
-            <p className="errors">{formErrors.name}</p>
+            <p className="errors">{formErrors.lastName}</p>
             <Email
               className="middle"
               name="email"

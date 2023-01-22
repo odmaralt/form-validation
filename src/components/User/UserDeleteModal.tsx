@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import axios from "axios";
-import { Theme } from "../../pages/ProductsPage/Theme";
+import { Theme } from "../../pages/PostsPage/Theme";
 import React from "react";
 import Button from "@mui/material/Button";
 import { CloseIcon } from "../Icons/CloseIcon";
@@ -8,7 +9,7 @@ import { ThemeProvider } from "@emotion/react";
 interface IUserDeleteModal {
   deleteBox:
     | {
-        id: string;
+        _id: string;
         picture: string;
         title: string;
         firstName: string;
@@ -48,7 +49,7 @@ export const UserDeleteModal: React.FC<IUserDeleteModal> = ({
     closeModal();
   };
   return (
-    <div style={{ width: "500px" }}>
+    <div style={{ width: "100%" }}>
       <CloseIcon id="xButton" onClick={closeModal} />
       <div>
         <p
@@ -62,7 +63,7 @@ export const UserDeleteModal: React.FC<IUserDeleteModal> = ({
         >
           Are you sure you want to delete {}
           {deleteBox?.firstName}
-          {} {deleteBox?.lastName}'s post?
+          {} {deleteBox?.lastName}@apos;s post?
         </p>
         <p
           style={{
@@ -78,25 +79,28 @@ export const UserDeleteModal: React.FC<IUserDeleteModal> = ({
         </p>
       </div>
       <form>
-        <ThemeProvider theme={Theme}>
-          <Button
-            variant="contained"
-            style={{ margin: "35px 20px 30px 260px" }}
-            color="primary"
-            onClick={() => closeModal()}
-          >
-            Cancel
-          </Button>
-        </ThemeProvider>
-        <ThemeProvider theme={Theme}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={(e) => handleDelete(e, deleteBox?.id || "")}
-          >
-            Delete
-          </Button>
-        </ThemeProvider>
+        <div>
+          <ThemeProvider theme={Theme}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => closeModal()}
+            >
+              Cancel
+            </Button>
+          </ThemeProvider>
+          <ThemeProvider theme={Theme}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) =>
+                handleDelete(e, deleteBox?._id != null ? deleteBox?._id : "")
+              }
+            >
+              Delete
+            </Button>
+          </ThemeProvider>
+        </div>
       </form>
     </div>
   );

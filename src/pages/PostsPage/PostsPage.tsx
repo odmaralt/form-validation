@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./ProductsPage.css";
+import "./PostsPage.css";
 import axios from "axios";
 import Modal from "react-modal";
-import Button from "@mui/material/Button";
-import Product from "./Product";
-import { Theme } from "./Theme";
-import { ThemeProvider } from "@emotion/react";
+
+import { useNavigate } from "react-router";
 import {
   SearchBar,
   CreateModal,
@@ -15,21 +13,19 @@ import {
   Notification,
   Footer,
 } from "../../components";
+import { PostPage } from "../PostPage/PostPage";
+import Product from "./Post";
 
-interface IProductsPage {
+interface IPostsPage {
   user: boolean | undefined;
 }
 
 interface Post {
-  id: string;
-  owner: {
-    firstName: string;
-    lastName: string;
-  };
+  _id: string;
   image: string;
   text: string;
-  likes: number;
-  tags: string[];
+  title: string;
+  ownerId: string;
 }
 
 const customStyles = {
@@ -43,7 +39,7 @@ const customStyles = {
   },
 };
 
-export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
+export const PostsPage: React.FC<IPostsPage> = ({ user }) => {
   const [data, setData] = useState([]);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [modalIsOpen, setModalIsOpen] = React.useState<boolean>(false);
@@ -53,15 +49,23 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
   const [success, setSuccess] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState<boolean>(false);
   const [createSuccess, setCreateSuccess] = useState<boolean>(false);
-  const [updateBox, setUpdateBox] = useState<Post>();
+  const [updateBox, setUpdateBox] = useState<Post>({
+    _id: "",
+    text: "",
+    title: "",
+    ownerId: "",
+    image: "",
+  });
   const [loading, setLoading] = useState<boolean>(false);
   const [searchBar, setSearchBar] = useState<string>("");
   // declare state with searchBar and setSearchBar
+  const navigate = useNavigate();
 
-  const openModal = (text: string) => {
-    setModalIsOpen(true);
-    setModalState(text);
+  const handlePostClick = (id: string) => {
+    console.log(id);
+    navigate(`/posts/${id}`);
   };
+
   // open modal gets text as prop
   // sets modal as open
   // the modal state takes text
@@ -75,13 +79,11 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
     if (searchBar !== "") {
       // if searchbar contains nothing, show all the posts
       axios
-        .get("https://dummyapi.io/data/v1/post?limit=30", {
-          headers: { "app-id": "6347516f7580f73d9c69995c   " },
-        }) // use axios to get the dummyapi link and a object has headers: in object app-id equals generated id
+        .get("http://localhost:5454/posts")
         .then((response) => {
           // if its succesfull setdata
           setData(
-            response.data.data?.filter((post: Post) => {
+            response.data?.filter((post: Post) => {
               // filter response.data.data
 
               if (
@@ -104,14 +106,15 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
       // else setloading as true
       setLoading(true);
       axios
-        .get("https://dummyapi.io/data/v1/post?limit=30", {
-          headers: { "app-id": "6347516f7580f73d9c69995c   " },
-        }) // grab the dummyapi
+        .get("http://localhost:5454/posts", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
         .then((response) => {
           setLoading(true);
-
           setTimeout(() => {
-            setData(response.data.data); // set the data with the data the user enters
+            setData(response.data); // set the data with the data the user enters
             setLoading(false); // after the data has been set, set loading as false
           }); // loads for 0.8 sec
         })
@@ -120,84 +123,42 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
         });
     }
   }, [searchBar]);
-  const handleClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    id: string
-  ) => {
-    e.preventDefault();
-    setSelectedBox(id as unknown as Post); // gets id of selectedbox
-    setIsActive((current) => !current);
-  };
-  const handleDeleteModalOpen = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    post: Post
-  ) => {
-    e.preventDefault();
-    setDeleteBox(post); // opens specific post that was clicked
-    openModal("delete"); // open delete modal
-  };
-  const handleUpdateModalOpen = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    post: Post
-  ) => {
-    e.preventDefault();
-    setUpdateBox(post); // opens specific post clicked to update
-    openModal("update"); // opens update modal
-  };
-  const handleCreateModalOpen = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-    openModal("create"); // opens create modal
-  };
 
   const handleSearchBar = (value: string) => {
     setSearchBar(value);
   };
+  const handleDeleteModalOpen = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+  };
   // handlesearchbar takes value and sets search bar with the value
 
   return (
-    <div id="productsPage">
-      <Header user={user} whiteFont={true} />
+    <div id="postsPage">
+      <Header whiteFont={true} />
 
       <div className="flex">
         <div className="createButtonSearch">
-          <div style={{ paddingLeft: "10%" }}>
+          <div>
             <SearchBar
               searchBar={searchBar}
               handleSearchBar={handleSearchBar}
             />
           </div>
-          <ThemeProvider theme={Theme}>
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ margin: "46px 0px 0px 0px", height: "50px" }}
-              className="productsButton"
-              onClick={(e) => handleCreateModalOpen(e)}
-            >
-              Create
-            </Button>
-          </ThemeProvider>
         </div>
       </div>
-      {loading && (
-        <div style={{ height: "100vh" }} id="loading">
-          ...Loading
-        </div>
-      )}
-      <div id="wholeProductDiv">
-        {!loading &&
-          data?.map((post: Post) => (
-            <Product
-              key={post.id}
-              post={post}
-              handleClick={handleClick}
-              selectedBox={selectedBox}
-              handleDeleteModalOpen={handleDeleteModalOpen}
-              handleUpdateModalOpen={handleUpdateModalOpen}
-            />
-          ))}
+      <div id="wholePostDiv">
+        {data?.map((post: Post) => (
+          <Product
+            key={post._id}
+            post={post}
+            handleClick={handlePostClick}
+            selectedBox={selectedBox}
+            handleDeleteModalOpen={handleDeleteModalOpen}
+            handleUpdateModalOpen={closeModal}
+          />
+        ))}
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -207,6 +168,7 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
       >
         {modalState === "delete" && (
           <DeleteModal
+            open={modalIsOpen}
             deleteBox={deleteBox}
             closeModal={closeModal}
             setSuccess={setSuccess}
@@ -215,6 +177,7 @@ export const ProductsPage: React.FC<IProductsPage> = ({ user }) => {
         {modalState === "update" && (
           <UpdateModal
             updateBox={updateBox}
+            open={false}
             setUpdateSuccess={setUpdateSuccess}
             closeUpdateModal={closeModal}
           />

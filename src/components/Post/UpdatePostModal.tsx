@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/promise-function-async */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import axios from "axios";
-import React from "react";
 import { ThemeProvider } from "@emotion/react";
-import { Button } from "@mui/material";
+import { Button, Modal } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CloseIcon } from "../Icons/CloseIcon";
-import { Theme } from "../../pages/ProductsPage/Theme";
+import { Theme } from "../../pages/PostsPage/Theme";
+import { useParams } from "react-router";
 
 const theme = createTheme({
   palette: {
@@ -23,65 +25,57 @@ const theme = createTheme({
   },
 });
 interface IUpdateModal {
-  updateBox:
-    | {
-        id: string;
-        owner: {
-          firstName: string;
-          lastName: string;
-        };
-        image: string;
-        text: string;
-        likes: number;
-        tags: string[];
-      }
-    | undefined;
+  updateBox: {
+    _id: string;
+    title: string;
+    ownerId: string;
+    image: string;
+    text: string;
+  };
+
   closeUpdateModal: () => void;
+  open: boolean;
   setUpdateSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
-type Post = {
-  id: string;
-  owner: {
-    firstName: string;
-    lastName: string;
-  };
+interface Post {
+  _id: string;
+  title: string;
+  ownerId: string;
   image: string;
   text: string;
-  likes: number;
-  tags: string[];
-};
+}
 export const UpdateModal: React.FC<IUpdateModal> = ({
   updateBox,
   closeUpdateModal,
+  open,
   setUpdateSuccess,
 }) => {
-  const initialValues = {
-    name: updateBox?.owner.firstName,
-    lastName: updateBox?.owner.lastName,
-    caption: updateBox?.text,
-    tags: updateBox?.tags,
-    id: updateBox?.id,
-  };
+  const { postId } = useParams() as { postId: string };
+
   const updateSelectedBox = async (post: Post) => {
     await axios
-      .put(
-        `https://dummyapi.io/data/v1/post/${post.id}`,
-        { ...post },
-        {
-          headers: { "app-id": "6347516f7580f73d9c69995c" },
-        }
-      )
+      .put(`http://localhost:5454/posts/${postId}`, { ...formValues })
       .then((response) => {
         setUpdateSuccess(true);
         setTimeout(() => {
           setUpdateSuccess(false);
           window.location.reload();
-        }, 2500);
+        }, 2000);
       })
       .catch((err) => console.log(err));
   };
 
-  const [formValues, setFormValues] = useState(initialValues);
+  const [formValues, setFormValues] = useState<Post>({
+    image: "",
+    text: "",
+    title: "",
+    ownerId: "",
+    _id: "",
+  });
+
+  useEffect(() => {
+    setFormValues(updateBox);
+  }, [updateBox]);
 
   const getInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -91,11 +85,8 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
   const handleUpdate = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    console.log(formValues);
     const data = {
       ...updateBox,
-      text: formValues.caption,
-      tags: formValues.tags,
     };
     e.preventDefault();
     await updateSelectedBox(data as Post)
@@ -104,68 +95,73 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
       })
       .catch((err) => console.log(err));
   };
-
   return (
-    <div id="updateDiv">
-      <CloseIcon id="xButton" onClick={closeUpdateModal} />
+    <Modal
+      open={open}
+      onClose={closeUpdateModal}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div id="updateDiv">
+        <CloseIcon id="xButton" onClick={closeUpdateModal} />
 
-      <div id="updateBoxDiv">
-        <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>
-          Update the post
-        </p>
-        <div className="flex">
-          <p>First Name:</p>
-          <input
-            style={{ color: "grey" }}
-            value={formValues.name}
-            name="name"
-            disabled
-          />
+        <div id="updateBoxDiv">
+          <h1
+            style={{ paddingTop: "35px", fontSize: "18px", fontWeight: "600" }}
+          >
+            Update the post
+          </h1>
+          <div className="flex">
+            <p>Title:</p>
+            <input
+              value={formValues?.title}
+              onChange={getInputValue}
+              name="title"
+            />
+          </div>
+          <div className="flex">
+            <p>Caption:</p>
+            <input
+              value={formValues?.text}
+              onChange={getInputValue}
+              name="text"
+            />
+          </div>
+          <div className="flex">
+            <p>Image Link:</p>
+            <input
+              value={formValues?.image}
+              name="image"
+              onChange={getInputValue}
+            />
+          </div>
         </div>
-        <div className="flex">
-          <p>Last Name:</p>
-          <input
-            style={{ color: "grey" }}
-            disabled
-            value={formValues.lastName}
-            name="lastName"
-          />
-        </div>
-        <div className="flex">
-          <p>Caption:</p>
-          <input
-            value={formValues.caption}
-            name="caption"
-            onChange={getInputValue}
-          />
-        </div>
-        <div className="flex">
-          <p>Tags:</p>
-
-          <input value={formValues.tags} name="tags" onChange={getInputValue} />
-        </div>
+        <form>
+          <div id="updCanButton">
+            <ThemeProvider theme={theme}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={closeUpdateModal}
+              >
+                Cancel
+              </Button>
+            </ThemeProvider>{" "}
+            <ThemeProvider theme={theme}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={(e) => handleUpdate(e)}
+              >
+                Update
+              </Button>
+            </ThemeProvider>
+          </div>
+        </form>
       </div>
-      <form>
-        <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            style={{ margin: "30px 20px 30px 160px" }}
-            color="primary"
-            onClick={() => closeUpdateModal()}
-          >
-            Cancel
-          </Button>
-        </ThemeProvider>{" "}
-        <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={(e) => handleUpdate(e)}
-          >
-            Update
-          </Button>
-        </ThemeProvider>
-      </form>
-    </div>
+    </Modal>
   );
 };
