@@ -237,7 +237,6 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
         <ThemeProvider theme={Theme}>
           <Button
             variant="contained"
-            color="primary"
             onClick={(e) => handleUpdateModalOpen(e, data)}
             id="updateButton"
           >
@@ -247,7 +246,6 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
         <ThemeProvider theme={Theme}>
           <Button
             variant="contained"
-            color="primary"
             id="deleteButton"
             className="postsButton"
             onClick={(e) => handleDeleteModalOpen(e)}
@@ -262,7 +260,7 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
             </div>
             <img
               id="postImages"
-              width={"100%"}
+              width={"86%"}
               height={"180px"}
               src={data?.image}
               alt="city"

@@ -18,6 +18,7 @@
 #postImages {
   align-items: center;
   padding-top: 20px;
+  border-radius: 6px;
 }
 #postDivs h1 {
   font-size: 14px;
@@ -77,10 +78,17 @@
 }
 #commentButtonsDiv button {
   display: flex;
-  
 }
 @media (max-width: 850px) {
   #postDivs {
     width: 40vw;
+  }
+  #allTheCommentsDiv {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  #allTheCommentsDiv {
+    width: 64%;
   }
 }

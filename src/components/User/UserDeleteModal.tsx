@@ -50,7 +50,6 @@ export const UserDeleteModal: React.FC<IUserDeleteModal> = ({
   };
   return (
     <div style={{ width: "100%" }}>
-      <CloseIcon id="xButton" onClick={closeModal} />
       <div>
         <p
           style={{

@@ -106,7 +106,6 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
       }}
     >
       <div id="updateDiv">
-        <CloseIcon id="xButton" onClick={closeUpdateModal} />
 
         <div id="updateBoxDiv">
           <h1
@@ -144,7 +143,7 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
             <ThemeProvider theme={theme}>
               <Button
                 variant="contained"
-                color="primary"
+                id="cancelButton"
                 onClick={closeUpdateModal}
               >
                 Cancel
@@ -153,7 +152,7 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
             <ThemeProvider theme={theme}>
               <Button
                 variant="contained"
-                color="primary"
+                id="cancelButton"
                 onClick={(e) => handleUpdate(e)}
               >
                 Update

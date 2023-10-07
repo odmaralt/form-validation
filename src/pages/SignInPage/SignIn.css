@@ -13,7 +13,6 @@
   height: 100vh;
   margin-top: 0px;
   width: 100vw;
-  background-color: #384f80;
 }
 
 .title {
@@ -25,18 +24,19 @@
   display: flex;
   margin-top: 15px;
   font-size: 14px;
+  justify-content: space-between;
   margin-left: 40px;
+  margin-right: 40px;
 }
 #createAccButton {
-  margin: 0 auto;
   border: none;
   font-size: 14px;
   margin-top: 0px;
-  margin-right: 40px;
   background-color: white;
   height: 15px;
   color: #384f80;
   cursor: pointer;
+  text-align: right;
   font-weight: 600;
 }
 #createAccButton:hover {
@@ -48,6 +48,9 @@ input {
 @media (max-width: 850px) {
   #signInDiv {
     width: 48%;
+  }
+  input {
+    width: 50%;
   }
 }
 @media (max-width: 600px) {

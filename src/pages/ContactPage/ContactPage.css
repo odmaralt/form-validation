@@ -1,12 +1,11 @@
 #contactPage {
-  background-color: #f5f7fa;
+  background-color: rgba(228, 230, 232, 0.842);
   height: 100vh;
 }
 #contactDiv {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 0.8px solid #3e3e3f;
   transform: translate(-50%, -50%);
   padding: 10px;
   width: 30vw;
@@ -26,6 +25,11 @@
 
 @media (max-width: 850px) {
   #contactDiv {
-    width: 84vw;
+    width: 60vw;
+  }
+}
+@media (max-width: 600px) {
+  #contactDiv {
+    width: 88vw;
   }
 }

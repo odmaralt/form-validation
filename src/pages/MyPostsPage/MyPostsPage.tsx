@@ -72,12 +72,12 @@ export const MyPostsPage = () => {
       <ThemeProvider theme={Theme}>
         <Button
           variant="contained"
-          color="primary"
           style={{
             position: "absolute",
             right: "10vw",
             top: "20vh",
             height: "50px",
+            backgroundColor: "rgb(59, 66, 87)",
           }}
           className="postsButton"
           onClick={(e) => handleCreateModalOpen(e)}

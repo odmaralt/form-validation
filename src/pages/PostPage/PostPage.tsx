@@ -121,7 +121,7 @@ export const PostPage: React.FC<IPostPage> = ({ user }) => {
           </div>
           <img
             id="postImages"
-            width={"100%"}
+            width={"86%"}
             height={"180px"}
             src={data?.image}
             alt="city"

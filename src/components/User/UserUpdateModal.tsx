@@ -81,7 +81,6 @@ export const UserUpdateModal: React.FC<IUserUpdateModal> = ({
 
   return (
     <div id="updateDiv">
-      <CloseIcon id="xButton" onClick={closeUpdateModal} />
 
       <div id="updateBoxDiv">
         <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>

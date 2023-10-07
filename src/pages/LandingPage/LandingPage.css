@@ -8,8 +8,8 @@
   height: 100vh;
   width: 100vw;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-position: center;
 }
 
 #navBar {
@@ -40,29 +40,18 @@
   padding-top: 30px;
   width: 20vw;
 }
-#navBarRight #getAccessButton {
-  background-color: rgb(243, 243, 243, 0);
-  color: rgb(173, 173, 173);
-  margin-top: -12px;
-  padding: 12px;
-  font-size: 12px;
-  border-radius: 2px;
-  border: 1px solid rgb(173, 173, 173);
-}
 #firstPageLeftSpace {
   padding-left: 10%;
 }
 #postsDivs {
-  height: 90%;
+  min-height: 370px;
   margin: 30px;
   width: 20vw;
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
   background-color: white;
-  -moz-box-shadow: 3px 3px 3px rgb(104, 104, 104);
-  -webkit-box-shadow: 3px 3px 3px rgb(104, 104, 104);
-  box-shadow: 3px 3px 3px rgb(104, 104, 104);
+  box-shadow: 2px 2px 2px 2px rgba(179, 179, 179, 0.693);
 }
 #five {
   display: flex;
@@ -112,22 +101,28 @@
   display: inline-flex;
 }
 #inputs {
-  border: 2px solid #bbc8d4;
-  border-radius: 4px;
+  border: none;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  outline: none;
   margin-top: 55px;
 }
 #buttons {
-  margin-left: 10px;
   padding: 0px;
-  height: 46px;
+  height: 42px;
   margin-top: 55px;
   color: #ffffff;
-  background-color: rgba(11, 190, 242, 1);
-  border-radius: 4px;
-  border: 0.5px solid rgb(95, 95, 95);
+  background-color: rgb(59, 66, 87);
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border: none;
   font-size: 14px;
   font-weight: 600;
-  width: 150px;
+  width: 170px;
 }
 #secondPage {
   background-color: white;
@@ -165,7 +160,7 @@
   align-items: center;
   text-decoration-line: underline;
   margin-top: 18px;
-  color: #4da0fd;
+  color: #797f88;
   cursor: pointer;
 }
 #page2Paragraph {
@@ -206,7 +201,6 @@
   justify-content: center;
   line-height: 60px;
   display: flex;
-  /* align-items: center; */
   text-align: center;
   padding-top: 90px;
   color: #000000;
@@ -214,7 +208,6 @@
 #fifthPage {
   background-color: white;
   height: 100vh;
-  /* display: flex; */
 }
 #simpleTask {
   padding-right: 15%;
@@ -338,27 +331,6 @@
   position: relative;
   top: -60%;
 }
-#meetingIcon {
-  position: absolute;
-  right: 0;
-  width: 40%;
-}
-#calendarIcon {
-  /* position: absolute; */
-  z-index: 0;
-  padding-top: 160px;
-  /* padding-left: 350px; */
-}
-#eventIcon {
-  /* position: absolute; */
-  z-index: 1;
-  padding: 0px;
-  margin: 0px;
-  position: absolute;
-  left: 0;
-  background-color: white;
-  /* padding-top: 160px; */
-}
 #page2 {
   position: absolute;
   z-index: 0;
@@ -383,7 +355,23 @@
 #thirdpageImgDiv {
   left: 0;
 }
+#updateButton {
+  background-color: rgba(37, 43, 59, 1);
+}
+#cancelButton {
+  background-color: rgba(37, 43, 59, 1);
+}
 @media (max-width: 950px) {
+  #buttons {
+    margin-right: 10px;
+  }
+  #collab {
+    padding-top: 12vh;
+  }
+  #footerInput {
+    margin-left: 6vw;
+  }
+
   .columns {
     padding-left: 5%;
     font-size: 12px;
@@ -395,6 +383,7 @@
   #navBarRight {
     margin-left: 38%;
     width: 30vw;
+    margin-right: 10px;
   }
   #postsDivs {
     width: 35vw;
@@ -426,6 +415,12 @@
   #navBar1 button {
     top: 20vh;
   }
+  #firstPageLeftSpace {
+    margin-top: 15vh;
+  }
+  #firstPage {
+    background-position: right;
+  }
 }
 
 @media (max-width: 600px) {
@@ -447,7 +442,7 @@
     justify-content: center;
   }
   #footer {
-    height: 500px;
+    height: 600px;
   }
   #navBarRight {
     margin-left: 6%;
@@ -456,6 +451,7 @@
   #navBarRight1 {
     margin-left: 6%;
     width: 62%;
+    margin-right: 10px;
   }
   .header {
     font-size: 24px;

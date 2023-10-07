@@ -6,9 +6,9 @@
   border-radius: 4px;
   cursor: pointer;
   background-color: white;
-  width: 23vw;
+  width: 20vw;
   background-color: white;
-  box-shadow: 3px 3px 3px rgb(104 104 104);
+  box-shadow: 2px 2px 2px 2px rgba(179, 179, 179, 0.693);
 }
 #myPost {
   display: flex;
@@ -24,18 +24,22 @@
 }
 #postImages {
   align-items: center;
+  border-radius: 6px;
   padding-top: 20px;
 }
 #postDivs h1 {
   font-size: 14px;
   padding-top: 20px;
-  margin-left: 10px;
+  margin-left: 7%;
+  margin-right: 7%;
   vertical-align: middle;
 }
 #postDivs h2 {
   font-size: 13px;
   padding: 10px;
   font-weight: 500;
+  margin-left: 4%;
+
   text-transform: capitalize;
 }
 #postDivs h3 {
@@ -51,7 +55,7 @@
   left: 50%;
   margin-bottom: 30px;
   transform: translate(-50%, 0%);
-  width: 44%;
+  width: 50%;
   background-color: rgba(255, 255, 255, 0.5);
 }
 #allCommentsDiv div {
@@ -79,7 +83,7 @@
 }
 #createModal {
   width: 30vw;
-  height: 300px;
+  height: 330px;
   align-items: center;
   margin: 0 auto;
   position: absolute;
@@ -90,12 +94,15 @@
   position: absolute;
   right: 18vw;
   top: 18vh;
+  background-color: #3a4256;
   height: 50px;
 }
 #deleteButton {
   position: absolute;
   right: 8vw;
   top: 18vh;
+  background-color: #3a4256;
+
   height: 50px;
 }
 #deleteModal {
@@ -136,6 +143,9 @@
   background-color: white;
   height: 28vh;
   width: 30vw;
+  padding: 20px;
+
+  border-radius: 8px;
 }
 #editComment button {
   float: right;
@@ -184,12 +194,16 @@
     right: 24vw;
   }
   #createModal {
-    width: 60vw;
+    width: 54vw;
   }
   #deleteModal {
     width: 55vw;
     height: fit-content;
     padding-bottom: 50px;
+  }
+  #editComment {
+    width: 48vw;
+    height: 20vh;
   }
 }
 
@@ -200,12 +214,19 @@
   #updateButton {
     right: 40vw;
   }
+  #editComment {
+    padding: 32px;
+  }
+  #editComment button {
+    margin-right: 0;
+  }
   #createModal {
-    width: 70vw;
+    width: 80vw;
     margin-left: 0px;
     padding-left: 0px;
     height: 40vh;
     inset: 0px;
+    padding: 10px;
   }
   #deleteModal {
     width: 100vw;
@@ -216,5 +237,17 @@
     position: absolute;
     right: 150px;
     top: 54vh;
+  }
+  #allCommentsDiv {
+    width: 64%;
+  }
+}
+@media (max-width: 375px) {
+  #createModal {
+    height: 54vh;
+  }
+  #editComment {
+    width: 50vw;
+    height: 30vh;
   }
 }

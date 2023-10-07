@@ -15,7 +15,7 @@
   background-color: white;
 }
 .background {
-  background-color: #384f80;
+  background-color: #3d4963;
   width: 100vw;
   height: 100vh;
 }
@@ -27,16 +27,17 @@
 #yesAcc {
   display: flex;
   margin-top: 15px;
+  justify-content: space-between;
   font-size: 14px;
   margin-left: 60px;
+  margin-right: 60px;
 }
 #signInButton {
-  margin: 0 auto;
   border: none;
   font-size: 14px;
   width: 59px;
   margin-top: 0px;
-  margin-right: 151px;
+  text-align: right;
   background-color: white;
   cursor: pointer;
   height: 15px;
@@ -57,9 +58,9 @@
     font-size: 18px;
   }
   #yesAcc {
-    margin-left: 30px;
+    display: block;
+    margin: 0px 37px;
   }
   #signInButton {
-    margin-right: 30px;
-  }
+text-align: left;  }
 }

@@ -66,7 +66,6 @@ export const UserCreateModal: React.FC<IUserCreateModal> = ({
 
   return (
     <div id="createDiv1">
-      <CloseIcon id="xButton" onClick={closeCreateModal} />
 
       <div id="createBoxDiv">
         <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>

@@ -53,7 +53,7 @@ export const LandingPage: React.FC = () => {
         <Header />
 
         <div id="firstPageLeftSpace">
-          <h1 id="collab">Instant collaborations for remote teams</h1>
+          <h1 id="collab">Instant collaborations </h1>
           <h1 id="allInOne">
             All in one for your remote team chats, collaboration and track
             projects
@@ -79,8 +79,11 @@ export const LandingPage: React.FC = () => {
       <div>
         <Button
           variant="contained"
-          color="primary"
-          style={{ margin: "-60px 20px 0px 0px", height: "50px" }}
+          style={{
+            margin: "-60px 20px 0px 0px",
+            height: "50px",
+            backgroundColor: "rgb(59, 66, 87)",
+          }}
           className="seeMoreButton"
           onClick={handleViewMoreClick}
         >

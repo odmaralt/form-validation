@@ -69,7 +69,6 @@ export const CreateModal: React.FC<ICreateModal> = ({
 
   return (
     <div id="createDiv">
-      <CloseIcon id="xButton" onClick={closeCreateModal} />
 
       <div id="createBoxDiv">
         <p style={{ marginTop: "15px", fontSize: "18px", fontWeight: "600" }}>
@@ -91,27 +90,33 @@ export const CreateModal: React.FC<ICreateModal> = ({
         </div>
       </div>
       <form>
-        <ThemeProvider theme={Theme}>
-          <Button
-            variant="contained"
-            id="cancelB"
-            style={{ margin: "30px 20px 30px 160px" }}
-            color="secondary"
-            onClick={() => closeCreateModal()}
-          >
-            Cancel
-          </Button>
-        </ThemeProvider>{" "}
+        {" "}
         <ThemeProvider theme={Theme}>
           <Button
             variant="contained"
             id="createB"
-            color="secondary"
+            style={{
+              margin: "30px 10px 0px 0px",
+              backgroundColor: " rgb(59, 66, 87)",
+            }}
             onClick={async (e) => await handleCreateButton(e)}
           >
             Create
           </Button>
         </ThemeProvider>
+        <ThemeProvider theme={Theme}>
+          <Button
+            variant="contained"
+            id="cancelB"
+            style={{
+              margin: "30px 0px 0px",
+              backgroundColor: " rgb(59, 66, 87)",
+            }}
+            onClick={() => closeCreateModal()}
+          >
+            Cancel
+          </Button>
+        </ThemeProvider>{" "}
       </form>
     </div>
   );

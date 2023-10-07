@@ -81,7 +81,6 @@ export const DeleteModal: React.FC<IDeleteModal> = ({
       }}
     >
       <div id="deleteModal">
-        <CloseIcon id="xButton" onClick={closeModal} />
         <div>
           <p
             style={{
@@ -113,7 +112,7 @@ export const DeleteModal: React.FC<IDeleteModal> = ({
             <ThemeProvider theme={theme}>
               <Button
                 variant="contained"
-                color="primary"
+                id="cancelButton"
                 onClick={() => closeModal()}
               >
                 Cancel
@@ -122,7 +121,7 @@ export const DeleteModal: React.FC<IDeleteModal> = ({
             <ThemeProvider theme={theme}>
               <Button
                 variant="contained"
-                color="primary"
+                id="cancelButton"
                 onClick={(e) =>
                   handleDelete(e, deleteBox?._id != null ? deleteBox?._id : "")
                 }

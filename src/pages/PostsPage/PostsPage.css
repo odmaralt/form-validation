@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   margin-left: auto;
+  min-height: 100vh;
   margin-right: auto;
   flex-wrap: wrap;
 }
@@ -25,18 +26,20 @@
 #postImages {
   align-items: center;
   padding-top: 20px;
+  padding-left: 7%;
+  border-radius: 6px;
+  padding-right: 7%;
 }
 #textDiv {
   width: 95%;
   padding: 10px;
-
+  margin-left: 5%;
   font-weight: 500;
 }
 #postsDivs h1 {
   font-size: 14px;
-
   padding: 20px 10px 0px;
-  margin-left: 0px;
+  margin-left: 5%;
   vertical-align: middle;
 }
 #postsDivs h2 {
@@ -56,17 +59,6 @@
 
 .flex {
   display: flex;
-}
-
-#xButton {
-  border: none;
-  background-color: white;
-  display: flex;
-  position: absolute;
-  right: 34vw;
-  padding-top: 22px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 button {
@@ -95,6 +87,8 @@ button {
 }
 .search-form {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 #createDiv {
   width: 400px;
@@ -103,8 +97,9 @@ button {
 }
 #updCanButton {
   padding-left: 18vw;
-  justify-content: space-between;
+  justify-content: space-evenly;
   display: flex;
+  margin-right: 10px;
   padding-top: 30px;
 }
 #loading {
@@ -133,9 +128,6 @@ button {
   padding-top: 5%;
 }
 @media (max-width: 850px) {
-  #xButton {
-    right: 25%;
-  }
   #updateDiv {
     width: 50vw;
     height: 30vh;
@@ -147,25 +139,29 @@ button {
 }
 @media (max-width: 600px) {
   #createBoxDiv input {
-    left: 110px;
+    left: 152px;
     width: 140px;
-  }
-  #xButton {
-    right: 5%;
   }
   #cancelB {
     position: absolute;
     right: 30px;
     bottom: 40px;
   }
+  #createDiv {
+    width: initial;
+  }
   #updateDiv {
     width: 100vw;
     height: fit-content;
     padding-bottom: 40px;
   }
+  #delCanButtons {
+    justify-content: space-evenly;
+    padding-left: 32%;
+  }
   #createB {
     position: absolute;
     right: 160px;
-    bottom: 70px;
+    bottom: 40px;
   }
 }

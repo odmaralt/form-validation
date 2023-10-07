@@ -5,7 +5,6 @@ external libraries like axios, CRUD method and more.
 
 Link to website: <b><a>https://reactproject-one.web.app/</a></b>
 
-![My animated logo](assets/img.png)
 
 ## How to Install 📲
 

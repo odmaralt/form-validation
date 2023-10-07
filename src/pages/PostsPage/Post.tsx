@@ -43,7 +43,7 @@ const Product: React.FC<PostProps> = ({
         </div>
         <img
           id="postImages"
-          width={"100%"}
+          width={"86%"}
           height={"180px"}
           src={post.image}
           alt="dog"

@@ -58,7 +58,6 @@ export const PostsPage: React.FC<IPostsPage> = ({ user }) => {
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [searchBar, setSearchBar] = useState<string>("");
-  // declare state with searchBar and setSearchBar
   const navigate = useNavigate();
 
   const handlePostClick = (id: string) => {
@@ -87,14 +86,14 @@ export const PostsPage: React.FC<IPostsPage> = ({ user }) => {
               // filter response.data.data
 
               if (
-                searchBar.toLowerCase() === post.text.toLowerCase()
+                searchBar.toLowerCase() === post.title.toLowerCase()
                 // if searchbar equals first name, return post.text
               ) {
                 return post;
                 // return post
               }
               // else return firstname includes searchbar
-              return post.text.toLowerCase().includes(searchBar.toLowerCase());
+              return post.title.toLowerCase().includes(searchBar.toLowerCase());
               // return post.text and it includes searchbar
             })
           );

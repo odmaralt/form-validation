@@ -75,13 +75,14 @@
 }
 .search-form {
   font-size: 13px;
-  padding-right: 14vw;
+
+  width: 30vw;
 }
 .search-form input {
   text-align: center;
   background-color: rgb(255, 255, 255, 0.4);
   color: #262626;
-  border: 1px solid rgb(114, 114, 114);
+  border: 0.5px solid rgb(179, 178, 178);
 }
 .blogDivPointer {
   cursor: pointer;
@@ -92,27 +93,30 @@
   width: 90vw;
   margin-left: 40px;
 }
-@media (max-width: 600px){
-  #blogSpacing{
+@media (max-width: 600px) {
+  #blogSpacing {
     margin-left: 0px;
   }
-  #blogDivs{
+  #blogDivs {
     margin-left: 10%;
   }
-  #blogPosts{
+  #blogPosts {
     margin-left: 5%;
     display: flex;
     font-size: 28px;
   }
-  #blogParagraph{
+  #blogParagraph {
     margin-left: 18px;
   }
+  .search-form {
+    width: 60vw;
+  }
 }
-@media (max-width: 850px){
-  #blogSpacing{
+@media (max-width: 850px) {
+  #blogSpacing {
     margin-left: 0px;
   }
-  #blogDivs{
+  #blogDivs {
     margin-left: 6%;
   }
 }

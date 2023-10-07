@@ -85,7 +85,6 @@ export const SignUpForm: React.FC = () => {
             <Name
               className="middle"
               name="firstName"
-              // error={formErrors === undefined}
               handleChange={(e) => handleInputChange(e)}
               placeholder="First Name*"
             />{" "}
@@ -94,7 +93,6 @@ export const SignUpForm: React.FC = () => {
               className="middle"
               placeholder="Last Name*"
               name="lastName"
-              // error={formErrors === undefined}
               handleChange={(e) => handleInputChange(e)}
             />
             <p className="errors">{formErrors.lastName}</p>
