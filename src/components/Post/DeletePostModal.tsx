@@ -48,7 +48,7 @@ export const DeleteModal: React.FC<IDeleteModal> = ({
   const navigate = useNavigate();
   const deleteSelectedBox = async () => {
     await axios
-      .delete(`http://localhost:5454/posts/${postId}`, {
+      .delete(`https://react-app-back-end.onrender.com/posts/${postId}`, {
         headers: {
           "Content-Type": "application/json",
         },

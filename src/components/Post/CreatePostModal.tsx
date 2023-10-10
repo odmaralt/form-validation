@@ -15,7 +15,7 @@ interface ICreateModal {
 }
 
 const createPost = async (data: []) => {
-  await axios.post(`http://localhost:5454/posts`, data, {
+  await axios.post(`https://react-app-back-end.onrender.com/posts`, data, {
     headers: {
       "Content-Type": "application/json",
     },

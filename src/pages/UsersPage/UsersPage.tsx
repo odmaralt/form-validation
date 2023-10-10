@@ -94,7 +94,7 @@ export const UsersPage: React.FC<IUsersPage> = ({ user }) => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:5454/users")
+      .get("https://react-app-back-end.onrender.com/users")
       .then((response) => {
         console.log(response);
         setLoading(true);

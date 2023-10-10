@@ -27,7 +27,7 @@ export const MyPostsPage = () => {
   useEffect(() => {
     // else setloading as true
     axios
-      .get(`http://localhost:5454/posts/${userId}/posts`, {
+      .get(`https://react-app-back-end.onrender.com/posts/${userId}/posts`, {
         headers: {
           "Content-Type": "application/json",
         },

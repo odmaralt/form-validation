@@ -53,8 +53,7 @@ function App() {
           <Routes>
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUpForm />} />
-            <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/success-page" element={<CreatedAccountBox />} />
+]            <Route path="/success-page" element={<CreatedAccountBox />} />
           </Routes>
         </div>
       </BrowserRouter>

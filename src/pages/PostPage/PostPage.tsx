@@ -23,14 +23,14 @@ interface Comment {
   postId: string;
 }
 const fetchPostData = async (postId: string) => {
-  return await axios.get(`http://localhost:5454/posts/${postId}`, {
+  return await axios.get(`https://react-app-back-end.onrender.com/posts/${postId}`, {
     headers: {
       "Content-Type": "application/json",
     },
   });
 };
 const fetchCommentData = async (postId: string) => {
-  return await axios.get(`http://localhost:5454/posts/${postId}/comments`, {
+  return await axios.get(`https://react-app-back-end.onrender.com/posts/${postId}/comments`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -82,7 +82,7 @@ export const PostPage: React.FC<IPostPage> = ({ user }) => {
   }, []);
   const [formValues, setFormValues] = useState<object>(initialValues); // formvalues takes initial values
   const createComment = async (comments: object) => {
-    return await axios.post("http://localhost:5454/comments", comments, {
+    return await axios.post("https://react-app-back-end.onrender.com/comments", comments, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -54,7 +54,7 @@ export const UpdateModal: React.FC<IUpdateModal> = ({
 
   const updateSelectedBox = async (post: Post) => {
     await axios
-      .put(`http://localhost:5454/posts/${postId}`, { ...formValues })
+      .put(`https://react-app-back-end.onrender.com/posts/${postId}`, { ...formValues })
       .then((response) => {
         setUpdateSuccess(true);
         setTimeout(() => {

@@ -40,14 +40,14 @@ interface Comment {
 }
 
 const fetchMyPostData = async (postId: string) => {
-  return await axios.get(`http://localhost:5454/posts/${postId}`, {
+  return await axios.get(`https://react-app-back-end.onrender.com/posts/${postId}`, {
     headers: {
       "Content-Type": "application/json",
     },
   });
 };
 const fetchCommentData = async (postId: string) => {
-  return await axios.get(`http://localhost:5454/posts/${postId}/comments`, {
+  return await axios.get(`https://react-app-back-end.onrender.com/posts/${postId}/comments`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -114,7 +114,7 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
     ownerId: { _id: "", firstName: "", lastName: "" },
   }); // formvalues takes initial values
   const createComment = async (comments: object) => {
-    return await axios.post("http://localhost:5454/comments", comments, {
+    return await axios.post("https://react-app-back-end.onrender.com/comments", comments, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -201,7 +201,7 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
   };
   const handleDelete = async (comment: Comment) => {
     await axios
-      .delete(`http://localhost:5454/comments/${comment._id}`, {
+      .delete(`https://react-app-back-end.onrender.com/comments/${comment._id}`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -216,7 +216,7 @@ export const MyPostPage: React.FC<IMyPostPage> = ({ user }) => {
   };
   const handleUpdate = async (comment: Comment) => {
     await axios
-      .put(`http://localhost:5454/comments/${comment._id}`, formValues, {
+      .put(`https://react-app-back-end.onrender.com/comments/${comment._id}`, formValues, {
         headers: {
           "Content-Type": "application/json",
         },

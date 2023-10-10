@@ -50,7 +50,7 @@ export const SignUpForm: React.FC = () => {
   const handleSubmitButton = async () => {
     await axios
       .post(
-        "http://localhost:5454/signUp",
+        "https://react-app-back-end.onrender.com/signUp",
         {
           firstName: formValues.firstName,
           lastName: formValues.lastName,

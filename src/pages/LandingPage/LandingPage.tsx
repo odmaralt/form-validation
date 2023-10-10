@@ -20,7 +20,7 @@ export const LandingPage: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = React.useState<boolean>(false);
   useEffect(() => {
     axios
-      .get("http://localhost:5454/posts", {
+      .get("https://react-app-back-end.onrender.com/posts", {
         headers: {
           "Content-Type": "application/json",
         },

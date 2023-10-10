@@ -78,7 +78,7 @@ export const PostsPage: React.FC<IPostsPage> = ({ user }) => {
     if (searchBar !== "") {
       // if searchbar contains nothing, show all the posts
       axios
-        .get("http://localhost:5454/posts")
+        .get("https://react-app-back-end.onrender.com/posts")
         .then((response) => {
           // if its succesfull setdata
           setData(
@@ -105,7 +105,7 @@ export const PostsPage: React.FC<IPostsPage> = ({ user }) => {
       // else setloading as true
       setLoading(true);
       axios
-        .get("http://localhost:5454/posts", {
+        .get("https://react-app-back-end.onrender.com/posts", {
           headers: {
             "Content-Type": "application/json",
           },
