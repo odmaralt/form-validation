@@ -37,6 +37,7 @@ npm start
 - The main purpose for this project is to learn and practice
 
 > - **React.js**
+> - **Full Stack developing**
 > - **External Servers**
 > - **CRUD Method**
 > - **React Router**
@@ -95,7 +96,7 @@ npm start
 - Create a user
 - Delete a user
 - Update a user
-- Search blogs, posts, and users
+- Search for post by title
 - Log in and Log out
 - Sign up
 - Contact page
@@ -111,86 +112,6 @@ This project uses React.js which:
 - Simplifies your code
 - Uses API more effectively
 
-## Repository overview 🗂
-
-- [components/](./src/components)
-  - [Form-Inputs/](./src/components/Form-Inputs)
-    - [Age.js](./src/components/Form-Inputs/Age.js)
-    - [Button.js](./src/components/Form-Inputs/Button.js)
-    - [Dob.js](./src/components/Form-Inputs/Dob.js)
-    - [Email.js](./src/components/Form-Inputs/Email.js)
-    - [Name.js](./src/components/Form-Inputs/Name.js)
-    - [Password.js](./src/components/Form-Inputs/Password.js)
-    - [TitleDropdown.js](./src/components/Form-Inputs/TitleDropdown.js)
-    - [UsersDropdown.js](./src/components/Form-Inputs/UsersDropdown.js)
-    - [index.js](./src/components/Form-Inputs/index.js)
-  - [Icons/](./src/components/Icons)
-    - [BlogAvatar.js](./src/components/Icons/BlogAvatar.js)
-    - [BlogManAvatar.js](./src/components/Icons/BlogManAvatar.js)
-    - [Calendar3.js](./src/components/Icons/Calendar3.js)
-    - [CalendarIcon.js](./src/components/Icons/CalendarIcon.js)
-    - [CloseIcon.js](./src/components/Icons/CloseIcon.js)
-    - [Event.js](./src/components/Icons/Event.js)
-    - [Event2.js](./src/components/Icons/Event2.js)
-    - [Event3.js](./src/components/Icons/Event3.js)
-    - [MeetingsIcon.js](./src/components/Icons/MeetingsIcon.js)
-    - [NotificationIcon.js](./src/components/Icons/NotificationIcon.js)
-    - [Star.js](./src/components/Icons/Star.js)
-    - [Team.js](./src/components/Icons/Team.js)
-    - [index.js](./src/components/Icons/index.js)
-  - [Post/](./src/components/Post)
-    - [CreatePostModal.js](./src/components/Post/CreatePostModal.js)
-    - [DeletePostModal.js](./src/components/Post/DeletePostModal.js)
-    - [UpdatePostModal.js](./src/components/Post/UpdatePostModal.js)
-  - [User/](./src/components/User)
-    - [UserCreateModal.js](./src/components/User/UserCreateModal.js)
-    - [UserDeleteModal.js](./src/components/User/UserDeleteModal.js)
-    - [UserUpdateModal.js](./src/components/User/UserUpdateModal.js)
-  - [BlogCard.js](./src/components/BlogCard.js)
-  - [Footer.js](./src/components/Footer.js)
-  - [Header.js](./src/components/Header.js)
-  - [Notification.js](./src/components/Notification.js)
-  - [SearchBar.js](./src/components/SearchBar.js)
-  - [index.js](./src/components/index.js)
-- [pages/](./src/pages)
-  - [ArticlePage/](./src/pages/ArticlePage)
-    - [ArticlePage.css](./src/pages/ArticlePage/ArticlePage.css)
-    - [ArticlePage.js](./src/pages/ArticlePage/ArticlePage.js)
-  - [BlogPage/](./src/pages/BlogPage)
-    - [BlogPage.css](./src/pages/BlogPage/BlogPage.css)
-    - [BlogPage.js](./src/pages/BlogPage/BlogPage.js)
-  - [ContactPage/](./src/pages/ContactPage)
-    - [ContactPage.css](./src/pages/ContactPage/ContactPage.css)
-    - [ContactPage.js](./src/pages/ContactPage/ContactPage.js)
-  - [LandingPage/](./src/pages/LandingPage)
-    - [LandingPage.css](./src/pages/LandingPage/LandingPage.css)
-    - [LandingPage.js](./src/pages/LandingPage/LandingPage.js)
-  - [ProductsPage/](./src/pages/ProductsPage)
-    - [Product.js](./src/pages/ProductsPage/Product.js)
-    - [ProductsPage.css](./src/pages/ProductsPage/ProductsPage.css)
-    - [ProductsPage.js](./src/pages/ProductsPage/ProductsPage.js)
-    - [Theme.js](./src/pages/ProductsPage/Theme.js)
-  - [SignInPage/](./src/pages/SignInPage)
-    - [SignIn.css](./src/pages/SignInPage/SignIn.css)
-    - [SignIn.js](./src/pages/SignInPage/SignIn.js)
-  - [SignUp/](./src/pages/SignUp)
-    - [CreatedAccount/](./src/pages/SignUp/CreatedAccount)
-      - [CreatedAccountBox.css](./src/pages/SignUp/CreatedAccount/CreatedAccountBox.css)
-      - [CreatedAccountBox.js](./src/pages/SignUp/CreatedAccount/CreatedAccountBox.js)
-    - [SignUp.css](./src/pages/SignUp/SignUp.css)
-    - [SignUp.js](./src/pages/SignUp/SignUp.js)
-    - [SignUpValidation.js](./src/pages/SignUp/SignUpValidation.js)
-  - [UsersPage/](./src/pages/UsersPage)
-    - [UsersPage.css](./src/pages/UsersPage/UsersPage.css)
-    - [UsersPage.js](./src/pages/UsersPage/UsersPage.js)
-- [404.html](./src/404.html)
-- [App.css](./src/App.css)
-- [App.js](./src/App.js)
-- [data.js](./src/data.js)
-- [firebase.js](./src/firebase.js)
-- [index.css](./src/index.css)
-- [index.html](./src/index.html)
-- [index.js](./src/index.js)
 
 ## More resources 📃
 

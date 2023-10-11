@@ -49,9 +49,6 @@ input {
   #signInDiv {
     width: 48%;
   }
-  input {
-    width: 50%;
-  }
 }
 @media (max-width: 600px) {
   #signInDiv {

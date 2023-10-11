@@ -53,14 +53,14 @@ export const LandingPage: React.FC = () => {
         <Header />
 
         <div id="firstPageLeftSpace">
-          <h1 id="collab">Instant collaborations </h1>
+          <h1 id="collab">Share moments </h1>
           <h1 id="allInOne">
-            All in one for your remote team chats, collaboration and track
-            projects
+            A platform for sharing your world and discovering the moments that
+            matter.
           </h1>
           <div id="inputAndButtonDiv">
             <input id="inputs" placeholder="Email"></input>
-            <button id="buttons">Get early access</button>
+            <button id="buttons">Send</button>
           </div>
         </div>
       </div>

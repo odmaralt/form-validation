@@ -1,14 +1,14 @@
 #firstPage {
   background: radial-gradient(
       50% 50% at 50% 50%,
-      rgba(0, 0, 0, 0) 76.04%,
+      rgba(0, 0, 0, 0) 40.04%,
       rgba(0, 0, 0, 0.4) 100%
     ),
-    url(https://images.unsplash.com/photo-1601933513556-7926c45d1c49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+    url(https://images.unsplash.com/photo-1543269665-bd1bc9e6f296?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80);
   height: 100vh;
   width: 100vw;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
 }
 
@@ -418,15 +418,15 @@
   #firstPageLeftSpace {
     margin-top: 15vh;
   }
-  #firstPage {
-    background-position: right;
-  }
 }
 
 @media (max-width: 600px) {
   #allColumns {
     display: flex;
     flex-wrap: wrap;
+  }
+  #firstPageLeftSpace {
+    padding-left: 4%;
   }
   #calendar3 {
     display: none;
@@ -466,5 +466,10 @@
   }
   #postsDivs {
     width: 66vw;
+  }
+}
+@media (max-width: 375px) {
+  #footer {
+    height: 800px;
   }
 }
